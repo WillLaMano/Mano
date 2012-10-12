@@ -1,5 +1,6 @@
 Mano::Application.routes.draw do
   resources :user_sessions
+  resources :authentications
 
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
@@ -9,6 +10,9 @@ Mano::Application.routes.draw do
 
   match 'signup' => 'users#new', :as => :signup
 
+  match 'oauth/instagram/auth' => 'api_tokens#instagram_authorize'
+  match 'oauth/instagram/callback' => 'api_tokens#instagram_callback'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -58,7 +62,7 @@ Mano::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

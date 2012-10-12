@@ -33,4 +33,12 @@
   <%=h @user.current_login_ip %>
 </p>
 
+<% if @user_instagram.present? %>
+  <p>
+    <% for media_item in @user_instagram.user_recent_media %>
+      <img src = '<%= media_item.images.thumbnail.url %>' >
+    <% end %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_account_path %>

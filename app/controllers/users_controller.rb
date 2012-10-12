@@ -26,6 +26,10 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    instagram_api_token = current_user.api_tokens.find_by_api_type('instagram')
+    if instagram_api_token.present?
+      @user_instagram = Instagram.client(:access_token => instagram_api_token.access_token)
+    end
   end
 
   def edit
