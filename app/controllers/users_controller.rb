@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
-    puts "#"*15
-    puts @user
   end
 
   def create
@@ -25,11 +23,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    instagram_api_token = current_user.api_tokens.find_by_api_type('instagram')
+    @user = User.find(params[:id])
+    instagram_api_token = @user.api_tokens.find_by_api_type('instagram')
     if instagram_api_token.present?
       @user_instagram = Instagram.client(:access_token => instagram_api_token.access_token)
     end
+  end
+  
+  def index
+    redirect_to root_url
   end
 
   def edit

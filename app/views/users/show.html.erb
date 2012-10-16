@@ -35,10 +35,12 @@
 
 <% if @user_instagram.present? %>
   <p>
-    <% for media_item in @user_instagram.user_recent_media %>
+    <% for media_item in @user_instagram.user_recent_media(:count => 5) %>
+      <% if media_item.link %> <a href="<%= media_item.link %>"> <% end %>
       <img src = '<%= media_item.images.thumbnail.url %>' >
+      <% if media_item.link %> </a> <% end %>
     <% end %>
   </p>
 <% end %>
 
-<%= link_to 'Edit', edit_account_path %>
+<%= link_to 'Edit', edit_account_path unless current_user != @user%>

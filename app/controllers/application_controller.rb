@@ -2,7 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery 
 
   #filter_parameter_logging :password, :password_confirmation # there are underscores  
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :signed_in?
+
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
   private
     def current_user_session
@@ -14,7 +16,11 @@ class ApplicationController < ActionController::Base
       return @current_user if defined?(@current_user)
       @current_user = current_user_session && current_user_session.user
     end
-
+    
+    def signed_in?
+      !current_user.nil?
+    end
+    
     def require_user
       logger.debug "ApplicationController::require_user"
       unless current_user
@@ -42,6 +48,10 @@ class ApplicationController < ActionController::Base
     def redirect_back_or_default(default)
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
+    end
+
+    def record_not_found
+      render :text => "404 Not Found", :status => 404
     end
 
 end
