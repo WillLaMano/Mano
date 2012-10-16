@@ -1,0 +1,8 @@
+<h1>Edit My Account</h1>
+
+<%= form_for @group, :url => group_path do |f| %>
+  <%= render :partial => "form", :object => f, :locals => { :group => @group } %>
+  <%= f.submit "Update" %>
+<% end %>
+
+<br /><%= link_to "My group", group_path %>
