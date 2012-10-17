@@ -4,3 +4,7 @@
 <% @group.users.each do |member| %>
   <p><%= member.name %></p>
 <% end %>
+
+<% if @group.users.include?(current_user)%>
+  <%= link_to 'edit', edit_group_path %>
+<% end %>
