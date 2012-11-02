@@ -1,4 +1,9 @@
 Mano::Application.routes.draw do
+
+  match 'authorizations/callback/:provider'=>"authorizations#callback"
+  match 'authorizations/new/:provider'=>"authorizations#new"
+  resources :authorizations
+
   resources :user_sessions
 
   match 'login' => "user_sessions#new",      :as => :login

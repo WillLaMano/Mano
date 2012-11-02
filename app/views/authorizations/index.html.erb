@@ -1,0 +1,27 @@
+<h1>Listing authorizations</h1>
+
+<table>
+  <tr>
+    <th>Auth type</th>
+    <th>Auth token</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @authorizations.each do |authorization| %>
+  <tr>
+    <td><%= authorization.type %></td>
+    <td><%= authorization.auth_token %></td>
+    <td><%= authorization.user_id %></td>
+    <td><%= link_to 'Show', authorization %></td>
+    <td><%= link_to 'Edit', edit_authorization_path(authorization) %></td>
+    <td><%= link_to 'Destroy', authorization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Authorization', new_authorization_path %>

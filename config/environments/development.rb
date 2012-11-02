@@ -34,4 +34,20 @@ Mano::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #Authorzation configuration
+  config.auth = {
+    :google => {
+      :client_id=>"",
+      :client_secret=>"",
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/google",
+      :scope =>"https://www.googleapis.com/auth/calendar.readonly"
+    },
+
+    :instagram => {
+      :client_id=>"",
+      :client_secret=>"",
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/instagram"
+    }
+  }
 end

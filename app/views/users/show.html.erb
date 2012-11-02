@@ -31,6 +31,8 @@
 <p>
   <b>Current login ip:</b>
   <%=h @user.current_login_ip %>
-</p>
+  </p>
+
+  <%= link_to 'Add Google Auth', new_authorization_path%>
 
 <%= link_to 'Edit', edit_account_path %>

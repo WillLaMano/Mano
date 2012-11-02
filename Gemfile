@@ -7,7 +7,9 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 gem 'authlogic'
-gem 'omniauth'
+gem 'oauth2'
+gem 'google-api-client', :require => 'google/api_client'
+gem 'instagram'
 
 # Gems used only for assets and not required
 # in production environments by default.
