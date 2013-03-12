@@ -43,4 +43,17 @@
   </p>
 <% end %>
 
+<p>
+    <b>Groups:</b>
+    <% if @user.groups.present? %>
+    <ul>
+        <% for g in @user.groups %>
+        <li><%=h link_to g.name, group_path(g) %></li>
+        <% end %>
+    </ul>
+    <% elsif @user == current_user %>
+    Why not <%= link_to "start a group?", new_group_path %>
+    <% end %>
+</p>
+
 <%= link_to 'Edit', edit_account_path unless current_user != @user%>
