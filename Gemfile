@@ -7,7 +7,7 @@ gem 'rails', '3.2.12'
 
 gem 'sqlite3'
 gem 'authlogic'
-gem 'omniauth'
+gem 'omniauth', '>= 1.1.3'
 gem 'oauth2'
 gem 'instagram'
 gem 'bootstrap-sass', '2.0.4'
