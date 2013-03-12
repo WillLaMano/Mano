@@ -2,7 +2,9 @@
 
 <h2>Members</h2>
 <% @group.users.each do |member| %>
-  <p><%= member.name %></p>
+  <p><%= link_to member.name, user_path(member) %></p>
+  <% user_instagram_token = member.api_tokens.find_by_api_type('instagram') %>
+  <%= render :partial => 'shared/instagram', :locals => { :user_instagram_token => user_instagram_token }%>
 <% end %>
 
 <% if @group.users.include?(current_user)%>
