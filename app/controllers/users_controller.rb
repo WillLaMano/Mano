@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    redirect_to root_url
+    @users = User.all
   end
 
   def edit

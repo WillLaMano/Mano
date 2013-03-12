@@ -1,0 +1,6 @@
+<h1>Create Group</h1>
+
+<%= form_for @group do |f| %>
+  <%= render :partial => "form", :object => f, :locals => { :group => @group } %>
+  <%= f.submit "Register" %>
+<% end %>
