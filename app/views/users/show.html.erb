@@ -31,7 +31,9 @@
 <p>
   <b>Current login ip:</b>
   <%=h @user.current_login_ip %>
-</p>
+  </p>
+
+  <%= link_to 'Add Google Auth', new_authorization_path%>
 
 <% if @user_instagram.present? %>
   <p>

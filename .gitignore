@@ -16,4 +16,5 @@ rerun.txt
 pickle-email-*.html
 /config/initializers/omniauth.rb
 *.DS_Store
+/config/environments/development.rb
 
