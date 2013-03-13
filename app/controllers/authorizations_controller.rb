@@ -31,7 +31,7 @@ class AuthorizationsController < ApplicationController
       auth=Instagram_Auth.new
     end
     respond_to do |format|
-      format.html {redirect_to auth.access_url(current_user.id)} # new.html.erb
+      format.html { redirect_to auth.access_url(current_user.id) } # new.html.erb
       format.json { render json: @authorization }
     end
   end

@@ -15,9 +15,6 @@ Mano::Application.routes.draw do
   resource :user, :as => 'account'  # a convenience route
 
   match 'signup' => 'users#new', :as => :signup
-
-  match 'oauth/instagram/auth' => 'api_tokens#instagram_authorize'
-  match 'oauth/instagram/callback' => 'api_tokens#instagram_callback'
   
   match 'user/:id' => 'users#show'
 

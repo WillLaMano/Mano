@@ -24,11 +24,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @test = @user.instagram
-    # instagram_api_token = @user.api_tokens.find_by_api_type('instagram')
-    # if instagram_api_token.present?
-    #   @user_instagram = Instagram.client(:access_token => instagram_api_token.access_token)
-    # end
   end
   
   def index

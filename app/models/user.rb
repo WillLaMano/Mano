@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
-  has_many :api_tokens
   
   has_many :users_groups
   has_many :groups, through: :users_groups

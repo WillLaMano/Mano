@@ -11,17 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030170425) do
-
-  create_table "api_tokens", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "api_type"
-    t.string   "access_token"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "api_tokens", ["user_id"], :name => "index_api_tokens_on_user_id"
+ActiveRecord::Schema.define(:version => 20130313192152) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "type"
