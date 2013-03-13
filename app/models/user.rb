@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
     c.login_field = 'email'
   end
   
+  def instagram
+    return self.authorizations.find(:first, :conditions => [ "type = 'Instagram_Auth'"])
+  end
+  
 end

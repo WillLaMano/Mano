@@ -35,15 +35,7 @@
 
   <%= link_to 'Add Google Auth', new_authorization_path%>
 
-<% if @user_instagram.present? %>
-  <p>
-    <% for media_item in @user_instagram.user_recent_media(:count => 5) %>
-      <% if media_item.link %> <a href="<%= media_item.link %>"> <% end %>
-      <img src = '<%= media_item.images.thumbnail.url %>' >
-      <% if media_item.link %> </a> <% end %>
-    <% end %>
-  </p>
-<% end %>
+<%= render :partial => 'shared/instagram', :locals => { :user => @user }%>
 
 <p>
     <b>Groups:</b>
