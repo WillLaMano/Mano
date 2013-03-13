@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   end
   
   def instagram
-    return self.authorizations.find(:first, :conditions => [ "type = 'Instagram_Auth'"])
+    return self.authorizations.find(:first, :conditions => [ "auth_type = 'Instagram_Auth'"])
   end
   
 end

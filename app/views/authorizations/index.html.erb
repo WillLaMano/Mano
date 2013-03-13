@@ -12,7 +12,7 @@
 
 <% @authorizations.each do |authorization| %>
   <tr>
-    <td><%= authorization.type %></td>
+    <td><%= authorization.auth_type %></td>
     <td><%= authorization.auth_token %></td>
     <td><%= authorization.user_id %></td>
     <td><%= link_to 'Show', authorization %></td>
