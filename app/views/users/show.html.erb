@@ -33,7 +33,7 @@
   <%=h @user.current_login_ip %>
   </p>
 
-  <%= link_to 'Add Google Auth', new_authorization_path%>
+  <%= link_to 'Add Google Auth', "#{new_authorization_path}?provider=google"%>
 
 <%= render :partial => 'shared/instagram', :locals => { :user => @user }%>
 
