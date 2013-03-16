@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     # the User has not yet been activated
     if @user.save
       flash[:notice] = "Your account has been created."
-      redirect_to signup_url
+      redirect_to @user
     else
       flash[:notice] = "There was a problem creating you."
       render :action => :new
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user = current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
       flash[:notice] = "Account updated!"
-      redirect_to account_url
+      redirect_to @user
     else
       render :action => :edit
     end
