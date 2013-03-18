@@ -3,6 +3,7 @@ class GroupsController < ApplicationController
   
   def show
     @group = Group.find(params[:id])
+    authorize! :manage, @group
   end
   
   def index
@@ -26,11 +27,12 @@ class GroupsController < ApplicationController
   
   def edit
     @group = Group.find(params[:id])
+    authorize! :manage, @group
   end
   
   def update
-    # don't think this is safe
     @group = Group.find(params[:id])
+    authorize! :manage, @group
 
     if @group.update_attributes(params[:group])
       flash[:notice] = "Group updated!"
