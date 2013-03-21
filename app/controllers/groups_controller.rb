@@ -1,13 +1,32 @@
 class GroupsController < ApplicationController
-  before_filter :require_user, only: [:new, :create]
+  before_filter :require_user, only: [:new, :create, :mine]
   
   def show
     @group = Group.find(params[:id])
     authorize! :manage, @group
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @group }
+    end
   end
   
+  # TODO: this is currently only a convenience and should be removed eventually
   def index
     @groups = Group.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @groups }
+    end
+  end
+  
+  def mine
+    @groups = current_user.groups
+    respond_to do |format|
+      format.html { render :template => 'groups/index' } # index.html.erb
+      format.json { render json: @groups }
+    end
   end
   
   def new
