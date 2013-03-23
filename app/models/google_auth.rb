@@ -1,4 +1,8 @@
 class Google_Auth < Authorization
+
+  after_initialize do
+    self.auth_type="google"
+  end
   def self.model_name
     Authorization.model_name
   end

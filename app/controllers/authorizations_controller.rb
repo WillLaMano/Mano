@@ -1,8 +1,10 @@
 class AuthorizationsController < ApplicationController
+  before_filter :require_user
+
   # GET /authorizations
   # GET /authorizations.json
   def index
-    @authorizations = Authorization.all
+    @authorizations = current_user.authorizations
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,15 +26,9 @@ class AuthorizationsController < ApplicationController
   # GET /authorizations/new
   # GET /authorizations/new.json
   def new
-    case params[:provider]
-    when "google"
-      auth=Google_Auth.new
-    when "instagram"
-      auth=Instagram_Auth.new
-    end
+    @services = Authorization.services
     respond_to do |format|
-      format.html { redirect_to auth.access_url(current_user.id) } # new.html.erb
-      format.json { render json: @authorization }
+      format.html # show.html.erb
     end
   end
 
@@ -67,16 +63,15 @@ class AuthorizationsController < ApplicationController
   # POST /authorizations
   # POST /authorizations.json
   def create
-    @authorization = Authorization.new(params[:authorization])
-
+    case params[:provider].downcase
+    when "google"
+      auth=Google_Auth.new
+    when "instagram"
+      auth=Instagram_Auth.new
+    end
     respond_to do |format|
-      if @authorization.save
-        format.html { redirect_to @authorization, notice: 'Authorization was successfully created.' }
-        format.json { render json: @authorization, status: :created, location: @authorization }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @authorization.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to auth.access_url(current_user.id) } # new.html.erb
+      format.json { render json: @authorization }
     end
   end
 
