@@ -1,4 +1,8 @@
 class Google_Auth < Authorization
+
+  after_initialize do
+    self.auth_type="google"
+  end
   def self.model_name
     Authorization.model_name
   end
@@ -15,6 +19,7 @@ class Google_Auth < Authorization
     access_token_obj = OAuth2::AccessToken.new(self.access_client,auth_token,{:refresh_token=>refresh_token, :expires_at=>expires_at.to_i})
     return access_token_obj
   end
+
 
   def is_expired?
     obj = self.access_token
