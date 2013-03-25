@@ -9,6 +9,7 @@ Mano::Application.routes.draw do
 
   match 'groups/mine' => "groups#mine",   :as => :my_groups
   resources :groups
+  match 'groups/:id/invite' => "groups#invite"
   
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout

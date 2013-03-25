@@ -61,5 +61,13 @@ class GroupsController < ApplicationController
     end
   end
   
+  def invite
+    @group = Group.find(params[:id])
+    authorize! :manage, @group
+    
+    GroupInviteMailer.invite_email(@group, current_user, "info@example.com").deliver
+    flash[:notice] = "Invite sent!"
+    redirect_to group_path(@group)
+  end
   
 end
