@@ -16,6 +16,16 @@ class Google_Auth < Authorization
     return access_token_obj
   end
 
+  def google_client
+    client = Google::APIClient.new
+    client.authorization.update_token!(:access_token=>auth_token, :refresh_token=>refresh_token,:expired_in=>(expires_at-Time.now.to_i))
+    if client.authorization.expired?
+      client.authorization.fetch_access_token!
+    end
+    client
+  end
+
+
   def is_expired?
     obj = self.access_token
     if obj.expired?
