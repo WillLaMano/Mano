@@ -1,7 +1,13 @@
 class Google_Auth < Authorization
+
   def self.model_name
     Authorization.model_name
   end
+  
+  def auth_type
+    return "Google"
+  end
+
   def access_client
     auth_client_obj = OAuth2::Client.new(Rails.application.config.auth[:google][:client_id], Rails.application.config.auth[:google][:client_secret], {:site => 'https://accounts.google.com', :authorize_url => "/o/oauth2/auth", :token_url => "/o/oauth2/token"})
     auth_client_obj
@@ -15,6 +21,7 @@ class Google_Auth < Authorization
     access_token_obj = OAuth2::AccessToken.new(self.access_client,auth_token,{:refresh_token=>refresh_token, :expires_at=>expires_at.to_i})
     return access_token_obj
   end
+
 
   def is_expired?
     obj = self.access_token

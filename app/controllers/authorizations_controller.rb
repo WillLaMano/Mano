@@ -1,8 +1,10 @@
 class AuthorizationsController < ApplicationController
+  before_filter :require_user
+
   # GET /authorizations
   # GET /authorizations.json
   def index
-    @authorizations = Authorization.all
+    @authorizations = current_user.authorizations
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,15 +26,16 @@ class AuthorizationsController < ApplicationController
   # GET /authorizations/new
   # GET /authorizations/new.json
   def new
-    case params[:provider]
-    when "google"
-      auth=Google_Auth.new
-    when "instagram"
-      auth=Instagram_Auth.new
-    end
+    @services = Authorization.services.delete_if{|a|
+      current_user.authorizations.any?{|b|
+        b.auth_type.downcase==a.downcase
+      }}
     respond_to do |format|
-      format.html { redirect_to auth.access_url(current_user.id) } # new.html.erb
-      format.json { render json: @authorization }
+      if !@services.empty?
+        format.html # show.html.erb
+      else
+        format.html{redirect_to authorizations_url, alert: "You can't create any more services"}
+      end
     end
   end
 
@@ -47,14 +50,9 @@ class AuthorizationsController < ApplicationController
     @authorization.code=params[:code]
     respond_to do |format|
       if @authorization.save
-        puts "#"*15
-        puts @authorization.errors.full_messages
-        puts"#"*15
-        format.html { redirect_to @authorization, notice: 'Authorization was successfully created.' }
-        format.json { render json: @authorization, status: :created, location: @authorization }
+        format.html { redirect_to authorizations_url, notice: 'Authorization was successfully created.' }
       else
         format.html { render action: "new" }
-        format.json { render json: @authorization.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -67,16 +65,15 @@ class AuthorizationsController < ApplicationController
   # POST /authorizations
   # POST /authorizations.json
   def create
-    @authorization = Authorization.new(params[:authorization])
-
+    case params[:provider].downcase
+    when "google"
+      auth=Google_Auth.new
+    when "instagram"
+      auth=Instagram_Auth.new
+    end
     respond_to do |format|
-      if @authorization.save
-        format.html { redirect_to @authorization, notice: 'Authorization was successfully created.' }
-        format.json { render json: @authorization, status: :created, location: @authorization }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @authorization.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to auth.access_url(current_user.id) } # new.html.erb
+      format.json { render json: @authorization }
     end
   end
 

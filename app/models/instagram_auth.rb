@@ -1,6 +1,11 @@
 class Instagram_Auth < Authorization
+
   def self.model_name
     Authorization.model_name
+  end
+  
+  def auth_type
+    return "Instagram"
   end
 
   def access_client

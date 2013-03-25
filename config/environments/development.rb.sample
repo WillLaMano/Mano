@@ -43,7 +43,7 @@ Mano::Application.configure do
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"",
-      :scope =>""
+      :scope =>"https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/userinfo.profile"
     },
 
     :instagram => {
