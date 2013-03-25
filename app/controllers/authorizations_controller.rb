@@ -26,9 +26,16 @@ class AuthorizationsController < ApplicationController
   # GET /authorizations/new
   # GET /authorizations/new.json
   def new
-    @services = Authorization.services
+    @services = Authorization.services.delete_if{|a|
+      current_user.authorizations.any?{|b|
+        b.auth_type.downcase==a.downcase
+      }}
     respond_to do |format|
-      format.html # show.html.erb
+      if !@services.empty?
+        format.html # show.html.erb
+      else
+        format.html{redirect_to authorizations_url, alert: "You can't create any more services"}
+      end
     end
   end
 
@@ -43,14 +50,9 @@ class AuthorizationsController < ApplicationController
     @authorization.code=params[:code]
     respond_to do |format|
       if @authorization.save
-        puts "#"*15
-        puts @authorization.errors.full_messages
-        puts"#"*15
-        format.html { redirect_to @authorization, notice: 'Authorization was successfully created.' }
-        format.json { render json: @authorization, status: :created, location: @authorization }
+        format.html { redirect_to authorizations_url, notice: 'Authorization was successfully created.' }
       else
         format.html { render action: "new" }
-        format.json { render json: @authorization.errors, status: :unprocessable_entity }
       end
     end
   end
