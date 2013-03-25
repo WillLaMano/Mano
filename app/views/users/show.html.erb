@@ -9,8 +9,7 @@
   </p>
 
   <p>
-  <b>Link a new 3rd party account</b>
-  <%= link_to 'Add Google Auth', "#{new_authorization_path}?provider=google"%>
+  <%= link_to 'Manage Services', authorizations_path%>
 
 <%= render :partial => 'shared/instagram', :locals => { :user => @user }%>
 
