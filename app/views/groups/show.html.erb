@@ -9,3 +9,5 @@
 <% if @group.users.include?(current_user)%>
   <%= link_to 'edit', edit_group_path %>
 <% end %>
+
+<%= link_to "Leave group", leave_group_path(@group), :method => :delete, data: { confirm: 'Are you sure?' } %>
