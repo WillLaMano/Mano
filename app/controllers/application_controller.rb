@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery 
-
+    
   #filter_parameter_logging :password, :password_confirmation # there are underscores  
   helper_method :current_user_session, :current_user, :signed_in?
 
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
 
   private
     def current_user_session
@@ -42,7 +46,7 @@ class ApplicationController < ActionController::Base
     end
 
     def store_location
-      #session[:return_to] = request.request_uri
+      session[:return_to] = request.url
     end
 
     def redirect_back_or_default(default)

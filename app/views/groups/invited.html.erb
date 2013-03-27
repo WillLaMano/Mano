@@ -1,0 +1,15 @@
+<h1> You were invited to join <%= @group.name %></h1>
+
+<p> Group members:
+<ul>
+  <% for user in @members %>
+  <li> <%= user.name %> </li>
+  <% end %>
+</ul>
+</p>
+
+<p>
+Would you like to join?<br>
+<%= button_to "Yes", join_group_path, :method => :post, :class => "btn" %>
+<%= button_to "No", root_path, :class => "btn" %>
+</p>
