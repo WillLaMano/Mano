@@ -14,7 +14,7 @@ class UsersGroups < ActiveRecord::Base
   def remove_empty_group
     group = self.group
     if group.users.size == 1
-      group.destroy
+      # group.destroy
     end
   end
   
