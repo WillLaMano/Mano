@@ -95,4 +95,14 @@ class GroupsController < ApplicationController
     # Delete the invite? Mark for deletion?
   end
   
+  def leave
+    @group = Group.find(params[:id])
+    authorize! :manage, @group
+    
+    @user_group = UsersGroups.find_by_user_id_and_group_id(current_user.id, @group.id)
+    @user_group.destroy
+    
+    redirect_to root_path
+  end
+  
 end
