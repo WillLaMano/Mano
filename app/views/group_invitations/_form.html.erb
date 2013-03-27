@@ -1,0 +1,21 @@
+<%= form_for(@group_invitation) do |f| %>
+  <% if @group_invitation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group_invitation.errors.count, "error") %> prohibited this group invitation from being sent:</h2>
+
+      <ul>
+      <% @group_invitation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :invitee_email, "Enter the email of the person you would like to invite:" %><br />
+    <%= f.text_field :invitee_email %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Send invitation" %>
+  </div>
+<% end %>

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery 
-
+    
   #filter_parameter_logging :password, :password_confirmation # there are underscores  
   helper_method :current_user_session, :current_user, :signed_in?
 
@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
     end
 
     def store_location
-      #session[:return_to] = request.request_uri
+      session[:return_to] = request.url
     end
 
     def redirect_back_or_default(default)
