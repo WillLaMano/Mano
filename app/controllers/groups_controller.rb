@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_filter :require_user, only: [:new, :create, :mine]
+  before_filter :require_user, only: [:new, :create, :mine, :invited, :join]
   
   def show
     @group = Group.find(params[:id])
@@ -61,13 +61,37 @@ class GroupsController < ApplicationController
     end
   end
   
-  def invite
-    @group = Group.find(params[:id])
-    authorize! :manage, @group
+  def invited
+    @invite = GroupInvitation.find_by_token(params[:token])
+    @group = @invite.group
+    @members = @group.users
     
-    GroupInviteMailer.invite_email(@group, current_user, "info@example.com").deliver
-    flash[:notice] = "Invite sent!"
+    if @members.include?(current_user)
+      flash[:notice] = "You are already a part of #{@group.name}."
+      redirect_to group_path(@group)
+    else
+      respond_to do |format|
+        format.html # join.html.erb
+      end
+    end
+  end
+  
+  def join
+    # This isn't very DRY
+    @invite = GroupInvitation.find_by_token(params[:token])
+    @group = @invite.group
+    @members = @group.users
+    
+    if @members.include?(current_user)
+      flash[:notice] = "You are already a part of #{@group.name}."
+    else
+      flash[:notice] = "You have joined #{@group.name}"
+      @group.users_groups.create(:user_id => current_user.id)
+    end
+    
     redirect_to group_path(@group)
+    
+    # Delete the invite? Mark for deletion?
   end
   
 end
