@@ -36,8 +36,9 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(params[:group])
     if @group.save
+      @group.users_groups.create(:user_id => current_user.id)
       flash[:notice] = "Your group has been created."
-      redirect_to root_path
+      redirect_to group_path(@group)
     else
       flash[:notice] = "There was a problem creating your group."
       render :action => :new

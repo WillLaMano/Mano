@@ -21,6 +21,7 @@
         <li><%=h link_to g.name, group_path(g) %></li>
         <% end %>
     </ul>
+    Or create a <%= link_to "new group.", new_group_path %>
     <% elsif @user == current_user %>
     Why not <%= link_to "start a group?", new_group_path %>
     <% end %>
