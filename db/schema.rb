@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030170425) do
+ActiveRecord::Schema.define(:version => 20130325220915) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "type"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(:version => 20121030170425) do
     t.string   "refresh_token"
     t.datetime "expires_at"
   end
+
+  create_table "group_invitations", :force => true do |t|
+    t.string   "token"
+    t.string   "invitee_email"
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "group_invitations", ["token"], :name => "index_group_invitations_on_token", :unique => true
 
   create_table "groups", :force => true do |t|
     t.string   "name"

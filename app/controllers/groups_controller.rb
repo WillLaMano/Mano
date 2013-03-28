@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_filter :require_user, only: [:new, :create, :mine]
+  before_filter :require_user, only: [:new, :create, :mine, :invited, :join]
   
   def show
     @group = Group.find(params[:id])
@@ -36,8 +36,9 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(params[:group])
     if @group.save
+      @group.users_groups.create(:user_id => current_user.id)
       flash[:notice] = "Your group has been created."
-      redirect_to root_path
+      redirect_to group_path(@group)
     else
       flash[:notice] = "There was a problem creating your group."
       render :action => :new
@@ -61,5 +62,47 @@ class GroupsController < ApplicationController
     end
   end
   
+  def invited
+    @invite = GroupInvitation.find_by_token(params[:token])
+    @group = @invite.group
+    @members = @group.users
+    
+    if @members.include?(current_user)
+      flash[:notice] = "You are already a part of #{@group.name}."
+      redirect_to group_path(@group)
+    else
+      respond_to do |format|
+        format.html # join.html.erb
+      end
+    end
+  end
+  
+  def join
+    # This isn't very DRY
+    @invite = GroupInvitation.find_by_token(params[:token])
+    @group = @invite.group
+    @members = @group.users
+    
+    if @members.include?(current_user)
+      flash[:notice] = "You are already a part of #{@group.name}."
+    else
+      flash[:notice] = "You have joined #{@group.name}"
+      @group.users_groups.create(:user_id => current_user.id)
+    end
+    
+    redirect_to group_path(@group)
+    
+    # Delete the invite? Mark for deletion?
+  end
+  
+  def leave
+    @group = Group.find(params[:id])
+    authorize! :manage, @group
+    
+    @user_group = UsersGroups.find_by_user_id_and_group_id(current_user.id, @group.id)
+    @user_group.destroy
+    
+    redirect_to root_path
+  end
   
 end
