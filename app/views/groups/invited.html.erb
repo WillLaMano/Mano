@@ -2,7 +2,7 @@
 
 <p> Group members:
 <ul>
-  <% for user in @members %>
+  <% @members.each do |user| %>
   <li> <%= user.name %> </li>
   <% end %>
 </ul>
