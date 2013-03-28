@@ -16,7 +16,7 @@
     <b>Groups:</b>
     <% if @user.groups.present? %>
     <ul>
-        <% for g in @user.groups %>
+        <% @user.groups.each do |g| %>
         <li><%=h link_to g.name, group_path(g) %></li>
         <% end %>
     </ul>
