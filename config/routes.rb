@@ -5,8 +5,10 @@ Mano::Application.routes.draw do
 
   resources :user_sessions
   resources :authentications
-  resources :groups
   resources :static_pages
+
+  match 'groups/mine' => "groups#mine",   :as => :my_groups
+  resources :groups
   
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
