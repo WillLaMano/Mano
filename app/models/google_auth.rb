@@ -1,7 +1,13 @@
 class Google_Auth < Authorization
+
   def self.model_name
     Authorization.model_name
   end
+  
+  def auth_type
+    return "Google"
+  end
+
   def access_client
     auth_client_obj = OAuth2::Client.new(Rails.application.config.auth[:google][:client_id], Rails.application.config.auth[:google][:client_secret], {:site => 'https://accounts.google.com', :authorize_url => "/o/oauth2/auth", :token_url => "/o/oauth2/token"})
     auth_client_obj
