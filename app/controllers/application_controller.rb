@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery 
+
+  before_filter :miniprofiler
     
   #filter_parameter_logging :password, :password_confirmation # there are underscores  
   helper_method :current_user_session, :current_user, :signed_in?
@@ -56,6 +58,10 @@ class ApplicationController < ActionController::Base
 
     def record_not_found
       render :text => "404 Not Found", :status => 404
+    end
+    
+    def miniprofiler
+      Rack::MiniProfiler.authorize_request # if user.admin?
     end
 
 end
