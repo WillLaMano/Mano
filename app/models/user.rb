@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     return self.authorizations.find(:first, :conditions => ["type = 'Twitter_Auth'"])
   end
 
+  def google
+    return self.authorizations.find(:first, :conditions => [ "type = 'Google_Auth'"])
+  end
+
   def new_service_allowed?
     !Authorization.services.delete_if{|a|
       self.authorizations.any?{|b|

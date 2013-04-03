@@ -66,4 +66,14 @@ class Google_Auth < Authorization
     end
   end
 
+  def get_current_location
+    client = self.google_client
+    api = client.discovered_api("latitude")
+    result = client.execute(
+      :api_method => api.current_location.get,
+      :parameters => {:granularity => "best"}
+    )
+    ActiveSupport::JSON.decode(result.body)["data"]
+  end
+
 end
