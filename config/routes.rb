@@ -1,4 +1,6 @@
 Mano::Application.routes.draw do
+  get "activations/create"
+
   match 'authorizations/callback/:provider'=>"authorizations#callback"
   match 'authorizations/new/:provider'=>"authorizations#new"
   resources :authorizations
