@@ -16,6 +16,8 @@ gem 'bootstrap-sass', '2.0.4'
 gem 'instagram'
 gem 'google-api-client', :require => 'google/api_client'
 
+gem "rack-mini-profiler", "~> 0.1.23"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
