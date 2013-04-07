@@ -1,4 +1,6 @@
 Mano::Application.routes.draw do
+  get "activations/create"
+
   match 'authorizations/callback/:provider'=>"authorizations#callback"
   match 'authorizations/new/:provider'=>"authorizations#new"
   resources :authorizations
@@ -17,6 +19,13 @@ Mano::Application.routes.draw do
   
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
+  match '/activate/:activation_code' => "activations#create", :as => :activate
+resources :users do
+  collection do
+    get 'resend_activation'
+  end
+end
+resources :password_resets, :only => [:new, :create,:edit, :update]
 
   resources :users  # give us our some normal resource routes for users
   resource :user, :as => 'account'  # a convenience route

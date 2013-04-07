@@ -13,10 +13,11 @@ class UsersController < ApplicationController
     # auto-login which can't happen here because
     # the User has not yet been activated
     if @user.save
-      flash[:notice] = "Your account has been created."
-      redirect_to @user
+      @user.deliver_activation_instructions!
+      flash[:notice] = "Your account has been created. Please check your e-mail for your account activation instructions!"
+      redirect_to root_url
     else
-      flash[:notice] = "There was a problem creating you."
+      flash[:notice] = "There was a problem creating your account."
       render :action => :new
     end
     
@@ -42,6 +43,17 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :action => :edit
+    end
+  end
+
+  def resend_activation
+    if params[:email]
+      @user = User.find_by_email params[:email]
+      if @user && !@user.active?
+        @user.deliver_activation_instructions!
+        flash[:notice] = "Please check your e-mail for your account activation instructions!"
+        redirect_to root_path
+      end
     end
   end
 end
