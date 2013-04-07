@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
         b.auth_type.downcase==a.downcase
       }}.empty?
   end
+  
   def activate!
     self.active = true
     save

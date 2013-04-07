@@ -15,7 +15,7 @@ class UserSessionsController < ApplicationController
       !@user_session.invalid_password? &&
       !@user_session.attempted_record.active?
       flash[:notice] = render_to_string(:partial => 'user_sessions/not_active.erb', :locals => { :user => @user_session.attempted_record }).html_safe
-      redirect_to :action => :new
+      redirect_to :login
     else
       render :action => :new
     end

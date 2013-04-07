@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Your account has been created. Please check your e-mail for your account activation instructions!"
       redirect_to root_url
     else
-      flash[:notice] = "There was a problem creating you."
+      flash[:notice] = "There was a problem creating your account."
       render :action => :new
     end
     
@@ -46,14 +46,14 @@ class UsersController < ApplicationController
     end
   end
 
-def resend_activation
-  if params[:email]
-    @user = User.find_by_email params[:email]
-    if @user && !@user.active?
-      @user.deliver_activation_instructions!
-      flash[:notice] = "Please check your e-mail for your account activation instructions!"
-      redirect_to root_path
+  def resend_activation
+    if params[:email]
+      @user = User.find_by_email params[:email]
+      if @user && !@user.active?
+        @user.deliver_activation_instructions!
+        flash[:notice] = "Please check your e-mail for your account activation instructions!"
+        redirect_to root_path
+      end
     end
   end
-end
 end
