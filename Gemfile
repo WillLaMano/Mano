@@ -9,11 +9,13 @@ gem 'sqlite3'
 gem 'authlogic'
 gem 'omniauth', '>= 1.1.3'
 gem 'oauth2'
+gem 'oauth'
 gem 'cancan'
 
 gem 'bootstrap-sass', '2.0.4'
 
 gem 'instagram'
+gem 'twitter'
 gem 'google-api-client', :require => 'google/api_client'
 
 # Gems used only for assets and not required
