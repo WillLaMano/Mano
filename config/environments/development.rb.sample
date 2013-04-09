@@ -52,6 +52,11 @@ Mano::Application.configure do
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/instagram"
+    },
+    :twitter => {
+      :client_id=>"",
+      :client_secret=>"",
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/twitter"
     }
   }
 end

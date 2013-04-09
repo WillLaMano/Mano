@@ -40,16 +40,26 @@ class AuthorizationsController < ApplicationController
   end
 
   def callback
+
+    @services = Authorization.services.delete_if{|a|
+      current_user.authorizations.any?{|b|
+        b.auth_type.downcase==a.downcase
+      }}
     case params[:provider]
     when "google"
       @authorization = Google_Auth.new
     when "instagram"
       @authorization = Instagram_Auth.new
+    when "twitter"
+      @authorization = Twitter_Auth.new
+      @authorization.request_token({:request_token=>session[:request_token],
+                                   :request_secret => session[:request_secret]
+                                  })
     end
-    @authorization.user_id=params[:state]
-    @authorization.code=params[:code]
+    @authorization.user=current_user
+    @authorization.params=params
     respond_to do |format|
-      if @authorization.save
+      if @authorization.save!
         format.html { redirect_to authorizations_url, notice: 'Authorization was successfully created.' }
       else
         format.html { render action: "new" }
@@ -70,9 +80,14 @@ class AuthorizationsController < ApplicationController
       auth=Google_Auth.new
     when "instagram"
       auth=Instagram_Auth.new
+    when "twitter"
+      auth=Twitter_Auth.new
+      request_token=auth.request_token
+      session[:request_token]=request_token.token
+      session[:request_secret]=request_token.secret
     end
     respond_to do |format|
-      format.html { redirect_to auth.access_url(current_user.id) } # new.html.erb
+      format.html { redirect_to auth.access_url} 
       format.json { render json: @authorization }
     end
   end
