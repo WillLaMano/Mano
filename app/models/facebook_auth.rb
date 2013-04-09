@@ -28,6 +28,11 @@ class Facebook_Auth < Authorization
     access_token_obj = OAuth2::AccessToken.new(self.access_client,auth_token,:expires_in=>expires_in.to_i)
     return access_token_obj
   end
+  
+  def facebook_client
+    client = Koala::Facebook::API.new(auth_token)
+    client
+  end
 
   def is_expired?
     return self.access_token.expired?
@@ -48,5 +53,11 @@ class Facebook_Auth < Authorization
     end
   end
 
+  def get_statuses(limit = 10)
+    client = self.facebook_client
+    statuses = client.get_connection("me", "statuses", {:fields => 'message', :limit => 10})
+    statuses = statuses.map{|x| x["message"]}.compact
+    statuses
+  end
 
 end

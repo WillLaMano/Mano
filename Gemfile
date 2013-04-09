@@ -17,6 +17,7 @@ gem 'bootstrap-sass', '2.0.4'
 gem 'instagram'
 gem 'twitter'
 gem 'google-api-client', :require => 'google/api_client'
+gem 'koala'
 
 gem "rack-mini-profiler", "~> 0.1.23"
 

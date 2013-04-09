@@ -12,7 +12,7 @@
   <%= link_to 'Manage Services', authorizations_path%>
 
 <%= render :partial => 'shared/instagram', :locals => { :user => @user }%>
-
+<%= render :partial => 'shared/facebook', :locals => { :user => @user }%>
 <p>
     <b>Groups:</b>
     <% if @user.groups.present? %>

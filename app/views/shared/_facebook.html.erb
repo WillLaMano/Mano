@@ -1,0 +1,5 @@
+<ul>
+  <% @user.facebook.get_statuses.each do |s| %>
+    <li><%= s %></li>
+  <% end %>
+</ul>
