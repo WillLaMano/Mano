@@ -59,5 +59,9 @@ class Facebook_Auth < Authorization
     statuses = statuses.map{|x| x["message"]}.compact
     statuses
   end
-
+  
+  def get_profile_picture
+    @picture ||= self.facebook_client.get_picture("me")
+  end
+  
 end
