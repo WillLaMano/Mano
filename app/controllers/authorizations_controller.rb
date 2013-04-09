@@ -55,6 +55,8 @@ class AuthorizationsController < ApplicationController
       @authorization.request_token({:request_token=>session[:request_token],
                                    :request_secret => session[:request_secret]
                                   })
+    when "facebook"
+      @authorization = Facebook_Auth.new
     end
     @authorization.user=current_user
     @authorization.params=params
@@ -85,6 +87,8 @@ class AuthorizationsController < ApplicationController
       request_token=auth.request_token
       session[:request_token]=request_token.token
       session[:request_secret]=request_token.secret
+    when "facebook"
+      auth=Facebook_Auth.new
     end
     respond_to do |format|
       format.html { redirect_to auth.access_url} 
