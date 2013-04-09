@@ -19,9 +19,9 @@ class Facebook_Auth < Authorization
     auth_client_obj
   end
 
-  def access_url(user_id)
+  def access_url
     permissions = "user_location,user_events,user_photos,user_status"
-    url=self.access_client.auth_code.authorize_url(:state => user_id, :response_type => "code", :redirect_uri => Rails.application.config.auth[:facebook][:redirect_uri], :scope => permissions)
+    url=self.access_client.auth_code.authorize_url(:response_type => "code", :redirect_uri => Rails.application.config.auth[:facebook][:redirect_uri], :scope => permissions)
   end
 
   def access_token
@@ -45,7 +45,7 @@ class Facebook_Auth < Authorization
   def check_access_token
     access_client = self.access_client
     begin
-    access_token = access_client.auth_code.get_token(code,{:redirect_uri=>Rails.application.config.auth[:facebook][:redirect_uri],:token_method=>:post, :parsed => :facebook})
+    access_token = access_client.auth_code.get_token(params[:code],{:redirect_uri=>Rails.application.config.auth[:facebook][:redirect_uri],:token_method=>:post, :parsed => :facebook})
     self.auth_token=access_token.token
     self.expires_at=DateTime.strptime((Time.now.to_i+access_token.expires_in).to_s,"%s")
     rescue

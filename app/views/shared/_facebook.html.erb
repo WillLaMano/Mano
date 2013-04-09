@@ -1,5 +1,7 @@
+<% if fb = @user.facebook %>
 <ul>
-  <% @user.facebook.get_statuses.each do |s| %>
+  <% fb.get_statuses.each do |s| %>
     <li><%= s %></li>
   <% end %>
 </ul>
+<% end %>
