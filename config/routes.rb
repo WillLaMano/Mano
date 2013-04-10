@@ -10,7 +10,6 @@ Mano::Application.routes.draw do
   resources :static_pages
 
   resources :group_invitations, :only => ["create"]
-  match 'groups/mine' => "groups#mine",   :as => :my_groups
   match 'groups/join/:token' => "groups#invited", :as => :invited_to_group, :via => :get
   match 'groups/join/:token' => "groups#join", :as => :join_group, :via => :post
   match 'groups/:id/leave' => "groups#leave", :as => :leave_group, :via => :delete
