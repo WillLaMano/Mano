@@ -5,7 +5,7 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg', '>= 0.15.1'
 gem 'authlogic'
 gem 'omniauth', '>= 1.1.3'
 gem 'oauth2'
