@@ -1,12 +1,9 @@
-<% if uinstagram = user.instagram %>
-<% @user_instagram = Instagram.client(:access_token => uinstagram.auth_token)%>
-<% if @user_instagram.present? %>
+<% if ig = user.instagram %>
   <p>
-    <% @user_instagram.user_recent_media(:count => 5).each do |media_item| %>
+    <% ig.get_photos.each do |media_item| %>
       <% if media_item.link %> <a href="<%= media_item.link %>"> <% end %>
       <img src = '<%= media_item.images.thumbnail.url %>' >
       <% if media_item.link %> </a> <% end %>
     <% end %>
   </p>
-<% end %>
 <% end %>

@@ -15,6 +15,7 @@
     <%= f.label :invitee_email, "Enter the email of the person you would like to invite:" %><br />
     <%= f.text_field :invitee_email %>
   </div>
+  <%= f.hidden_field :group_id %>
   <div class="actions">
     <%= f.submit "Send invitation" %>
   </div>

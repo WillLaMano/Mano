@@ -2,7 +2,7 @@ class GroupInvitation < ActiveRecord::Base
   belongs_to :group
   belongs_to :user
   
-  attr_accessible :invitee_email, :token
+  attr_accessible :invitee_email, :token, :group_id
   
   before_create :generate_token
 
