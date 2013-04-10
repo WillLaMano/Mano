@@ -49,5 +49,11 @@ class Twitter_Auth < Authorization
       self.errors.add :base,e.message
     end
   end
+  
+  def get_tweets
+    client = self.twitter_client
+    tweets = client.user_timeline(:count => 10)
+    tweets
+  end
 
 end

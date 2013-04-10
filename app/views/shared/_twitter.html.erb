@@ -1,0 +1,7 @@
+<ul>
+<% if t = @user.twitter %>
+  <% t.get_tweets.each do |tweet| %>
+    <li><%= tweet.text %></li>
+  <% end %>
+<% end %>
+</ul>
