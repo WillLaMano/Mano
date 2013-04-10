@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_filter :require_user, only: [:new, :create, :mine, :invited, :join]
+  before_filter :require_user, only: [:index, :new, :create, :invited, :join]
   
   def show
     @group = Group.find(params[:id])
@@ -11,24 +11,15 @@ class GroupsController < ApplicationController
     end
   end
   
-  # TODO: this is currently only a convenience and should be removed eventually
   def index
-    @groups = Group.all
+    @groups = current_user.groups
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @groups }
     end
   end
-  
-  def mine
-    @groups = current_user.groups
-    respond_to do |format|
-      format.html { render :template => 'groups/index' } # index.html.erb
-      format.json { render json: @groups }
-    end
-  end
-  
+    
   def new
     @group = Group.new
   end
