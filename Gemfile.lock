@@ -55,6 +55,10 @@ GEM
       multipart-post (~> 1.1)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
+    foursquare2 (1.9.5)
+      faraday (~> 0.8)
+      faraday_middleware (>= 0.8)
+      hashie (~> 1.0)
     google-api-client (0.6.2)
       addressable (>= 2.3.2)
       autoparse (>= 0.3.2)
@@ -107,6 +111,8 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-mini-profiler (0.1.26)
+      rack (>= 1.1.3)
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -168,6 +174,7 @@ DEPENDENCIES
   bootstrap-sass (= 2.0.4)
   cancan
   coffee-rails (~> 3.2.1)
+  foursquare2
   google-api-client
   instagram
   jquery-rails
@@ -175,6 +182,7 @@ DEPENDENCIES
   oauth2
   omniauth (>= 1.1.3)
   pg (>= 0.15.1)
+  rack-mini-profiler (~> 0.1.23)
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
   twitter
