@@ -50,10 +50,17 @@ class Twitter_Auth < Authorization
     end
   end
   
-  def get_tweets
+  def get_tweets(args)
     client = self.twitter_client
-    tweets = client.user_timeline(:count => 10)
+    tweets = client.user_timeline(args)
     tweets
+  end
+  
+  def get_oembed_tweets(args)
+    client = self.twitter_client
+    tweets = self.get_tweets(args)
+    oembed_tweets = client.oembeds(tweets.map{|t| t.id}.compact, :maxwidth => 240)
+    oembed_tweets
   end
 
 end
