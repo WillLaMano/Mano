@@ -27,7 +27,6 @@ end
 resources :password_resets, :only => [:new, :create,:edit, :update]
 
   resources :users  # give us our some normal resource routes for users
-  resource :user, :as => 'account'  # a convenience route
 
   match 'signup' => 'users#new', :as => :signup
   
