@@ -111,6 +111,8 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-mini-profiler (0.1.23)
+      rack (>= 1.1.3)
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -180,6 +182,7 @@ DEPENDENCIES
   oauth2
   omniauth (>= 1.1.3)
   pg (>= 0.15.1)
+  rack-mini-profiler (~> 0.1.23)
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
   twitter
