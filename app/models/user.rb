@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
   has_many :groups, through: :users_groups
   has_many :authorizations
   
-  acts_as_authentic do |c|
-    c.login_field = 'email'
+  acts_as_authentic do |config|
+    config.login_field = 'email'
+    config.validate_email_field = false
   end
   
   def instagram
