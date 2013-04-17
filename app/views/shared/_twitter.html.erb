@@ -1,4 +1,4 @@
-<% if t = @user.twitter %>
+<% if t = user.twitter %>
 <div class = "twitter">
   <% t.get_oembed_tweets(:count => 5).each do |tweet| %>
   <div class="tweet">

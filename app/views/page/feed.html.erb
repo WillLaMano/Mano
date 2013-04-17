@@ -1,0 +1,10 @@
+<% @users.each do |member| %>
+  <%= render :partial => 'shared/instagram', :locals => { :user => member }%>
+<% end %>
+<% @users.each do |member| %>
+  <%= render :partial => 'shared/facebook', :locals => { :user => member }%>
+<% end %>
+<% @users.each do |member| %>
+  <%= render :partial => 'shared/twitter', :locals => { :user => member }%>
+<% end %>
+
