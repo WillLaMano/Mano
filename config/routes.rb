@@ -15,19 +15,21 @@ Mano::Application.routes.draw do
   match 'groups/:id/leave' => "groups#leave", :as => :leave_group, :via => :delete
   match 'groups/:id/invite' => "group_invitations#new", :as => :new_group_invitation, :via => :get
   resources :groups
+  resources :groups do
+    match ':controller/:action', :controller => :page
+  end
   
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
   match '/activate/:activation_code' => "activations#create", :as => :activate
-resources :users do
-  collection do
-    get 'resend_activation'
+  resources :users do
+    collection do
+      get 'resend_activation'
+    end
   end
-end
-resources :password_resets, :only => [:new, :create,:edit, :update]
+  resources :password_resets, :only => [:new, :create,:edit, :update]
 
   resources :users  # give us our some normal resource routes for users
-  resource :user, :as => 'account'  # a convenience route
 
   match 'signup' => 'users#new', :as => :signup
   

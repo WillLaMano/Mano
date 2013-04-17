@@ -11,7 +11,9 @@
   <p>
   <%= link_to 'Manage Services', authorizations_path%>
 
-<%= render :partial => 'shared/instagram', :locals => { :user => @user }%>
+<%= render :partial => 'shared/instagram', :locals => { :user => @user } %>
+<%= render :partial => 'shared/facebook', :locals => { :user => @user } %>
+<%= render :partial => 'shared/twitter', :locals => { :user => @user } %>
 
 <p>
     <b>Groups:</b>
@@ -27,4 +29,4 @@
     <% end %>
 </p>
 
-<%= link_to 'Edit', edit_account_path unless current_user != @user%>
+<%= link_to 'Edit', edit_user_path(@user) unless current_user != @user%>

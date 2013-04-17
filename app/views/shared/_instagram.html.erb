@@ -1,9 +1,9 @@
 <% if ig = user.instagram %>
-  <p>
+  <div class="instagram">
     <% ig.get_photos.each do |media_item| %>
       <% if media_item.link %> <a href="<%= media_item.link %>"> <% end %>
-      <img src = '<%= media_item.images.thumbnail.url %>' >
+      <img class="photo" src='<%= media_item.images.thumbnail.url %>' >
       <% if media_item.link %> </a> <% end %>
     <% end %>
-  </p>
+  </div>
 <% end %>

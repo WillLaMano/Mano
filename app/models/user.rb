@@ -12,6 +12,14 @@ class User < ActiveRecord::Base
   def instagram
     return self.authorizations.find(:first, :conditions => [ "type = 'Instagram_Auth'"])
   end
+  
+  def facebook
+    return self.authorizations.find(:first, :conditions => [ "type = 'Facebook_Auth'" ])
+  end
+  
+  def twitter
+    return self.authorizations.find(:first, :conditions => ["type = 'Twitter_Auth'"])
+  end
 
   def new_service_allowed?
     !Authorization.services.delete_if{|a|

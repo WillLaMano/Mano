@@ -198,3 +198,28 @@ aside {
  }
 }
 
+.facebook .status {
+    width: 250px;
+    border: 5px solid;
+    border-radius: 5px;
+    padding: 10px;
+    float: left;
+    display: block;
+    margin: 10px;
+}
+
+.facebook .wrapper {
+    width: 100%;
+    float: left;
+}
+
+.facebook .status .person {
+    width: 100%;
+    float: left;
+    border-bottom: gray;
+}
+
+.facebook .status .info {
+    width: 100%;
+    float: left;
+}
