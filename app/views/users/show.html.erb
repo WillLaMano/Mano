@@ -13,6 +13,8 @@
 
 <%= render :partial => 'shared/instagram', :locals => { :user => @user }%>
 <%= render :partial => 'shared/facebook', :locals => { :user => @user }%>
+<%= render :partial => 'shared/twitter', :locals => { :user => @user }%>
+
 <p>
     <b>Groups:</b>
     <% if @user.groups.present? %>
