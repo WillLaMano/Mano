@@ -1,9 +1,9 @@
-<div class = 'tweets'>
 <% if t = @user.twitter %>
+<div class = "twitter">
   <% t.get_oembed_tweets(:count => 5).each do |tweet| %>
-  <div class='tweet'>
+  <div class="tweet">
     <%= tweet.html.html_safe %><%# TODO: is this actually html safe? %>
   </div>
   <% end %>
-<% end %>
 </div>
+<% end %>

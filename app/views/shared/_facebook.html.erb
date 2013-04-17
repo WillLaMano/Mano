@@ -1,7 +1,12 @@
 <% if fb = @user.facebook %>
-<ul>
-  <% fb.get_statuses.each do |s| %>
-    <li><%= image_tag(fb.get_profile_picture) %><%= s %></li>
+<div class="facebook">
+  <% fb.get_statuses(5).each do |s| %>
+  <div class="wrapper">
+    <div class="status">
+      <div class="person"><%= image_tag(fb.get_profile_picture) %><%= @user.name %></div>
+      <div class="info"><%= s %></div>
+    </div>
+  </div>
   <% end %>
-</ul>
+</div>
 <% end %>

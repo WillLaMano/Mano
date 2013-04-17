@@ -55,7 +55,7 @@ class Facebook_Auth < Authorization
 
   def get_statuses(limit = 10)
     client = self.facebook_client
-    statuses = client.get_connection("me", "statuses", {:fields => 'message', :limit => 10})
+    statuses = client.get_connection("me", "statuses", {:fields => 'message', :limit => limit})
     statuses = statuses.map{|x| x["message"]}.compact
     statuses
   end
