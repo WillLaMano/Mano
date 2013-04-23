@@ -1,7 +1,6 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  name: MyString
-
-two:
-  name: MyString
+---
+groups_001:
+  id: '1'
+  name: test
+  created_at: '2013-04-10 05:22:43.95058'
+  updated_at: '2013-04-10 05:22:43.95058'
