@@ -1,11 +1,39 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+---
+users_001:
+  id: '1'
+  name: foobar
+  crypted_password: 1cpassword
+  password_salt: 1salt
+  email: foobar@foobar.com
+  persistence_token: 1ptoken
+  single_access_token: 1saccess
+  perishable_token: 1perish
+  login_count: '3'
+  failed_login_count: '0'
+  last_request_at: '2013-04-17 19:11:01.812356'
+  current_login_at: '2013-04-17 18:42:14.412928'
+  last_login_at: '2013-04-17 00:17:26.829479'
+  current_login_ip: 127.0.0.1
+  last_login_ip: 127.0.0.1
+  created_at: '2013-04-10 05:22:25.41991'
+  updated_at: '2013-04-17 19:11:01.813513'
+  active: t
+users_002:
+  id: '2'
+  name: foobar2
+  crypted_password: 2cpassword
+  password_salt: 2salt
+  email: foobar2@foobar.com
+  persistence_token: 2ptoken
+  single_access_token: 2saccess
+  perishable_token: 2ptoken
+  login_count: '1'
+  failed_login_count: '0'
+  last_request_at: '2013-04-17 05:41:19.82622'
+  current_login_at: '2013-04-17 05:28:56.066172'
+  last_login_at: 
+  current_login_ip: 127.0.0.1
+  last_login_ip: 
+  created_at: '2013-04-17 05:27:09.545602'
+  updated_at: '2013-04-17 05:41:19.827493'
+  active: t

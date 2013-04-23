@@ -1,11 +1,61 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  auth_type: MyString
-  auth_token: MyString
-  user_id: 1
-
-two:
-  auth_type: MyString
-  auth_token: MyString
-  user_id: 1
+---
+authorizations_001:
+  id: '1'
+  type: Instagram_Auth
+  auth_token: 1.instagram.token
+  user_id: '1'
+  created_at: '2013-04-10 05:23:01.358873'
+  updated_at: '2013-04-10 05:23:01.358873'
+  refresh_token: 
+  expires_at: 
+  auth_secret: 
+authorizations_002:
+  id: '2'
+  type: Facebook_Auth
+  auth_token: 1.facebook.token
+  user_id: '1'
+  created_at: '2013-04-17 00:17:40.563123'
+  updated_at: '2013-04-17 00:17:40.563123'
+  refresh_token: 
+  expires_at: '2013-06-16 00:17:39'
+  auth_secret: 
+authorizations_003:
+  id: '3'
+  type: Twitter_Auth
+  auth_token: 1.twitter.token
+  user_id: '1'
+  created_at: '2013-04-17 02:10:56.48126'
+  updated_at: '2013-04-17 02:10:56.48126'
+  refresh_token: 
+  expires_at: 
+  auth_secret: 1.twitter.secret
+authorizations_004:
+  id: '4'
+  type: Instagram_Auth
+  auth_token: 2.instagram.token
+  user_id: '2'
+  created_at: '2013-04-17 05:31:55.646111'
+  updated_at: '2013-04-17 05:31:55.646111'
+  refresh_token: 
+  expires_at: 
+  auth_secret: 
+authorizations_005:
+  id: '5'
+  type: Twitter_Auth
+  auth_token: 2.twitter.token
+  user_id: '2'
+  created_at: '2013-04-17 05:38:38.592313'
+  updated_at: '2013-04-17 05:38:38.592313'
+  refresh_token: 
+  expires_at: 
+  auth_secret: 2.twitter.secret
+authorizations_006:
+  id: '6'
+  type: Facebook_Auth
+  auth_token: 2.facebook.token
+  user_id: '2'
+  created_at: '2013-04-17 05:38:56.591826'
+  updated_at: '2013-04-17 05:38:56.591826'
+  refresh_token: 
+  expires_at: '2013-06-16 00:17:39'
+  auth_secret: 
