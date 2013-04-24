@@ -23,6 +23,10 @@ gem 'koala'
 
 gem "rack-mini-profiler", "~> 0.1.23"
 
+group :test do
+  gem "factory_girl_rails", "~> 4.0"
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
