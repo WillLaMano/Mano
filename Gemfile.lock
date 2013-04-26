@@ -59,6 +59,7 @@ GEM
       faraday (~> 0.8)
       faraday_middleware (>= 0.8)
       hashie (~> 1.0)
+    gmaps4rails (1.5.6)
     google-api-client (0.6.3)
       addressable (>= 2.3.2)
       autoparse (>= 0.3.3)
@@ -183,6 +184,7 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 3.2.1)
   foursquare2
+  gmaps4rails
   google-api-client
   instagram
   jquery-rails
