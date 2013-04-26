@@ -19,15 +19,21 @@ class Google_Auth < Authorization
 
   def access_token
     access_token_obj = OAuth2::AccessToken.new(self.access_client,auth_token,{:refresh_token=>refresh_token, :expires_at=>expires_at.to_i})
+    if access_token_obj.expired?
+      refresh = access_token_obj.refresh!
+      self.auth_token=refresh.token
+    self.expires_at=DateTime.strptime(refresh.expires_at.to_s,"%s")
+      self.save!
+      access_token_obj = OAuth2::AccessToken.new(self.access_client,auth_token,{:refresh_token=>refresh_token, :expires_at=>expires_at.to_i})
+    end
+
     return access_token_obj
   end
 
   def google_client
     client = Google::APIClient.new
-    client.authorization.update_token!(:access_token=>auth_token, :refresh_token=>refresh_token,:expired_in=>(expires_at-Time.now.to_i))
-    if client.authorization.expired?
-      client.authorization.fetch_access_token!
-    end
+    token = self.access_token
+    client.authorization.update_token!(:access_token=>token.token, :refresh_token=>token.refresh_token,:expired_in=>(expires_at-Time.now.to_i))
     client
   end
 
@@ -37,7 +43,7 @@ class Google_Auth < Authorization
     if obj.expired?
       begin
       obj=obj.refresh!
-      rescue OAuth2::Error
+    rescue OAuth2::Error
         return true
       end
       self.auth_token=obj.token
@@ -74,6 +80,32 @@ class Google_Auth < Authorization
       :parameters => {:granularity => "best"}
     )
     ActiveSupport::JSON.decode(result.body)["data"]
+  end
+
+  def get_current_events
+    client = self.google_client
+    api=client.discovered_api("calendar","v3")
+    cal_list = ActiveSupport::JSON.decode(client.execute(
+      :api_method => api.calendar_list.list,
+      :parameters => {"minAccessRole" => "reader"}
+    ).body)
+    ids= cal_list["items"].select{|i|!i["selected"].nil?}.map{|i|i["id"]}
+    events = [];
+    batch = Google::APIClient::BatchRequest.new do |result|
+      unless result.data["items"].empty?
+        events += result.data["items"]
+      end
+    end
+    ids.each do |id|
+      batch.add(
+        :api_method => api.events.list,
+        :parameters => {"calendarId" => id,
+          "timeMax"=> 15.minutes.from_now.xmlschema,
+          "timeMin"=> Time.now.xmlschema
+      })
+    end
+    client.execute(batch)
+    events
   end
 
 end
