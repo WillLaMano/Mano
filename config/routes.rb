@@ -1,4 +1,6 @@
 Mano::Application.routes.draw do
+
+  match 'groups/:id/feed' => "page#feed"
   get "activations/create"
 
   match 'authorizations/callback/:provider'=>"authorizations#callback"
@@ -15,9 +17,6 @@ Mano::Application.routes.draw do
   match 'groups/:id/leave' => "groups#leave", :as => :leave_group, :via => :delete
   match 'groups/:id/invite' => "group_invitations#new", :as => :new_group_invitation, :via => :get
   resources :groups
-  resources :groups do
-    match ':controller/:action', :controller => :page
-  end
   
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
