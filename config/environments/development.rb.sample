@@ -53,18 +53,21 @@ Mano::Application.configure do
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/instagram"
     },
-    
+    :foursquare => {
+      :client_id=>"",
+      :client_secret=>"",
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/foursquare"
+    },
     :twitter => {
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/twitter"
     },
-
     :facebook => {
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/facebook"
-    },
+    }
 
   }
 end

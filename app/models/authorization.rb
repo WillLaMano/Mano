@@ -5,7 +5,7 @@ class Authorization < ActiveRecord::Base
   belongs_to :user
 
   def self.services
-    ["Google","Instagram","Twitter","Facebook"]
+    ["Google","Instagram","Twitter","Facebook","Foursquare"]
   end
 
 end

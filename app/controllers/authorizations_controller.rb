@@ -48,6 +48,8 @@ class AuthorizationsController < ApplicationController
     case params[:provider]
     when "google"
       @authorization = Google_Auth.new
+    when "foursquare"
+      @authorization = Foursquare_Auth.new
     when "instagram"
       @authorization = Instagram_Auth.new
     when "twitter"
@@ -82,6 +84,8 @@ class AuthorizationsController < ApplicationController
       auth=Google_Auth.new
     when "instagram"
       auth=Instagram_Auth.new
+    when "foursquare"
+      auth = Foursquare_Auth.new
     when "twitter"
       auth=Twitter_Auth.new
       request_token=auth.request_token
