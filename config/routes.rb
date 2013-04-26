@@ -5,6 +5,7 @@ Mano::Application.routes.draw do
   match 'authorizations/new/:provider'=>"authorizations#new"
   resources :authorizations
 
+
   resources :user_sessions
   resources :authentications
   resources :static_pages
@@ -13,8 +14,9 @@ Mano::Application.routes.draw do
   match 'groups/join/:token' => "groups#invited", :as => :invited_to_group, :via => :get
   match 'groups/join/:token' => "groups#join", :as => :join_group, :via => :post
   match 'groups/:id/leave' => "groups#leave", :as => :leave_group, :via => :delete
+  match 'groups/current_status/:id'=>"page#current_status"
   match 'groups/:id/invite' => "group_invitations#new", :as => :new_group_invitation, :via => :get
-  resources :groups
+  resources :groups 
   
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout

@@ -14,6 +14,14 @@ class User < ActiveRecord::Base
     return self.authorizations.find(:first, :conditions => [ "type = 'Instagram_Auth'"])
   end
 
+  def google
+    return self.authorizations.find(:first, :conditions => [ "type = 'Google_Auth'"])
+  end
+
+  def foursquare
+    return self.authorizations.find(:first, :conditions => [ "type = 'Foursquare_Auth'"])
+  end
+
   def new_service_allowed?
     !Authorization.services.delete_if{|a|
       self.authorizations.any?{|b|
@@ -40,5 +48,5 @@ class User < ActiveRecord::Base
     reset_perishable_token!
     Notifier.password_reset_instructions(self).deliver
   end
-  
+
 end
