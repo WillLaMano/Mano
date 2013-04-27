@@ -4,15 +4,26 @@ class PageController < ApplicationController
     @users = @group.users
     @events = {}
     @users.each do |user|
-      @events[user.name]=user.google.get_current_events
+      user_events = user.google.get_current_events
+      @events[user.name] = user_events unless user_events.empty?
     end
+    
     @markers = ActiveSupport::JSON.encode(@users.map do |user|
+      markers = {"sidebar" => user.name}
       google = user.google
-      foursquare = user.foursquare.foursquare_client
-      checkin = foursquare.user_checkins(:limit => 1)["items"][0]
-      description = "#{user.name} last checked into #{checkin["venue"]["name"]}"
-      loc = google.get_current_location
-      {"lat"=> loc["latitude"],"sidebar"=>user.name, "lng"=>loc["longitude"],"title"=>user.name, "description"=>description}
+      foursquare = user.foursquare
+      if foursquare
+        checkin = foursquare.get_last_checkin
+        # FIXME: 4sq and glat would not necessarily be the same location
+        description = "#{user.name} last checked into #{checkin["venue"]["name"]}" unless checkin.nil?
+        markers["description"] = description
+      end
+      if google
+        loc = google.get_current_location
+        markers["lat"] = loc["latitude"] unless loc.nil?
+        markers["lng"] = loc["longitude"] unless loc.nil?
+      end
+      markers
     end)
 
     respond_to do |format|

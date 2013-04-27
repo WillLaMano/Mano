@@ -14,8 +14,8 @@ Mano::Application.routes.draw do
   match 'groups/join/:token' => "groups#invited", :as => :invited_to_group, :via => :get
   match 'groups/join/:token' => "groups#join", :as => :join_group, :via => :post
   match 'groups/:id/leave' => "groups#leave", :as => :leave_group, :via => :delete
-  match 'groups/current_status/:id'=>"page#current_status"
   match 'groups/:id/invite' => "group_invitations#new", :as => :new_group_invitation, :via => :get
+  match 'groups/:id/current_status'=>"page#current_status"
   resources :groups 
   
   match 'login' => "user_sessions#new",      :as => :login
