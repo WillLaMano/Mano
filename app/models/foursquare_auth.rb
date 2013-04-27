@@ -36,5 +36,8 @@ class Foursquare_Auth < Authorization
     Foursquare2::Client.new(:oauth_token => self.auth_token)
   end
 
+  def get_last_checkin
+    self.foursquare_client.user_checkins(:limit => 1)["items"][0]
+  end
 
 end
