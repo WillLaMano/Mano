@@ -52,7 +52,7 @@ class GroupsControllerTest < ActionController::TestCase
     get :edit, :id => @group
     assert_response :success
   end
-  
+
   # update
   test "should update group" do
     old_name = @group.name
@@ -62,9 +62,43 @@ class GroupsControllerTest < ActionController::TestCase
     assert_equal(new_name, assigns(:group).name)
     assert_not_equal(old_name, assigns(:group).name)
   end
-  
+
   # invited
-  # join
+  test "should get group invite" do
+    invitation = FactoryGirl.create(:group_invitation)
+    
+    get :invited, :token => invitation.token
+    assert_response :success
+  end
+
+  # join  
+  test "should join group" do
+    invitation = FactoryGirl.create(:group_invitation)
+    group = invitation.group
+    
+    assert_difference('group.users.size') do
+      post :join, :token => invitation.token
+    end
+    
+    assert_redirected_to group_path(group)
+    assert_equal "You have joined #{group.name}", flash[:notice]
+  end
+
+  test "should redirect the user if he is already a part of the group" do
+    invitation = FactoryGirl.create(:group_invitation)
+    group = invitation.group
+    user = invitation.user
+    UserSession.create(user)
+    
+    get :invited, :token => invitation.token
+    assert_redirected_to group_path(group)
+    assert_equal "You are already a part of #{group.name}.", flash[:notice]
+    
+    post :join, :token => invitation.token
+    assert_redirected_to group_path(group)
+    assert_equal "You are already a part of #{group.name}.", flash[:notice]
+  end
+
   # leave
   test "should leave group" do
     assert_difference('@group.users.count', -1) do
