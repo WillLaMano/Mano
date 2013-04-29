@@ -53,6 +53,7 @@ class GroupsController < ApplicationController
     end
   end
   
+  # TODO: Make the invitation sign up more seamless
   def invited
     @invite = GroupInvitation.find_by_token(params[:token])
     @group = @invite.group
@@ -69,7 +70,7 @@ class GroupsController < ApplicationController
   end
   
   def join
-    # This isn't very DRY
+    # FIXME: This isn't very DRY
     @invite = GroupInvitation.find_by_token(params[:token])
     @group = @invite.group
     @members = @group.users
@@ -83,7 +84,7 @@ class GroupsController < ApplicationController
     
     redirect_to group_path(@group)
     
-    # Delete the invite? Mark for deletion?
+    # TODO: Delete the invite? Mark for deletion?
   end
   
   def leave
