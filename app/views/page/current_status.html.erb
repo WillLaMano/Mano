@@ -1,0 +1,14 @@
+<%= gmaps("markers"=>{"data"=>@markers}) %>
+<br /><br />
+
+<% if !@events.empty? %><h2>Roommie's calendar events </h2><% end %>
+<% @events.each_pair do |name,events| %>
+  <% events.each do |event| %>
+    <% unless event["end"]["dateTime"].nil?%>
+      <%= name %> is at <strong><%= event["summary"] %></strong> til <%= event["end"]["dateTime"].strftime "%I:%M %D" %>
+  <% end %>
+  <br />
+  <% end %>
+<% end %>
+
+
