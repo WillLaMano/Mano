@@ -17,5 +17,6 @@ pickle-email-*.html
 /config/initializers/omniauth.rb
 *.DS_Store
 /config/environments/development.rb
+/config/environments/test.rb
 /config/database.yml
 

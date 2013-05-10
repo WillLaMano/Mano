@@ -34,4 +34,33 @@ Mano::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  config.auth = {
+    :google => {
+      :client_id=>"",
+      :client_secret=>"",
+      :redirect_uri=>"",
+      :scope =>""
+    },
+
+    :instagram => {
+      :client_id=>"",
+      :client_secret=>"",
+      :redirect_uri=>""
+    },
+
+    :twitter => {
+      :client_id=>"",
+      :client_secret=>"",
+      :redirect_uri=>""
+    },
+
+    :facebook => {
+      :client_id=>"",
+      :client_secret=>"",
+      :redirect_uri=>""
+    },
+
+  }
+
 end
