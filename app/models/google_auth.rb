@@ -1,4 +1,4 @@
-class Google_Auth < Authorization
+class GoogleAuth < Authorization
 
   def self.model_name
     Authorization.model_name

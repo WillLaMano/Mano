@@ -11,23 +11,23 @@ class User < ActiveRecord::Base
   end
   
   def instagram
-    return self.authorizations.find(:first, :conditions => [ "type = 'Instagram_Auth'"])
+    return self.authorizations.find(:first, :conditions => [ "type = 'InstagramAuth'"])
   end
   
   def facebook
-    return self.authorizations.find(:first, :conditions => [ "type = 'Facebook_Auth'" ])
+    return self.authorizations.find(:first, :conditions => [ "type = 'FacebookAuth'" ])
   end
   
   def twitter
-    return self.authorizations.find(:first, :conditions => ["type = 'Twitter_Auth'"])
+    return self.authorizations.find(:first, :conditions => ["type = 'TwitterAuth'"])
   end
 
   def google
-    return self.authorizations.find(:first, :conditions => [ "type = 'Google_Auth'"])
+    return self.authorizations.find(:first, :conditions => [ "type = 'GoogleAuth'"])
   end
 
   def foursquare
-    return self.authorizations.find(:first, :conditions => [ "type = 'Foursquare_Auth'"])
+    return self.authorizations.find(:first, :conditions => [ "type = 'FoursquareAuth'"])
   end
 
   def new_service_allowed?

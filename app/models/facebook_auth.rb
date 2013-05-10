@@ -1,4 +1,4 @@
-class Facebook_Auth < Authorization
+class FacebookAuth < Authorization
 
   def self.model_name
     Authorization.model_name

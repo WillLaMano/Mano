@@ -1,4 +1,4 @@
-class Instagram_Auth < Authorization
+class InstagramAuth < Authorization
 
   def self.model_name
     Authorization.model_name

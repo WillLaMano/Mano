@@ -40,25 +40,24 @@ class AuthorizationsController < ApplicationController
   end
 
   def callback
-
     @services = Authorization.services.delete_if{|a|
       current_user.authorizations.any?{|b|
         b.auth_type.downcase==a.downcase
       }}
     case params[:provider]
     when "google"
-      @authorization = Google_Auth.new
+      @authorization = GoogleAuth.new
     when "foursquare"
-      @authorization = Foursquare_Auth.new
+      @authorization = FoursquareAuth.new
     when "instagram"
-      @authorization = Instagram_Auth.new
+      @authorization = InstagramAuth.new
     when "twitter"
-      @authorization = Twitter_Auth.new
+      @authorization = TwitterAuth.new
       @authorization.request_token({:request_token=>session[:request_token],
                                    :request_secret => session[:request_secret]
                                   })
     when "facebook"
-      @authorization = Facebook_Auth.new
+      @authorization = FacebookAuth.new
     end
     @authorization.user=current_user
     @authorization.params=params
@@ -81,18 +80,18 @@ class AuthorizationsController < ApplicationController
   def create
     case params[:provider].downcase
     when "google"
-      auth=Google_Auth.new
+      auth=GoogleAuth.new
     when "instagram"
-      auth=Instagram_Auth.new
+      auth=InstagramAuth.new
     when "foursquare"
-      auth = Foursquare_Auth.new
+      auth = FoursquareAuth.new
     when "twitter"
-      auth=Twitter_Auth.new
+      auth=TwitterAuth.new
       request_token=auth.request_token
       session[:request_token]=request_token.token
       session[:request_secret]=request_token.secret
     when "facebook"
-      auth=Facebook_Auth.new
+      auth=FacebookAuth.new
     end
     respond_to do |format|
       format.html { redirect_to auth.access_url} 
