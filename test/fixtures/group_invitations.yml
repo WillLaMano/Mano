@@ -1,9 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  token: MyString
-  invitee_email: MyString
-
-two:
-  token: MyString
-  invitee_email: MyString
+---
+group_invitations_001:
+  id: '1'
+  token: ecde3173943811004dc75ef33ff815cbf2da4d1f
+  invitee_email: foobar2@foobar.com
+  user_id: '1'
+  group_id: '1'
+  created_at: '2013-04-17 05:31:24.000077'
+  updated_at: '2013-04-17 05:31:24.000077'
