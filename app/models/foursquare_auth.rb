@@ -1,4 +1,4 @@
-class Foursquare_Auth < Authorization
+class FoursquareAuth < Authorization
 
   def self.model_name
     Authorization.model_name
