@@ -59,8 +59,24 @@ class GroupsControllerTest < ActionController::TestCase
     new_name = old_name + "_new"
     put :update, :id => @group, group: { name: new_name }
     assert_redirected_to group_path(@group)
-    assert_equal(new_name, assigns(:group).name)
-    assert_not_equal(old_name, assigns(:group).name)
+    assert_equal(new_name, assigns[:group].name)
+    assert_not_equal(old_name, assigns[:group].name)
+  end
+  
+  test "should not update group to blank name" do
+    old_name = @group.name
+    put :update, :id => @group, group: { name: "" }
+    assert_equal("", assigns(:group).name)
+    assert_template(:edit)
+    assert_not_equal("Group updated!", flash[:notice])
+  end
+
+  test "user cannot update unowned group" do
+    new_group = FactoryGirl.create(:group)
+    put :update, :id => new_group, group: { name: "Yinzers" }
+    assert_not_equal("Group updated!", flash[:notice])
+    assert_redirected_to root_url
+    assert_not_nil(flash[:alert])
   end
 
   # invited
