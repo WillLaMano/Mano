@@ -10,8 +10,11 @@ class PageController < ApplicationController
     @users = @group.users
     @events = {}
     @users.each do |user|
-      user_events = user.google.get_current_events
-      @events[user.name] = user_events unless user_events.empty?
+      ugoogle = user.google
+      unless ugoogle.nil?
+        user_events = user.google.get_current_events
+        @events[user.name] = user_events unless user_events.empty?
+      end
     end
     
     @markers = ActiveSupport::JSON.encode(@users.map do |user|
