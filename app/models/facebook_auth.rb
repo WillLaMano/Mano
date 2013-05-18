@@ -25,7 +25,7 @@ class FacebookAuth < Authorization
   end
 
   def access_token
-    access_token_obj = OAuth2::AccessToken.new(self.access_client,auth_token,:expires_in=>expires_in.to_i)
+    access_token_obj = OAuth2::AccessToken.new(self.access_client,auth_token,:expires_in=>(expires_at-Time.now))
     return access_token_obj
   end
   
