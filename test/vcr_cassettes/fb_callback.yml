@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://graph.facebook.com/oauth/access_token
+    body:
+      encoding: US-ASCII
+      string: grant_type=authorization_code&code=AQBtxU2YfKf0J0iQtRMwLae5X5vcZdZuvr3L-hjTyJHKk0rtSwOmd3Xzo2y06DlXdA7hpwx1uUJ-9coOz5aIbJwy9WCTBkvftQLTp9-4vrnSo21xlA1Vy7gBZOX-z1s2DU5jSgk27uavqYb3H1Ts4jM6UEcdHUCWjQdSRKdsArdaLAZn4k2H7XAmP7XzAaXt7qmv5exvqMzVAegzBryE8Q_9TSnzCR87UXm3oHeKIB_CYcwobxDrmcdNnNi-sP_5-8aE8M-JvDV9j2itPNL5Upbjfd7rIiCDaptZ-ZuQPDh7XAVMMIF0U-xUk0KkOC4Pqlc&client_id=171457066344681&client_secret=4d2fef184b7113006e45b5713013f105&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauthorizations%2Fcallback%2Ffacebook&token_method=post&parsed=facebook
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - text/plain; charset=UTF-8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '810660'
+      X-Fb-Debug:
+      - 7vqnWHGbF/qYzytD75WWyMmOXiGoukCTiC62xS7qrEc=
+      Date:
+      - Fri, 10 May 2013 11:53:48 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '194'
+    body:
+      encoding: US-ASCII
+      string: access_token=CAACb8HWIoOkBAAZAXDsB2UZAbjHAJnZBrlkrC8OsvNVKZCiU5rgjrcPEiByPcQ4uh4hH8Tn4w3mqjiaqMA2ZBGTLSb9Sym0nfogoyIhqLmvG9Q3fGkfJ1ZCwZC4KoXGO52cdOxWhyinF9DL1nas8IFowkyzU7G50PIZD&expires=5181906
+    http_version: 
+  recorded_at: Fri, 10 May 2013 11:53:47 GMT
+recorded_with: VCR 2.4.0
