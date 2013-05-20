@@ -3,8 +3,7 @@ Mano::Application.routes.draw do
   match 'groups/:id/feed' => "page#feed"
   get "activations/create"
 
-  match 'authorizations/callback/:provider'=>"authorizations#callback"
-  match 'authorizations/new/:provider'=>"authorizations#new"
+  match 'authorizations/callback/:provider'=>"authorizations#callback", :as=>"auth_callback"
   resources :authorizations
 
 
