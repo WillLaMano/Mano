@@ -17,10 +17,10 @@ class AuthorizationsControllerTest < ActionController::TestCase
     assert_redirected_to @fb_auth.access_url, "Redirect to FBAuth Access URL"
   end
 
-  test "Should FB Handle Callback" do
+  test "Should Handle FB Callback" do
     @fb_auth_authorized = FactoryGirl.create :fb_auth_complete
 
-    VCR.use_cassette('fb_callback') do
+    VCR.use_cassette('fb/auth_callback') do
       get :callback, :provider => "facebook",:code=> "AQBtxU2YfKf0J0iQtRMwLae5X5vcZdZuvr3L-hjTyJHKk0rtSwOmd3Xzo2y06DlXdA7hpwx1uUJ-9coOz5aIbJwy9WCTBkvftQLTp9-4vrnSo21xlA1Vy7gBZOX-z1s2DU5jSgk27uavqYb3H1Ts4jM6UEcdHUCWjQdSRKdsArdaLAZn4k2H7XAmP7XzAaXt7qmv5exvqMzVAegzBryE8Q_9TSnzCR87UXm3oHeKIB_CYcwobxDrmcdNnNi-sP_5-8aE8M-JvDV9j2itPNL5Upbjfd7rIiCDaptZ-ZuQPDh7XAVMMIF0U-xUk0KkOC4Pqlc"
       received_auth = assigns("authorization")
       assert_equal @fb_auth_authorized.auth_token, received_auth.auth_token, "Check Auth Token is Correct"

@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/me?fields=id
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Authorization:
+      - Bearer CAACb8HWIoOkBAAZAXDsB2UZAbjHAJnZBrlkrC8OsvNVKZCiU5rgjrcPEiByPcQ4uh4hH8Tn4w3mqjiaqMA2ZBGTLSb9Sym0nfogoyIhqLmvG9Q3fGkfJ1ZCwZC4KoXGO52cdOxWhyinF9DL1nas8IFowkyzU7G50PIZD
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json; charset=UTF-8
+      Etag:
+      - ! '"5a4d29a61a695073652281eef38b89a50c688eae"'
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '819514'
+      X-Fb-Debug:
+      - aegM7y3c0u7pLI0wPD/jFwkZZT1pK/cBDrPN6d4D7yM=
+      Date:
+      - Mon, 20 May 2013 15:27:22 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '18'
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":"504653228"}'
+    http_version: 
+  recorded_at: Mon, 20 May 2013 15:27:22 GMT
+recorded_with: VCR 2.4.0
