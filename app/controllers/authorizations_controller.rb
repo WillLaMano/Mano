@@ -12,17 +12,6 @@ class AuthorizationsController < ApplicationController
     end
   end
 
-  # GET /authorizations/1
-  # GET /authorizations/1.json
-  def show
-    @authorization = Authorization.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @authorization }
-    end
-  end
-
   # GET /authorizations/new
   # GET /authorizations/new.json
   def new
@@ -70,11 +59,6 @@ class AuthorizationsController < ApplicationController
     end
   end
 
-  # GET /authorizations/1/edit
-  def edit
-    @authorization = Authorization.find(params[:id])
-  end
-
   # POST /authorizations
   # POST /authorizations.json
   def create
@@ -96,22 +80,6 @@ class AuthorizationsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to auth.access_url} 
       format.json { render json: @authorization }
-    end
-  end
-
-  # PUT /authorizations/1
-  # PUT /authorizations/1.json
-  def update
-    @authorization = Authorization.find(params[:id])
-
-    respond_to do |format|
-      if @authorization.update_attributes(params[:authorization])
-        format.html { redirect_to @authorization, notice: 'Authorization was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @authorization.errors, status: :unprocessable_entity }
-      end
     end
   end
 

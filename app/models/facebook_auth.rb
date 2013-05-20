@@ -20,8 +20,7 @@ class FacebookAuth < Authorization
   end
 
   def access_url
-    permissions = "user_location,user_events,user_photos,user_status"
-    url=self.access_client.auth_code.authorize_url(:response_type => "code", :redirect_uri => Rails.application.config.auth[:facebook][:redirect_uri], :scope => permissions)
+    self.access_client.auth_code.authorize_url(:response_type => "code", :redirect_uri => Rails.application.config.auth[:facebook][:redirect_uri], :scope => Rails.application.config.auth[:facebook][:scope])
   end
 
   def access_token
@@ -30,16 +29,11 @@ class FacebookAuth < Authorization
   end
   
   def facebook_client
-    client = Koala::Facebook::API.new(auth_token)
-    client
+    Koala::Facebook::API.new(auth_token)
   end
 
   def is_expired?
     return self.access_token.expired?
-  end
-
-  def check_valid?(result)
-    true
   end
 
   def check_access_token
