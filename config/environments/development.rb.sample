@@ -66,7 +66,8 @@ Mano::Application.configure do
     :facebook => {
       :client_id=>"",
       :client_secret=>"",
-      :redirect_uri=>"http://localhost:3000/authorizations/callback/facebook"
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/facebook",
+      :scope =>"user_location,user_events,user_photos,user_status"
     }
 
   }
