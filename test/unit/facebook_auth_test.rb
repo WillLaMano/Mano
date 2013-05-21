@@ -19,7 +19,8 @@ class FacebookAuthTest < ActiveSupport::TestCase
       assert_equal "504653228", parsed_response["id"], "Returned Access Token should be valid"
       assert_equal fb_auth.access_client, token.client, "Returned client should be correct"
       assert_equal fb_auth.auth_token,token.token,  "Access Token token should be from DB"
-      assert_equal fb_auth.expires_at.to_i,token.expires_at,  "Access Token Expiration should be from DB"
+      expires_range = fb_auth.expires_at.to_i-10..fb_auth.expires_at.to_i+10
+      assert_include expires_range ,token.expires_at,  "Access Token Expiration should be from DB"
     end
   end
 
