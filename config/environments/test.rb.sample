@@ -58,7 +58,8 @@ Mano::Application.configure do
     :facebook => {
       :client_id=>"",
       :client_secret=>"",
-      :redirect_uri=>""
+      :redirect_uri=>"",
+      :scope =>"user_location,user_events,user_photos,user_status"
     },
 
   }

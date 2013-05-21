@@ -15,5 +15,17 @@ class ActiveSupport::TestCase
     c.hook_into :webmock
   end
 
+
   # Add more helper methods to be used by all tests here...
+end
+
+#mixin a comparator for OAuth2::Client
+module OAuth2
+  class Client
+    def ==(other_client)
+      self.secret==other_client.secret and
+      self.site=other_client.site and
+      self.options=other_client.options
+    end
+  end
 end

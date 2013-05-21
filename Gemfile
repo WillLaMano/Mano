@@ -25,7 +25,8 @@ gem "rack-mini-profiler", "~> 0.1.23"
 
 group :test do
   gem "factory_girl_rails", "~> 4.0"
-gem 'webmock'
+  gem "turn"
+  gem 'webmock'
   gem 'vcr'
 end
 
