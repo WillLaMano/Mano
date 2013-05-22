@@ -6,5 +6,10 @@ FactoryGirl.define do
       auth_token Rails.application.config.vcr_tokens[:facebook][:auth_token]
       expires_at Time.now+5181906
     end
+
+    factory :fb_auth_complete_live do
+      auth_token Rails.application.config.auth[:facebook][:auth_token]
+      expires_at Time.at Rails.application.config.auth[:facebook][:expires_at]
+    end
   end
 end
