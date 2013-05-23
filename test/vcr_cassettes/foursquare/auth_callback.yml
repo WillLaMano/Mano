@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://foursquare.com/oauth2/access_token
+    body:
+      encoding: US-ASCII
+      string: grant_type=authorization_code&code=IU5H4OUIAVLJJ5Z4PYKDX0SFQKQMXTVT4GCSM55S4TMV1YRY&client_id=G4ZCMU02JY15N3VYYAYYLGKUFAX533BLCZ1N2R4OIQO5OBEZ&client_secret=NXQABTZORJVZP1EJYEUUA3WHU54EBQ1RJSTT5EUBTZ0IHG3F&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauthorizations%2Fcallback%2Ffoursquare&token_method=post
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, private, no-store
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 23 May 2013 01:34:01 GMT
+      Expires:
+      - Thu, 23 May 2013 01:34:01 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - nginx/1.2.1
+      Strict-Transport-Security:
+      - max-age=864000
+      Content-Length:
+      - '67'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"access_token":"XSBKF53RKJ3BDNNQ4P1ES4J5O0XJXTYZIZ0NWJRAETYWW4SC"}'
+    http_version: 
+  recorded_at: Thu, 23 May 2013 01:34:00 GMT
+recorded_with: VCR 2.4.0

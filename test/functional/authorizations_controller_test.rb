@@ -9,6 +9,7 @@ class AuthorizationsControllerTest < ActionController::TestCase
   setup do
     @fb_auth = FactoryGirl.create :facebook_auth
     @ig_auth = FactoryGirl.create :instagram_auth
+    @foursquare_auth = FactoryGirl.create :foursquare_auth
     @user = @fb_auth.user
     @session = UserSession.create(@user)
 
@@ -44,6 +45,21 @@ class AuthorizationsControllerTest < ActionController::TestCase
     end
   end
   
+  test "should Foursquare redirect to correct url" do
+    check_correct_url("foursquare",@foursquare_auth)
+  end
+
+  test "Should Handle Foursquare Callback" do
+     @foursquare_auth_authorized = FactoryGirl.create :foursquare_auth_complete
+
+    VCR.use_cassette('foursquare/auth_callback') do
+      get :callback, :provider => "foursquare",:code=> "IU5H4OUIAVLJJ5Z4PYKDX0SFQKQMXTVT4GCSM55S4TMV1YRY"
+      received_auth = assigns("authorization")
+      assert_equal @foursquare_auth_authorized.auth_token, received_auth.auth_token, "Check Auth Token is Correct"
+      assert_instance_of FoursquareAuth, received_auth, "Check returned auth is a Foursquare auth"
+    end
+  end
+
   test "Should Destroy Authorization" do
     assert_difference("Authorization.count",-1, "Check delete actually works") do
       delete :destroy, id: @fb_auth
