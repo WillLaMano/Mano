@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.instagram.com/v1/users/self.json?access_token=35119537.4019d1f.7491467b1c044eb393ed563d91169c01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Authorization:
+      - Bearer 35119537.4019d1f.7491467b1c044eb393ed563d91169c01
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Q29udGVudC1MYW5ndWFnZQ==":
+      - !binary |-
+        ZW4=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        VGh1LCAyMyBNYXkgMjAxMyAwMDowMjoxNiBHTVQ=
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "U2V0LUNvb2tpZQ==":
+      - !binary |-
+        Y3NyZnRva2VuPTBjZTAwNTMxOWFiYjk1Nzk4ZjBjZTIzNjVhMzFlYzRiOyBl
+        eHBpcmVzPVRodSwgMjItTWF5LTIwMTQgMDA6MDI6MTYgR01UOyBNYXgtQWdl
+        PTMxNDQ5NjAwOyBQYXRoPS8=
+      !binary "VmFyeQ==":
+      - !binary |-
+        Q29va2llLCBBY2NlcHQtTGFuZ3VhZ2UsIEFjY2VwdC1FbmNvZGluZw==
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        NTAwMA==
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        NDk5OA==
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        MjA4
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAIhcnVEC/z2PyQ7CMAxEfwX5jLpQQmmPHPmGSlHamBJI6pJFCKH+O0Ys
+        N/tpxp55gsOooH3CQBqh3RTFsgatPiwF9JNyzOFC6PrkRwwB1tAbYsbDHftg
+        In6W2dPJWJSzGWLyb3iOcW67vMuNU2zN1DUzU4hq9MplA7ku/3rCf5KVKMtG
+        VLWsRbjJshLbuhGF2GWXeeQnp2St/IY6Eq4O/1ADpSmGd26H2nCBZs9yspbu
+        qGX/gFaUP8CyjeCmRvOZ30dYlhc36XgvEAEAAA==
+    http_version: 
+  recorded_at: Thu, 23 May 2013 00:02:15 GMT
+recorded_with: VCR 2.4.0
