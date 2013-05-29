@@ -22,6 +22,10 @@ class TwitterAuth < Authorization
     auth_client_obj
   end
 
+  def access_token
+    OAuth::AccessToken.new(access_client, auth_token,auth_secret)
+  end
+
   def request_token(args={})
     client = self.access_client
     if args[:request_token].nil?
