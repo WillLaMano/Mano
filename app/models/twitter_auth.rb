@@ -1,4 +1,4 @@
-class Twitter_Auth < Authorization
+class TwitterAuth < Authorization
 
   attr_accessible :auth_secret
 
@@ -32,7 +32,8 @@ class Twitter_Auth < Authorization
   end
 
   def access_url
-    @request_token.authorize_url
+    token = @request_token || request_token
+    token.authorize_url
   end
 
   def twitter_client
