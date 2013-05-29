@@ -56,7 +56,7 @@ class AuthorizationsControllerTest < ActionController::TestCase
   end
 
   test "Should Handle Twitter Callback" do
-     # @twitter_auth_authorized = FactoryGirl.create :twitter_auth_complete
+     @twitter_auth_authorized = FactoryGirl.create :twitter_auth_complete
 
     VCR.use_cassette('twitter/auth_callback') do
       @request.session["request_token"] = "0TghjHAUMDgDcqM6dH2PwlWM299I2Mjbzkm5LTbFEtU"
@@ -65,7 +65,7 @@ class AuthorizationsControllerTest < ActionController::TestCase
           "oauth_token"=>"0TghjHAUMDgDcqM6dH2PwlWM299I2Mjbzkm5LTbFEtU", 
           "oauth_verifier"=>"PaFpWDliZ7aoAhfn1zpLfKwyZrBNGsstkZcq9QuZbwo")
       received_auth = assigns("authorization")
-      # assert_equal @twitter_auth_authorized.auth_token, received_auth.auth_token, "Check Auth Token is Correct"
+      assert_equal @twitter_auth_authorized.auth_token, received_auth.auth_token, "Check Auth Token is Correct"
       assert_instance_of TwitterAuth, received_auth, "Check returned auth is a Twitter auth"
     end
   end
