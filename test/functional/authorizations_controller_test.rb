@@ -9,6 +9,7 @@ class AuthorizationsControllerTest < ActionController::TestCase
   setup do
     @fb_auth = FactoryGirl.create :facebook_auth
     @ig_auth = FactoryGirl.create :instagram_auth
+    @twitter_auth = FactoryGirl.create :twitter_auth
     @user = @fb_auth.user
     @session = UserSession.create(@user)
 
@@ -44,6 +45,30 @@ class AuthorizationsControllerTest < ActionController::TestCase
     end
   end
   
+  test "should Twitter redirect to correct url" do
+    # Allow playback repeats because Twitter_Auth hits server to get unique
+    # access_url. I want the functionality to be identical given the same 
+    # response from Twitter.
+    
+    VCR.use_cassette("twitter/access_url", :allow_playback_repeats => true) do
+      check_correct_url("twitter",@twitter_auth)
+    end
+  end
+
+  test "Should Handle Twitter Callback" do
+     # @twitter_auth_authorized = FactoryGirl.create :twitter_auth_complete
+
+    VCR.use_cassette('twitter/auth_callback') do
+      @request.session["request_token"] = "0TghjHAUMDgDcqM6dH2PwlWM299I2Mjbzkm5LTbFEtU"
+      @request.session["request_secret"] = "Xvz6JdLNmbWRunMQz04Fn4VQYOLr5opXwZWKussM"
+      get(:callback, :provider => "twitter",
+          "oauth_token"=>"0TghjHAUMDgDcqM6dH2PwlWM299I2Mjbzkm5LTbFEtU", 
+          "oauth_verifier"=>"PaFpWDliZ7aoAhfn1zpLfKwyZrBNGsstkZcq9QuZbwo")
+      received_auth = assigns("authorization")
+      # assert_equal @twitter_auth_authorized.auth_token, received_auth.auth_token, "Check Auth Token is Correct"
+      assert_instance_of TwitterAuth, received_auth, "Check returned auth is a Twitter auth"
+    end
+  end
   test "Should Destroy Authorization" do
     assert_difference("Authorization.count",-1, "Check delete actually works") do
       delete :destroy, id: @fb_auth
