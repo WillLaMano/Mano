@@ -1,0 +1,233 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/discovery/v1/apis/latitude/v1/rest
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - google-api-ruby-client/0.6.3 Linux/3.8.0-030800-generic
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Fri, 31 May 2013 00:52:31 GMT
+      Date:
+      - Fri, 31 May 2013 00:47:31 GMT
+      Etag:
+      - ! '"0kaFfN0xfjZjASExv-gUnrWhdto/SBUiHvY_omwVBCSErpnpITu6tVY"'
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Cache-Control:
+      - public, max-age=300, must-revalidate, no-transform
+      Age:
+      - '38'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: ! "{\n \"kind\": \"discovery#restDescription\",\n \"etag\": \"\\\"0kaFfN0xfjZjASExv-gUnrWhdto/SBUiHvY_omwVBCSErpnpITu6tVY\\\"\",\n
+        \"discoveryVersion\": \"v1\",\n \"id\": \"latitude:v1\",\n \"name\": \"latitude\",\n
+        \"version\": \"v1\",\n \"revision\": \"20120710\",\n \"title\": \"Google Latitude
+        API\",\n \"description\": \"Lets you read and update your current location
+        and work with your location history\",\n \"ownerDomain\": \"google.com\",\n
+        \"ownerName\": \"Google\",\n \"icons\": {\n  \"x16\": \"http://www.google.com/images/icons/product/search-16.gif\",\n
+        \ \"x32\": \"http://www.google.com/images/icons/product/search-32.gif\"\n
+        },\n \"documentationLink\": \"https://developers.google.com/latitude/v1/using\",\n
+        \"protocol\": \"rest\",\n \"baseUrl\": \"https://www.googleapis.com/latitude/v1/\",\n
+        \"basePath\": \"/latitude/v1/\",\n \"rootUrl\": \"https://www.googleapis.com/\",\n
+        \"servicePath\": \"latitude/v1/\",\n \"batchPath\": \"batch\",\n \"parameters\":
+        {\n  \"alt\": {\n   \"type\": \"string\",\n   \"description\": \"Data format
+        for the response.\",\n   \"default\": \"json\",\n   \"enum\": [\n    \"atom\",\n
+        \   \"json\"\n   ],\n   \"enumDescriptions\": [\n    \"Responses with Content-Type
+        of application/atom+xml\",\n    \"Responses with Content-Type of application/json\"\n
+        \  ],\n   \"location\": \"query\"\n  },\n  \"fields\": {\n   \"type\": \"string\",\n
+        \  \"description\": \"Selector specifying which fields to include in a partial
+        response.\",\n   \"location\": \"query\"\n  },\n  \"key\": {\n   \"type\":
+        \"string\",\n   \"description\": \"API key. Your API key identifies your project
+        and provides you with API access, quota, and reports. Required unless you
+        provide an OAuth 2.0 token.\",\n   \"location\": \"query\"\n  },\n  \"oauth_token\":
+        {\n   \"type\": \"string\",\n   \"description\": \"OAuth 2.0 token for the
+        current user.\",\n   \"location\": \"query\"\n  },\n  \"prettyPrint\": {\n
+        \  \"type\": \"boolean\",\n   \"description\": \"Returns response with indentations
+        and line breaks.\",\n   \"default\": \"false\",\n   \"location\": \"query\"\n
+        \ },\n  \"quotaUser\": {\n   \"type\": \"string\",\n   \"description\": \"Available
+        to use for quota purposes for server-side applications. Can be any arbitrary
+        string assigned to a user, but should not exceed 40 characters. Overrides
+        userIp if both are provided.\",\n   \"location\": \"query\"\n  },\n  \"userIp\":
+        {\n   \"type\": \"string\",\n   \"description\": \"IP address of the site
+        where the request originates. Use this if you want to enforce per-user limits.\",\n
+        \  \"location\": \"query\"\n  }\n },\n \"auth\": {\n  \"oauth2\": {\n   \"scopes\":
+        {\n    \"https://www.googleapis.com/auth/latitude.all.best\": {\n     \"description\":
+        \"Manage your best-available location and location history\"\n    },\n    \"https://www.googleapis.com/auth/latitude.all.city\":
+        {\n     \"description\": \"Manage your city-level location and location history\"\n
+        \   },\n    \"https://www.googleapis.com/auth/latitude.current.best\": {\n
+        \    \"description\": \"Manage your best-available location\"\n    },\n    \"https://www.googleapis.com/auth/latitude.current.city\":
+        {\n     \"description\": \"Manage your city-level location\"\n    }\n   }\n
+        \ }\n },\n \"features\": [\n  \"dataWrapper\"\n ],\n \"schemas\": {\n  \"LatitudeCurrentlocationResourceJson\":
+        {\n   \"$ref\": \"Location\"\n  },\n  \"Location\": {\n   \"id\": \"Location\",\n
+        \  \"type\": \"object\",\n   \"description\": \"A Location resource identifies
+        a user's position at a particular time. It may include metadata about the
+        user's position, such as a venue if the location was recorded at the time
+        of a check-in.\",\n   \"properties\": {\n    \"accuracy\": {\n     \"type\":
+        \"any\",\n     \"description\": \"Accuracy of the latitude and longitude coordinates,
+        in non-negative meters. Optional.\"\n    },\n    \"activityId\": {\n     \"type\":
+        \"any\",\n     \"description\": \"Unique ID of the Buzz message that corresponds
+        to the check-in associated with this location. Available only for check-in
+        locations. Optional.\"\n    },\n    \"altitude\": {\n     \"type\": \"any\",\n
+        \    \"description\": \"Altitude of the location, in meters. Optional.\"\n
+        \   },\n    \"altitudeAccuracy\": {\n     \"type\": \"any\",\n     \"description\":
+        \"Accuracy of the altitude value, in meters. Optional.\"\n    },\n    \"heading\":
+        {\n     \"type\": \"any\",\n     \"description\": \"Direction of travel of
+        the user when this location was recorded. In degrees, clockwise relative to
+        true north. Optional.\"\n    },\n    \"kind\": {\n     \"type\": \"string\",\n
+        \    \"description\": \"Kind of this item.\",\n     \"default\": \"latitude#location\"\n
+        \   },\n    \"latitude\": {\n     \"type\": \"any\",\n     \"description\":
+        \"Latitude of the location, in decimal degrees.\"\n    },\n    \"longitude\":
+        {\n     \"type\": \"any\",\n     \"description\": \"Longitude of the location,
+        in decimal degrees.\"\n    },\n    \"speed\": {\n     \"type\": \"any\",\n
+        \    \"description\": \"Ground speed of the user at the time this location
+        was recorded, in meters per second. Non-negative. Optional.\"\n    },\n    \"timestampMs\":
+        {\n     \"type\": \"any\",\n     \"description\": \"Timestamp of the Location
+        Resource, in milliseconds since the epoch (UTC). This is also the Location
+        Resource's unique id.\"\n    }\n   }\n  },\n  \"LocationFeed\": {\n   \"id\":
+        \"LocationFeed\",\n   \"type\": \"object\",\n   \"properties\": {\n    \"items\":
+        {\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"Location\"\n
+        \    }\n    },\n    \"kind\": {\n     \"type\": \"string\",\n     \"default\":
+        \"latitude#locationFeed\"\n    }\n   }\n  }\n },\n \"resources\": {\n  \"currentLocation\":
+        {\n   \"methods\": {\n    \"delete\": {\n     \"id\": \"latitude.currentLocation.delete\",\n
+        \    \"path\": \"currentLocation\",\n     \"httpMethod\": \"DELETE\",\n     \"description\":
+        \"Deletes the authenticated user's current location.\",\n     \"scopes\":
+        [\n      \"https://www.googleapis.com/auth/latitude.all.best\",\n      \"https://www.googleapis.com/auth/latitude.all.city\",\n
+        \     \"https://www.googleapis.com/auth/latitude.current.best\",\n      \"https://www.googleapis.com/auth/latitude.current.city\"\n
+        \    ]\n    },\n    \"get\": {\n     \"id\": \"latitude.currentLocation.get\",\n
+        \    \"path\": \"currentLocation\",\n     \"httpMethod\": \"GET\",\n     \"description\":
+        \"Returns the authenticated user's current location.\",\n     \"parameters\":
+        {\n      \"granularity\": {\n       \"type\": \"string\",\n       \"description\":
+        \"Granularity of the requested location.\",\n       \"default\": \"city\",\n
+        \      \"enum\": [\n        \"best\",\n        \"city\"\n       ],\n       \"enumDescriptions\":
+        [\n        \"Request best available granularity.\",\n        \"Request city-level
+        granularty.\"\n       ],\n       \"location\": \"query\"\n      }\n     },\n
+        \    \"response\": {\n      \"$ref\": \"LatitudeCurrentlocationResourceJson\"\n
+        \    },\n     \"scopes\": [\n      \"https://www.googleapis.com/auth/latitude.all.best\",\n
+        \     \"https://www.googleapis.com/auth/latitude.all.city\",\n      \"https://www.googleapis.com/auth/latitude.current.best\",\n
+        \     \"https://www.googleapis.com/auth/latitude.current.city\"\n     ]\n
+        \   },\n    \"insert\": {\n     \"id\": \"latitude.currentLocation.insert\",\n
+        \    \"path\": \"currentLocation\",\n     \"httpMethod\": \"POST\",\n     \"description\":
+        \"Updates or creates the user's current location.\",\n     \"request\": {\n
+        \     \"$ref\": \"LatitudeCurrentlocationResourceJson\"\n     },\n     \"response\":
+        {\n      \"$ref\": \"LatitudeCurrentlocationResourceJson\"\n     },\n     \"scopes\":
+        [\n      \"https://www.googleapis.com/auth/latitude.all.best\",\n      \"https://www.googleapis.com/auth/latitude.all.city\",\n
+        \     \"https://www.googleapis.com/auth/latitude.current.best\",\n      \"https://www.googleapis.com/auth/latitude.current.city\"\n
+        \    ]\n    }\n   }\n  },\n  \"location\": {\n   \"methods\": {\n    \"delete\":
+        {\n     \"id\": \"latitude.location.delete\",\n     \"path\": \"location/{locationId}\",\n
+        \    \"httpMethod\": \"DELETE\",\n     \"description\": \"Deletes a location
+        from the user's location history.\",\n     \"parameters\": {\n      \"locationId\":
+        {\n       \"type\": \"string\",\n       \"description\": \"Timestamp of the
+        location to delete (ms since epoch).\",\n       \"required\": true,\n       \"location\":
+        \"path\"\n      }\n     },\n     \"parameterOrder\": [\n      \"locationId\"\n
+        \    ],\n     \"scopes\": [\n      \"https://www.googleapis.com/auth/latitude.all.best\",\n
+        \     \"https://www.googleapis.com/auth/latitude.all.city\"\n     ]\n    },\n
+        \   \"get\": {\n     \"id\": \"latitude.location.get\",\n     \"path\": \"location/{locationId}\",\n
+        \    \"httpMethod\": \"GET\",\n     \"description\": \"Reads a location from
+        the user's location history.\",\n     \"parameters\": {\n      \"granularity\":
+        {\n       \"type\": \"string\",\n       \"description\": \"Granularity of
+        the location to return.\",\n       \"default\": \"city\",\n       \"enum\":
+        [\n        \"best\",\n        \"city\"\n       ],\n       \"enumDescriptions\":
+        [\n        \"Request best available granularity.\",\n        \"Request city-level
+        granularty.\"\n       ],\n       \"location\": \"query\"\n      },\n      \"locationId\":
+        {\n       \"type\": \"string\",\n       \"description\": \"Timestamp of the
+        location to read (ms since epoch).\",\n       \"required\": true,\n       \"location\":
+        \"path\"\n      }\n     },\n     \"parameterOrder\": [\n      \"locationId\"\n
+        \    ],\n     \"response\": {\n      \"$ref\": \"Location\"\n     },\n     \"scopes\":
+        [\n      \"https://www.googleapis.com/auth/latitude.all.best\",\n      \"https://www.googleapis.com/auth/latitude.all.city\"\n
+        \    ]\n    },\n    \"insert\": {\n     \"id\": \"latitude.location.insert\",\n
+        \    \"path\": \"location\",\n     \"httpMethod\": \"POST\",\n     \"description\":
+        \"Inserts or updates a location in the user's location history.\",\n     \"request\":
+        {\n      \"$ref\": \"Location\"\n     },\n     \"response\": {\n      \"$ref\":
+        \"Location\"\n     },\n     \"scopes\": [\n      \"https://www.googleapis.com/auth/latitude.all.best\",\n
+        \     \"https://www.googleapis.com/auth/latitude.all.city\"\n     ]\n    },\n
+        \   \"list\": {\n     \"id\": \"latitude.location.list\",\n     \"path\":
+        \"location\",\n     \"httpMethod\": \"GET\",\n     \"description\": \"Lists
+        the user's location history.\",\n     \"parameters\": {\n      \"granularity\":
+        {\n       \"type\": \"string\",\n       \"description\": \"Granularity of
+        the requested locations.\",\n       \"default\": \"city\",\n       \"enum\":
+        [\n        \"best\",\n        \"city\"\n       ],\n       \"enumDescriptions\":
+        [\n        \"Request best available granularity.\",\n        \"Request city-level
+        granularty.\"\n       ],\n       \"location\": \"query\"\n      },\n      \"max-results\":
+        {\n       \"type\": \"string\",\n       \"description\": \"Maximum number
+        of locations to return.\",\n       \"location\": \"query\"\n      },\n      \"max-time\":
+        {\n       \"type\": \"string\",\n       \"description\": \"Maximum timestamp
+        of locations to return (ms since epoch).\",\n       \"location\": \"query\"\n
+        \     },\n      \"min-time\": {\n       \"type\": \"string\",\n       \"description\":
+        \"Minimum timestamp of locations to return (ms since epoch).\",\n       \"location\":
+        \"query\"\n      }\n     },\n     \"response\": {\n      \"$ref\": \"LocationFeed\"\n
+        \    },\n     \"scopes\": [\n      \"https://www.googleapis.com/auth/latitude.all.best\",\n
+        \     \"https://www.googleapis.com/auth/latitude.all.city\"\n     ]\n    }\n
+        \  }\n  }\n }\n}\n"
+    http_version: 
+  recorded_at: Fri, 31 May 2013 00:48:09 GMT
+- request:
+    method: get
+    uri: https://www.googleapis.com/latitude/v1/currentLocation?granularity=best
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - google-api-ruby-client/0.6.3 Linux/3.8.0-030800-generic
+      Authorization:
+      - Bearer ya29.AHES6ZS7kwkYEYtnKukriPzu9MowigcOOzNL1pfyrZuN4DoKgnbRVg
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Fri, 31 May 2013 00:48:10 GMT
+      Date:
+      - Fri, 31 May 2013 00:48:10 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - ! '"cLqu1SLuPYIaDHabFSWskYkuS6A/eDpeDGcjjsYaoiKVPu18gxbQfVY"'
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: ! '{"data":{"kind":"latitude#location","timestampMs":"1369960405323","latitude":42.3475777,"longitude":-71.0633747,"accuracy":717}}'
+    http_version: 
+  recorded_at: Fri, 31 May 2013 00:48:10 GMT
+recorded_with: VCR 2.4.0

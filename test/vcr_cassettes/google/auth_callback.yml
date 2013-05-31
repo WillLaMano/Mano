@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://accounts.google.com/o/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=authorization_code&code=4%2FWLsBLvLWgqB1FtMJpRkNpoDq2L9c.8vBDqH8jXeYTmmS0T3UFEsPcuzTmfQI&client_id=88201208481.apps.googleusercontent.com&client_secret=tHuoUp7R5SncqBjJy7TkhN8r&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauthorizations%2Fcallback%2Fgoogle&token_method=post
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Date:
+      - Thu, 30 May 2013 01:42:31 GMT
+      Content-Type:
+      - application/json
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: ! "{\n  \"access_token\" : \"ya29.AHES6ZS7kwkYEYtnKukriPzu9MowigcOOzNL1pfyrZuN4DoKgnbRVg\",\n
+        \ \"token_type\" : \"Bearer\",\n  \"expires_in\" : 3600,\n  \"id_token\" :
+        \"eyJhbGciOiJSUzI1NiIsImtpZCI6IjA2ZTUzNDk5ZTQ5NDExNjM0ZDFiNDBjYjU0Y2U2YjM4YzFhNzkzYjkifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiaWQiOiIxMTU2NjQwMTM5MTA0NzU0MDMyODIiLCJzdWIiOiIxMTU2NjQwMTM5MTA0NzU0MDMyODIiLCJ0b2tlbl9oYXNoIjoidEJwVWxTQXVZZFRnVUdWZVg0U2xJQSIsImF0X2hhc2giOiJ0QnBVbFNBdVlkVGdVR1ZlWDRTbElBIiwiY2lkIjoiODgyMDEyMDg0ODEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhenAiOiI4ODIwMTIwODQ4MS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6Ijg4MjAxMjA4NDgxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiaWF0IjoxMzY5ODc3ODUyLCJleHAiOjEzNjk4ODE3NTJ9.s2UZrB1gKd2r9VWUyTuD7S2lCddgYhsVoxrTaNtLRBaO5Lxvg2BLlqFXsWVZZtyqJ7CX7z5S9UCaqdByvVP4-IPk5iJ_vuMJRjnIheqcffqKmf-778dlZrsX4oZqo0jZd9CiiqP_4TZfz9mOFdlun30B79TAP4VKBlZeIDqV0kM\",\n
+        \ \"refresh_token\" : \"1/dEVsWtxoYW7_XY7TX5oCHgZubOGa5ZlV_Oqktqp0RWw\"\n}"
+    http_version: 
+  recorded_at: Thu, 30 May 2013 01:42:32 GMT
+recorded_with: VCR 2.4.0
