@@ -1,0 +1,88 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.foursquare.com/v2/users/self/checkins?limit=1&oauth_token=XSBKF53RKJ3BDNNQ4P1ES4J5O0XJXTYZIZ0NWJRAETYWW4SC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby gem
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        VGh1LCAyMyBNYXkgMjAxMyAwMjozNTo0NiBHTVQ=
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbngvMS4yLjE=
+      !binary "U3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eQ==":
+      - !binary |-
+        bWF4LWFnZT04NjQwMDA=
+      !binary "VHJhY2VyLVRpbWU=":
+      - !binary |-
+        MjE=
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        MA==
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        MA==
+      !binary "VHJhbnNmZXItRW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA4VWa2/bOBD8K4IOONwBjvV++VviPtKmeaBJL2lPQUGbVMyz
+        JKoU5TQo/N9vVpYTJ+35Phi2tORyZ3Zm6R92JQyzJz/sueLCnviuO7KF1kpf
+        PTR4trlotJgzI7g9BF5hgywRuigFa4XVaLWSXFistg4v3lkroVupassoi62U
+        5FbRmU4Lq0/aji+FsBbGNJPcyZ2ZNOPyIXdWD/dTtrLXI7tWRhYS5yFFa0/+
+        /mGbTR27gSvNHlCNNKKiyrtaC8anqquNPXHX69uRrUXbIAEAANhCzJeSshHI
+        flGQpeFm/+YMyQEn8jKe8DkPs1REnPlhzOdBnEQ4aY4DwMAh8ntBnPlJlEbB
+        aFvacABV1J6yB6XtidGdQFxW4ouqicbDSmjAyp0zcf/1s9JLrN6Gz4uiFUh9
+        4IcgfyXqrq+7LyqcRSKOAl5kccgi3y2idO5nIsD2mlWU+ViWBnQfqZa+Xqn7
+        2uCTO29kzeq5ZKX1SrYGhxsComrD8AtUNItNZbGXRFHsum6MeKF0xQygXgzR
+        PxD+08KCg34FOlSqTXcoB+McTINDO82sI60Yty77Y7Rq20ujBcGyZ+a+tqYd
+        6qusY9VBMr9bbzSrl6WscWbJsCj0x0GUhKnruVkSJrEbIVDfgZTEG7tR4Idh
+        6AZJEiX+yG6AlZXTXrC263ueS9CkecBhGx7wjCWG+Dk9pCD1XVP8Uw3ZUJmI
+        thSZ08tL0t6c1apGk8pPmuRNKm17mRaq0+23jmkxnqsKcs2dRc/6waxn/YAP
+        rBdbzg/4wHnu7Okg2epOaYlCSOlDw9FizlMeplmacq9gWeAlAalw23BlRInH
+        puw0K88GFdBLwtMulDa7L/FOou17AcnqLneeqskdo9lKlIBJaccNGoHzgL82
+        VKoNAyKMNuJHDadpY8N0jZYVI5JJ/eRCjAKYGZNj8AO1BPufLDl4Nsx8CB/C
+        0O3wxsti8pdshucgI+XJJTH15OKRfadV12zYG+aEMgukQbl9y+0J0tCc2Kzp
+        GfaSNE6woJC63TJ1IlaDFh9ffRxjzZ2ouYCf7YqVAs8wjVHPqJStOw7bb3Jc
+        C5M7hKGR37+aRVfN2tw5Onn7/ux98OH69Nh7G57cjP9piEoA2wXihT26dkPO
+        z5iG8YONA6id4XW7vsXmharEdGOAQ1MymHxkvSXhzySV2+98dL65l7A4oVoS
+        bC14BX2AEDYXM6WWCESJl0ZJkEb2ej0alOl5QeoHvRKLHeoumWYL7C7ZI3VH
+        z6grxB7yvD3knbwLLm4+Xk2vr6/9m79ef/o1ecTdDvwTqZcggI+sdx9Q1X78
+        leQ0DmLXfwHfTYIYcyXYgR9GSeJmfj8ld+BfsI7M+J/o92DfJ5yr889T7/Qm
+        eH3++vOXs5vjX2MPnmOfsmqmJb8TI6ufevvBNzM2Y6j7OXQvydw49WIgh7Qw
+        T7pqY2q794j1cWT1HbeOYH8Cbx3R7CRv2pOClS3uvZkQ9bHQ/S02KNYL4HAk
+        Wm6nQb+npb8VMPTPkue4nHZc7D25mAQ/HLjrIaR/zEKOeFZQb9sXq7dTgRbT
+        hfIibMR3MwwfFysw96vN9HscPzhxN0eLS2LeQx7m9NOtYeFatQ5rrvF3CGx3
+        /3O90G1S4i7Nnd9yB1Lut1E71ut/AYpvjrqvCQAA
+    http_version: 
+  recorded_at: Thu, 23 May 2013 02:35:45 GMT
+recorded_with: VCR 2.4.0

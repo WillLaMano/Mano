@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.instagram.com/oauth/access_token
+    body:
+      encoding: US-ASCII
+      string: grant_type=authorization_code&code=eb9e7974fb02478ba8dfa84a58a57532&client_id=4019d1f725d6486a9f30ff5c1c0182e1&client_secret=d234678280d3405abaee06748aa84399&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauthorizations%2Fcallback%2Finstagram&token_method=post
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Language:
+      - en
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 May 2013 20:33:50 GMT
+      Server:
+      - nginx
+      Set-Cookie:
+      - csrftoken=9d7286b078719ff9943445643ef8b49e; expires=Wed, 21-May-2014 20:33:50
+        GMT; Max-Age=31449600; Path=/
+      Vary:
+      - Cookie, Accept-Language, Accept-Encoding
+      Content-Length:
+      - '267'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"access_token":"35119537.4019d1f.7491467b1c044eb393ed563d91169c01","user":{"username":"joemburgess","bio":"","website":"","profile_picture":"http:\/\/images.ak.instagram.com\/profiles\/profile_35119537_75sq_1354795056.jpg","full_name":"Joe
+        Burgess","id":"35119537"}}'
+    http_version: 
+  recorded_at: Wed, 22 May 2013 20:33:49 GMT
+recorded_with: VCR 2.4.0

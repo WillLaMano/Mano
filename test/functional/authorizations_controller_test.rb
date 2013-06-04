@@ -1,20 +1,22 @@
 require 'test_helper'
+require 'helpers/authorizations_helper'
 
 class AuthorizationsControllerTest < ActionController::TestCase
-
+  include AuthorizationsTestHelper
   setup :activate_authlogic
 
 
   setup do
     @fb_auth = FactoryGirl.create :facebook_auth
+    @ig_auth = FactoryGirl.create :instagram_auth
+    @foursquare_auth = FactoryGirl.create :foursquare_auth
     @user = @fb_auth.user
     @session = UserSession.create(@user)
 
   end
 
   test "should FB redirect to correct url" do
-    post :create, :provider=>"facebook"
-    assert_redirected_to @fb_auth.access_url, "Redirect to FBAuth Access URL"
+    check_correct_url("facebook",@fb_auth)
   end
 
   test "Should Handle FB Callback" do
@@ -25,6 +27,36 @@ class AuthorizationsControllerTest < ActionController::TestCase
       received_auth = assigns("authorization")
       assert_equal @fb_auth_authorized.auth_token, received_auth.auth_token, "Check Auth Token is Correct"
       assert_instance_of FacebookAuth, received_auth, "Check returned auth is a FB auth"
+    end
+  end
+
+  test "should Instagram redirect to correct url" do
+    check_correct_url("instagram",@ig_auth)
+  end
+
+  test "Should Handle Instagram Callback" do
+     @ig_auth_authorized = FactoryGirl.create :ig_auth_complete
+
+    VCR.use_cassette('ig/auth_callback') do
+      get :callback, :provider => "instagram",:code=> "eb9e7974fb02478ba8dfa84a58a57532"
+      received_auth = assigns("authorization")
+      assert_equal @ig_auth_authorized.auth_token, received_auth.auth_token, "Check Auth Token is Correct"
+      assert_instance_of InstagramAuth, received_auth, "Check returned auth is a FB auth"
+    end
+  end
+  
+  test "should Foursquare redirect to correct url" do
+    check_correct_url("foursquare",@foursquare_auth)
+  end
+
+  test "Should Handle Foursquare Callback" do
+     @foursquare_auth_authorized = FactoryGirl.create :foursquare_auth_complete
+
+    VCR.use_cassette('foursquare/auth_callback') do
+      get :callback, :provider => "foursquare",:code=> "IU5H4OUIAVLJJ5Z4PYKDX0SFQKQMXTVT4GCSM55S4TMV1YRY"
+      received_auth = assigns("authorization")
+      assert_equal @foursquare_auth_authorized.auth_token, received_auth.auth_token, "Check Auth Token is Correct"
+      assert_instance_of FoursquareAuth, received_auth, "Check returned auth is a Foursquare auth"
     end
   end
 
