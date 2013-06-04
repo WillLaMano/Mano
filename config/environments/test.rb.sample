@@ -35,6 +35,12 @@ Mano::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
   
+  config.vcr_tokens = {
+    :facebook => {
+      :auth_token =>"CAACb8HWIoOkBAAZAXDsB2UZAbjHAJnZBrlkrC8OsvNVKZCiU5rgjrcPEiByPcQ4uh4hH8Tn4w3mqjiaqMA2ZBGTLSb9Sym0nfogoyIhqLmvG9Q3fGkfJ1ZCwZC4KoXGO52cdOxWhyinF9DL1nas8IFowkyzU7G50PIZD"
+    } 
+  }
+
   config.auth = {
     :google => {
       :client_id=>"",
@@ -55,11 +61,22 @@ Mano::Application.configure do
       :redirect_uri=>""
     },
 
+    # Directions to Get Auth Token
+    # 1. Go to https://developers.facebook.com/tools/explorer/
+    # 2. Hit Get Access Token
+    # 3. Choose the scopes that you want (probably the ones below)
+    # 4. Hit Okay on popup
+    # 5. Hit Debug
+    # 6. The Auth Token is in the textfield at the top
+    # 7. The expires_at is the expires number
+
     :facebook => {
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"",
-      :scope =>"user_location,user_events,user_photos,user_status"
+      :scope =>"user_location,user_events,user_photos,user_status",
+      :auth_token=>"",
+      :expires_at=>""
     },
 
   }
