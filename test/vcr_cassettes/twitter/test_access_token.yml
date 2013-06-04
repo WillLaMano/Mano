@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/account/settings.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Authorization:
+      - OAuth oauth_consumer_key="Oz7l7OK0L23tYXx5xxKfKg", oauth_nonce="CbBpJRjt6uYcaT6f5k5taocxKzpr1U2oARWWxOc3s",
+        oauth_signature="1kF40FRHiX8QwhHf%2FVwm1%2BQzTM0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1369789117", oauth_token="47312435-5jmXLVTIZiawYM544JayOOy2qfjLCNDMNAZhwzJl4",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Length:
+      - '551'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 29 May 2013 00:58:38 GMT
+      Etag:
+      - ! '"4508b83efb2d4985b3c7dcddcaf45790"'
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Wed, 29 May 2013 00:58:38 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tfe
+      Set-Cookie:
+      - _twitter_sess=BAh7BzoPY3JlYXRlZF9hdGwrCKw4y%252B0%252BAToHaWQiJWRhZGVkNDA0NmNlNDUx%250AYWUyZTUyMTc3ZWJmZjFiMzFh--52c890ade3150ce4bda2b007b7b64eb26159c067;
+        domain=.twitter.com; path=/; HttpOnly
+      - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - guest_id=v1%3A136978911846730790; Domain=.twitter.com; Path=/; Expires=Fri,
+        29-May-2015 00:58:38 UTC
+      - lang=en; path=/
+      - lang=en; path=/
+      - lang=en; path=/
+      - twid=u%3D47312435%7CpeJBozW2QpGqadjAhX9n7wyyP6w%3D; domain=.twitter.com; path=/;
+        secure
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      Vary:
+      - Accept-Encoding
+      X-Access-Level:
+      - read
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Mid:
+      - e0fff5c8d780c9cf29b3e6dff62c005243aa6428
+      X-Rate-Limit-Limit:
+      - '15'
+      X-Rate-Limit-Remaining:
+      - '14'
+      X-Rate-Limit-Reset:
+      - '1369790018'
+      X-Runtime:
+      - '0.03428'
+      X-Transaction:
+      - 736e9cf9883b50df
+      X-Transaction-Mask:
+      - a6183ffa5f8ca943ff1b53b5644ef1145d358e1d
+    body:
+      encoding: US-ASCII
+      string: ! '{"discoverable_by_email":true,"protected":false,"trend_location":[{"country":"United
+        States","countryCode":"US","placeType":{"code":7,"name":"Town"},"url":"http:\/\/where.yahooapis.com\/v1\/place\/2473224","parentid":23424977,"woeid":2473224,"name":"Pittsburgh"}],"language":"en","always_use_https":true,"geo_enabled":true,"sleep_time":{"start_time":null,"end_time":null,"enabled":false},"time_zone":{"tzinfo_name":"America\/New_York","utc_offset":-18000,"name":"Eastern
+        Time (US & Canada)"},"use_cookie_personalization":true,"screen_name":"jmburges"}'
+    http_version: 
+  recorded_at: Wed, 29 May 2013 00:58:40 GMT
+recorded_with: VCR 2.4.0

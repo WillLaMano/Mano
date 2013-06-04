@@ -1,0 +1,112 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/statuses/user_timeline.json?count=5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Twitter Ruby Gem 4.6.2
+      Authorization:
+      - OAuth oauth_consumer_key="Oz7l7OK0L23tYXx5xxKfKg", oauth_nonce="c2cb1fabd8aa5a59bed133bd50a4ba53",
+        oauth_signature="zci8sOZ4YwP6xATjHHSem709J9s%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1369865519", oauth_token="47312435-5jmXLVTIZiawYM544JayOOy2qfjLCNDMNAZhwzJl4",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1827'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 29 May 2013 22:11:59 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Wed, 29 May 2013 22:11:59 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tfe
+      Set-Cookie:
+      - guest_id=v1%3A136986551965757864; Domain=.twitter.com; Path=/; Expires=Fri,
+        29-May-2015 22:11:59 UTC
+      - lang=en
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '177'
+      X-Rate-Limit-Reset:
+      - '1369865559'
+      X-Transaction:
+      - d6550f844634d5f4
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        V/8rvi/zWbybuPovAAAA//8DAPi8ODeMKwAA
+    http_version: 
+  recorded_at: Wed, 29 May 2013 22:12:03 GMT
+recorded_with: VCR 2.4.0
