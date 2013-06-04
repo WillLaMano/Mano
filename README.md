@@ -1,5 +1,6 @@
 Mano
 ====
+[![Code Climate](https://codeclimate.com/github/Benuuu/Mano.png)](https://codeclimate.com/github/Benuuu/Mano)
 
 To get the email working locally you need to install
 [mailcatcher](http://mailcatcher.me). After you do that run mailcatcher and
