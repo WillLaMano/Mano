@@ -11,6 +11,7 @@ class AuthorizationsControllerTest < ActionController::TestCase
     @ig_auth = FactoryGirl.create :instagram_auth
     @foursquare_auth = FactoryGirl.create :foursquare_auth
     @twitter_auth = FactoryGirl.create :twitter_auth
+    @google_auth = FactoryGirl.create :google_auth
     @user = @fb_auth.user
     @session = UserSession.create(@user)
 
@@ -86,6 +87,24 @@ class AuthorizationsControllerTest < ActionController::TestCase
     end
   end
 
+
+  test "should Google redirect to correct url" do
+    check_correct_url("google",@google_auth)
+  end
+
+  test "Should Handle Google Callback" do
+     @google_auth_authorized = FactoryGirl.create :google_auth_complete
+
+    VCR.use_cassette('google/auth_callback') do
+      get :callback, :provider => "google",:code=> "4/WLsBLvLWgqB1FtMJpRkNpoDq2L9c.8vBDqH8jXeYTmmS0T3UFEsPcuzTmfQI"
+      received_auth = assigns("authorization")
+      assert_equal @google_auth_authorized.auth_token, received_auth.auth_token, "Check Auth Token is Correct"
+      assert_equal @google_auth_authorized.refresh_token, received_auth.refresh_token, "Check Refresh Token is Correct"
+      # assert_equal @google_auth_authorized.expires_at, received_auth.expires_at, "Check Expires At is Correct"
+      assert_instance_of GoogleAuth, received_auth, "Check returned auth is a Google auth"
+    end
+  end
+  
   test "Should Destroy Authorization" do
     assert_difference("Authorization.count",-1, "Check delete actually works") do
       delete :destroy, id: @fb_auth
