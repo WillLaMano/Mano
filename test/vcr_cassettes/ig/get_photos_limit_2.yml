@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.instagram.com/v1/users/self/media/recent.json?access_token=35119537.4019d1f.7491467b1c044eb393ed563d91169c01&count=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - Instagram Ruby Gem 0.10.0
+      Authorization:
+      - Token token="35119537.4019d1f.7491467b1c044eb393ed563d91169c01"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Q29udGVudC1MYW5ndWFnZQ==":
+      - !binary |-
+        ZW4=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        VGh1LCAyMyBNYXkgMjAxMyAwMDowOToyOCBHTVQ=
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "U2V0LUNvb2tpZQ==":
+      - !binary |-
+        Y3NyZnRva2VuPWUxNjFiMTIwYjViOWVjOGJiZTkwMGIyZTMwZGIwOTUyOyBl
+        eHBpcmVzPVRodSwgMjItTWF5LTIwMTQgMDA6MDk6MjggR01UOyBNYXgtQWdl
+        PTMxNDQ5NjAwOyBQYXRoPS8=
+      !binary "VmFyeQ==":
+      - !binary |-
+        Q29va2llLCBBY2NlcHQtTGFuZ3VhZ2UsIEFjY2VwdC1FbmNvZGluZw==
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        NTAwMA==
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        NDk5NA==
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        MTEwOQ==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIADhenVEC/92XW2/bNhSA/4qgZ0PmRaQkA8GwDVt269AGeeocCJREW0wk
+        0hWpJm7g/75DS44vy7Khc4ptcR5M6ZDn47n7MVyJpdLCKaPD2WOo5YPL+64J
+        Z2Ht3MrO5tP5VKxUpLR1YtmJNipNO59+xPNpb2Vn51PKMM4YTebTVlZKzKed
+        LKV2X4mylNbmztxJfbETimKEswovoiTOcMyTApcojmVBMyorxmmVYcyzEuF5
+        jxDhpem1uyDDohUPuaouYkZIEscEY5wmJMaY5LvTw8lwgUES7vCS7GYSttIJ
+        f+vSVDKcEYTgWSX8s98eQ+Fcp4p+sIzum2YSggUsvLuBb+sV7AhVK5YStDam
+        FIeCYKMWbGCHw+EO4Qw9HX0DWhaqcbKDE3CWeOyyk8LJKneq9ediytMUUcL8
+        u0bpu9EfW3ecuGI1n74X7t2H5Kq/zebT7YY7eaiaHNzKO02LrRLRik+10EvY
+        seoMEMl8pUrXd/JIm7+ijcTdaQiMe+zTtzxGGUeMZHnC7IccU5YmacxxEt2u
+        vJLBI6MMrBdgqnxk+Vq72uh18H4LtJkcgRZS931/NkyIgpRhSneYnBOSUnqE
+        uZM5wRxJNt6Fg0Zv5sbc5520pul3abTPoC1cpaxTTSO79XZTFlkaeesbLe7t
+        gJkSKZIsIcUCUYwlSStMCUQkEnhRoCTL+Yh3rypXhzOK+CSspVrWbrsAIFf3
+        baGFal6JgB0TYIb2BLAAAjC8rkRXvb41kmMWjsmeBRYbgNmWp1zpfFUbZ4a0
+        LcVqB/V8xtFtNjooIj4oF5Cj2hgdQOjcytJFwRulVdBJ15lgCSERlEbDTWUU
+        vDX3sguuIHpBa2C1tIPAj4GWH+FNAdqiCA6Q0gWEBOsuME0V/GRk5GOsM+3W
+        UvugvzWyLfoOQsyeLfJ3te8pQeMkY4jxw8g/qKWHkQ+gwTcjzmaXyyyBDKcJ
+        51BcOceMhaPd81rY3JchEFuIxsrDHQnlWUqSFEwOteJAn9/5ohXuZWGV88+/
+        lEn+zASTsFBm4Di22sbXri/SOkbxP4YxXILS+O81jstP199eP/TLd882Dv58
+        44AjStmIzlhxNj+wNItxzHZuIMwHR5IeRuYocuKVSw8T/CKuPM1J45CtatZ1
+        p/T5ekdG4Z/vmweDHg0fdtQ8dkInqN95nOAHz3MC2qqyzhed8AlwNlRKUui0
+        +KnNZSihaXbc5kaZE9A3gCPAw8H3A9K/vh8f8zXmI4WRVthawN/5OAELxcme
+        kzHup9UjzlHmhPNX4QAmuIRWYU13V6tTZLE0heir85U1xGCwJE/5BAWBZ4Qc
+        helO5nQUa30TB9Yt0D8cdeJnmjtMhNA1srRIF8g3dyFJPDR3maG4is876nwW
+        wSuNOp/F8iqjju8RcbYfda5rY2Ug1xBeMKT8rJyT2gaigwmnd/I/PKH433+M
+        IZ4QmnKM8F9PKC/9uvx/TCg3m98BR2hnKfcPAAA=
+    http_version: 
+  recorded_at: Thu, 23 May 2013 00:09:27 GMT
+recorded_with: VCR 2.4.0
