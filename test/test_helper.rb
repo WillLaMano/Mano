@@ -29,3 +29,14 @@ module OAuth2
     end
   end
 end
+
+
+module OAuth
+  class Consumer
+    def ==(other_consumer)
+      self.secret==other_consumer.secret and
+      self.key == other_consumer.key and
+      self.options=other_consumer.options
+    end
+  end
+end
