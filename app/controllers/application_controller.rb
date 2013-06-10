@@ -37,11 +37,11 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def require_no_user(notice)
+    def require_no_user(notice = "You must be logged out to access this page")
       logger.debug "ApplicationController::require_no_user"
       if current_user
         store_location
-        flash[:notice] = notice || "You must be logged out to access this page"
+        flash[:notice] = notice
         redirect_to root_url
         return false
       end
