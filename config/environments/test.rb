@@ -64,6 +64,18 @@ Mano::Application.configure do
       :redirect_uri=>""
     },
 
+    # Directions to get Foursquare Auth Token
+    # 1. Go to https://developer.foursquare.com/docs/explore
+    # 2. If it's your first time, hit "Allow"
+    # 3. Copy the oauth_token=<token>!
+
+    :foursquare => {
+      :client_id=>"",
+      :client_secret=>"",
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/foursquare",
+      :auth_token => ""
+    },
+
     # Directions to Get Auth Token
     # 1. Go to https://developers.facebook.com/tools/explorer/
     # 2. Hit Get Access Token
