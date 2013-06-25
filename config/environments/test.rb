@@ -66,20 +66,12 @@ Mano::Application.configure do
     },
 
     # Directions to get Twitter Auth Token/Secret
-    # This is much more annoying... May be easier to just yank from the DB
-    # 1. Go to https://dev.twitter.com/console
-    # 2. In the "Authentication" dropdown go to "OAuth 1"
-    # 3. Login (if needed) and hit allow
-    # 3. You'll see the page refresh and now you'll have your account in the 
-    #    Authentication dropdown.
-    # 4. Right click anywhere and inspect element.
-    # 5. Refresh the page
-    # 6. Go to the Network tab of the element inspector.
-    # 7. Look for the fethUserCredentials request. Sort by Type..it'll make
-    #    that easier. It's a application/json response.
-    # 8. Click on the fetchUserCredentials item, choose the "Response" tab
-    # 9. Look for the "secret" and "token" keys in the json response
-    # 10. Those are you secret/token
+    # You can't use the twitter dev console be cause token/secrets work with
+    # the oauth key and secret...
+    # 1. Add the twitter service to your account the normal way
+    # 2. go to rails console
+    # 3. find your user, and then do user_var.twitter to get the twitter info
+    # 4. twitter.auth_token is the token, twitter.auth_secret is the secret
     
     :twitter => {
       :client_id=>"",
