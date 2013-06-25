@@ -39,31 +39,38 @@ Mano::Application.configure do
   config.active_support.deprecation = :stderr
   
   config.vcr_tokens = {
-    :facebook => {
-      :auth_token =>"CAACb8HWIoOkBAAZAXDsB2UZAbjHAJnZBrlkrC8OsvNVKZCiU5rgjrcPEiByPcQ4uh4hH8Tn4w3mqjiaqMA2ZBGTLSb9Sym0nfogoyIhqLmvG9Q3fGkfJ1ZCwZC4KoXGO52cdOxWhyinF9DL1nas8IFowkyzU7G50PIZD"
-    } 
+    "facebook" => {
+      :auth_token =>"CAACb8HWIoOkBAAZAXDsB2UZAbjHAJnZBrlkrC8OsvNVKZCiU5rgjrcPEiByPcQ4uh4hH8Tn4w3mqjiaqMA2ZBGTLSb9Sym0nfogoyIhqLmvG9Q3fGkfJ1ZCwZC4KoXGO52cdOxWhyinF9DL1nas8IFowkyzU7G50PIZD",
+      :sanitize_search => "access_token="
+    },
+    :foursquare => {
+      :auth_token => "XSBKF53RKJ3BDNNQ4P1ES4J5O0XJXTYZIZ0NWJRAETYWW4SC",
+      :sanitize_search => "oauth_token="
+    }
   }
 
   config.auth = {
     :google => {
       :client_id=>"",
       :client_secret=>"",
-      :redirect_uri=>"",
-      :scope =>""
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/google",
+      :scope =>"https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/latitude.current.best",
+      :host =>""
     },
 
     :instagram => {
       :client_id=>"",
       :client_secret=>"",
-      :redirect_uri=>""
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/instagram",
+      :host => ""
     },
 
     :twitter => {
       :client_id=>"",
       :client_secret=>"",
-      :redirect_uri=>""
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/twitter",
+      :host =>""
     },
-
     # Directions to get Foursquare Auth Token
     # 1. Go to https://developer.foursquare.com/docs/explore
     # 2. If it's your first time, hit "Allow"
@@ -73,6 +80,7 @@ Mano::Application.configure do
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/foursquare",
+      :host => "api.foursquare.com",
       :auth_token => ""
     },
 
@@ -85,11 +93,12 @@ Mano::Application.configure do
     # 6. The Auth Token is in the textfield at the top
     # 7. The expires_at is the expires number
 
-    :facebook => {
+    "facebook" => {
       :client_id=>"",
       :client_secret=>"",
-      :redirect_uri=>"",
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/facebook",
       :scope =>"user_location,user_events,user_photos,user_status",
+      :host => "graph.facebook.com",
       :auth_token=>"",
       :expires_at=>""
     },
