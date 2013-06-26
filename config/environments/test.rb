@@ -43,8 +43,13 @@ Mano::Application.configure do
       :auth_token =>"CAACb8HWIoOkBAAZAXDsB2UZAbjHAJnZBrlkrC8OsvNVKZCiU5rgjrcPEiByPcQ4uh4hH8Tn4w3mqjiaqMA2ZBGTLSb9Sym0nfogoyIhqLmvG9Q3fGkfJ1ZCwZC4KoXGO52cdOxWhyinF9DL1nas8IFowkyzU7G50PIZD",
       :sanitize_search => "access_token="
     },
-    :foursquare => {
+    "foursquare" => {
       :auth_token => "XSBKF53RKJ3BDNNQ4P1ES4J5O0XJXTYZIZ0NWJRAETYWW4SC",
+      :sanitize_search => "oauth_token="
+    },
+    "twitter" => {
+      :auth_token => "47312435-5jmXLVTIZiawYM544JayOOy2qfjLCNDMNAZhwzJl4",
+      :auth_secret => "ES8BRb0gO64s2lhDMnCxEfJNSntzh1nhNOPLkxkCPwE",
       :sanitize_search => "oauth_token="
     }
   }
@@ -73,11 +78,11 @@ Mano::Application.configure do
     # 3. find your user, and then do user_var.twitter to get the twitter info
     # 4. twitter.auth_token is the token, twitter.auth_secret is the secret
     
-    :twitter => {
+    "twitter" => {
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/twitter",
-      :host =>"",
+      :host =>"api.twitter.com",
       :auth_token=>"",
       :auth_secret=>""
     },
@@ -86,7 +91,7 @@ Mano::Application.configure do
     # 2. If it's your first time, hit "Allow"
     # 3. Copy the oauth_token=<token>!
 
-    :foursquare => {
+    "foursquare"=> {
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/foursquare",
