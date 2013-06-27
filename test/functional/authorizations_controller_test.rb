@@ -24,7 +24,7 @@ class AuthorizationsControllerTest < ActionController::TestCase
   test "Should Handle FB Callback" do
     @fb_auth_authorized = FactoryGirl.create :fb_auth_complete
 
-    VCR.use_cassette('fb/auth_callback') do
+    VCR.use_cassette('facebook/auth_callback') do
       get :callback, :provider => "facebook",:code=> "AQBtxU2YfKf0J0iQtRMwLae5X5vcZdZuvr3L-hjTyJHKk0rtSwOmd3Xzo2y06DlXdA7hpwx1uUJ-9coOz5aIbJwy9WCTBkvftQLTp9-4vrnSo21xlA1Vy7gBZOX-z1s2DU5jSgk27uavqYb3H1Ts4jM6UEcdHUCWjQdSRKdsArdaLAZn4k2H7XAmP7XzAaXt7qmv5exvqMzVAegzBryE8Q_9TSnzCR87UXm3oHeKIB_CYcwobxDrmcdNnNi-sP_5-8aE8M-JvDV9j2itPNL5Upbjfd7rIiCDaptZ-ZuQPDh7XAVMMIF0U-xUk0KkOC4Pqlc"
       received_auth = assigns("authorization")
       assert_equal @fb_auth_authorized.auth_token, received_auth.auth_token, "Check Auth Token is Correct"
@@ -39,7 +39,7 @@ class AuthorizationsControllerTest < ActionController::TestCase
   test "Should Handle Instagram Callback" do
      @ig_auth_authorized = FactoryGirl.create :ig_auth_complete
 
-    VCR.use_cassette('ig/auth_callback') do
+    VCR.use_cassette('instagram/auth_callback') do
       get :callback, :provider => "instagram",:code=> "eb9e7974fb02478ba8dfa84a58a57532"
       received_auth = assigns("authorization")
       assert_equal @ig_auth_authorized.auth_token, received_auth.auth_token, "Check Auth Token is Correct"

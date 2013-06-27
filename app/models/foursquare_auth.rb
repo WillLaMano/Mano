@@ -9,12 +9,12 @@ class FoursquareAuth < Authorization
   end
 
   def access_client
-    auth_client_obj = OAuth2::Client.new(Rails.application.config.auth[:foursquare][:client_id], Rails.application.config.auth[:foursquare][:client_secret], {:site => 'https://foursquare.com', :authorize_url => "/oauth2/authorize", :token_url => "/oauth2/access_token"})
+    auth_client_obj = OAuth2::Client.new(Rails.application.config.auth["foursquare"][:client_id], Rails.application.config.auth["foursquare"][:client_secret], {:site => 'https://foursquare.com', :authorize_url => "/oauth2/authorize", :token_url => "/oauth2/access_token"})
     auth_client_obj
   end
 
   def access_url
-    url=self.access_client.auth_code.authorize_url(:response_type => "code", :redirect_uri => Rails.application.config.auth[:foursquare][:redirect_uri])
+    url=self.access_client.auth_code.authorize_url(:response_type => "code", :redirect_uri => Rails.application.config.auth["foursquare"][:redirect_uri])
   end
 
   def access_token
@@ -25,7 +25,7 @@ class FoursquareAuth < Authorization
   def check_access_token
     access_client = self.access_client
     begin
-    access_token = access_client.auth_code.get_token(params[:code],{:redirect_uri=>Rails.application.config.auth[:foursquare][:redirect_uri],:token_method=>:post})
+    access_token = access_client.auth_code.get_token(params[:code],{:redirect_uri=>Rails.application.config.auth["foursquare"][:redirect_uri],:token_method=>:post})
     self.auth_token=access_token.token
     rescue
       self.errors.add :base, "Couldn't get Foursquare authorization!!"

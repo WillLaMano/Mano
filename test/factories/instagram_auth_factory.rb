@@ -3,8 +3,13 @@ FactoryGirl.define do
     association :user, factory: :active_user
 
     factory :ig_auth_complete do
-      auth_token "35119537.4019d1f.7491467b1c044eb393ed563d91169c01"
+      auth_token Rails.application.config.vcr_tokens["instagram"][:auth_token]
     end
 
+    if !Rails.application.config.auth["instagram"][:auth_token].empty?
+      factory :ig_auth_complete_live do
+        auth_token Rails.application.config.auth["instagram"][:auth_token]
+      end
+    end
   end
 end

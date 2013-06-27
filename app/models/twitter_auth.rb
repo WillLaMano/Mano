@@ -11,8 +11,8 @@ class TwitterAuth < Authorization
   end
 
   def access_client
-    auth_client_obj = OAuth::Consumer.new(Rails.application.config.auth[:twitter][:client_id],
-                                          Rails.application.config.auth[:twitter][:client_secret],
+    auth_client_obj = OAuth::Consumer.new(Rails.application.config.auth["twitter"][:client_id],
+                                          Rails.application.config.auth["twitter"][:client_secret],
                                           {:site => "https://api.twitter.com",
                                             :request_token_path => "/oauth/request_token",
                                             :access_token_path => "/oauth/access_token",
@@ -29,7 +29,7 @@ class TwitterAuth < Authorization
   def request_token(args={})
     client = self.access_client
     if args[:request_token].nil?
-      @request_token = client.get_request_token :oauth_callback => Rails.application.config.auth[:twitter][:redirect_uri]
+      @request_token = client.get_request_token :oauth_callback => Rails.application.config.auth["twitter"][:redirect_uri]
     else
       @request_token = OAuth::RequestToken.new(client,args[:request_token],args[:request_secret])
     end
