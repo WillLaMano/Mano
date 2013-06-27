@@ -41,29 +41,29 @@ Mano::Application.configure do
 
   #Authorzation configuration
   config.auth = {
-    :google => {
+    "google" => {
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"",
       :scope =>"https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/latitude.current.best"
     },
 
-    :instagram => {
+    "instagram" => {
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/instagram"
     },
-    :foursquare => {
+    "foursquare" => {
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/foursquare"
     },
-    :twitter => {
+    "twitter" => {
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/twitter"
     },
-    :facebook => {
+    "facebook" => {
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/facebook",
