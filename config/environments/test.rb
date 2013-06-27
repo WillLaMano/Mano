@@ -41,16 +41,13 @@ Mano::Application.configure do
   config.vcr_tokens = {
     "facebook" => {
       :auth_token =>"CAACb8HWIoOkBAAZAXDsB2UZAbjHAJnZBrlkrC8OsvNVKZCiU5rgjrcPEiByPcQ4uh4hH8Tn4w3mqjiaqMA2ZBGTLSb9Sym0nfogoyIhqLmvG9Q3fGkfJ1ZCwZC4KoXGO52cdOxWhyinF9DL1nas8IFowkyzU7G50PIZD",
-      :sanitize_search => "access_token="
     },
     "foursquare" => {
       :auth_token => "XSBKF53RKJ3BDNNQ4P1ES4J5O0XJXTYZIZ0NWJRAETYWW4SC",
-      :sanitize_search => "oauth_token="
     },
     "twitter" => {
       :auth_token => "47312435-5jmXLVTIZiawYM544JayOOy2qfjLCNDMNAZhwzJl4",
       :auth_secret => "ES8BRb0gO64s2lhDMnCxEfJNSntzh1nhNOPLkxkCPwE",
-      :sanitize_search => "oauth_token="
     }
   }
 
@@ -67,7 +64,6 @@ Mano::Application.configure do
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/instagram",
-      :host => ""
     },
 
     # Directions to get Twitter Auth Token/Secret
@@ -82,7 +78,6 @@ Mano::Application.configure do
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/twitter",
-      :host =>"api.twitter.com",
       :auth_token=>"",
       :auth_secret=>""
     },
@@ -95,7 +90,6 @@ Mano::Application.configure do
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/foursquare",
-      :host => "api.foursquare.com",
       :auth_token => ""
     },
 
@@ -113,7 +107,6 @@ Mano::Application.configure do
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/facebook",
       :scope =>"user_location,user_events,user_photos,user_status",
-      :host => "graph.facebook.com",
       :auth_token=>"",
       :expires_at=>""
     },
