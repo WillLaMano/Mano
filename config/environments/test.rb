@@ -52,16 +52,29 @@ Mano::Application.configure do
     "twitter" => {
       :auth_token => "47312435-5jmXLVTIZiawYM544JayOOy2qfjLCNDMNAZhwzJl4",
       :auth_secret => "ES8BRb0gO64s2lhDMnCxEfJNSntzh1nhNOPLkxkCPwE",
-    }
+    },
+    "google" => {
+      :auth_token => "ya29.AHES6ZS7kwkYEYtnKukriPzu9MowigcOOzNL1pfyrZuN4DoKgnbRVg",
+      :refresh_token => "1/dEVsWtxoYW7_XY7TX5oCHgZubOGa5ZlV_Oqktqp0RWw",
+  }
   }
 
   config.auth = {
+    # Directions to get Google Auth Token
+    # These are the same as Twitters
+    # 1. Add the Google service to your account the normal way
+    # 2. go to rails console
+    # 3. find your user, and then do user_var.google to get the google info
+    # 4. google.auth_token is the auth_token, google.refresh_token is the
+    #    refresh_token, expires_at is the expires at...
     :google => {
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/google",
       :scope =>"https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/latitude.current.best",
-      :host =>""
+      :auth_token => "",
+      :refresh_token => "",
+      :expires_at => ""
     },
 
     # Directions to get Instagram Auth Token
