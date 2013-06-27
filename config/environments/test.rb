@@ -39,29 +39,87 @@ Mano::Application.configure do
   config.active_support.deprecation = :stderr
   
   config.vcr_tokens = {
-    :facebook => {
-      :auth_token =>"CAACb8HWIoOkBAAZAXDsB2UZAbjHAJnZBrlkrC8OsvNVKZCiU5rgjrcPEiByPcQ4uh4hH8Tn4w3mqjiaqMA2ZBGTLSb9Sym0nfogoyIhqLmvG9Q3fGkfJ1ZCwZC4KoXGO52cdOxWhyinF9DL1nas8IFowkyzU7G50PIZD"
-    } 
+    "facebook" => {
+      :auth_token =>"CAACb8HWIoOkBAAZAXDsB2UZAbjHAJnZBrlkrC8OsvNVKZCiU5rgjrcPEiByPcQ4uh4hH8Tn4w3mqjiaqMA2ZBGTLSb9Sym0nfogoyIhqLmvG9Q3fGkfJ1ZCwZC4KoXGO52cdOxWhyinF9DL1nas8IFowkyzU7G50PIZD",
+    },
+    "foursquare" => {
+      :auth_token => "XSBKF53RKJ3BDNNQ4P1ES4J5O0XJXTYZIZ0NWJRAETYWW4SC",
+    },
+
+    "instagram" => {
+      :auth_token => "35119537.4019d1f.7491467b1c044eb393ed563d91169c01",
+    },
+    "twitter" => {
+      :auth_token => "47312435-5jmXLVTIZiawYM544JayOOy2qfjLCNDMNAZhwzJl4",
+      :auth_secret => "ES8BRb0gO64s2lhDMnCxEfJNSntzh1nhNOPLkxkCPwE",
+    },
+    "google" => {
+      :auth_token => "ya29.AHES6ZS7kwkYEYtnKukriPzu9MowigcOOzNL1pfyrZuN4DoKgnbRVg",
+      :refresh_token => "1/dEVsWtxoYW7_XY7TX5oCHgZubOGa5ZlV_Oqktqp0RWw",
+  }
   }
 
   config.auth = {
+    # Directions to get Google Auth Token
+    # These are the same as Twitters
+    # 1. Add the Google service to your account the normal way
+    # 2. go to rails console
+    # 3. find your user, and then do user_var.google to get the google info
+    # 4. google.auth_token is the auth_token, google.refresh_token is the
+    #    refresh_token, expires_at is the expires at...
     :google => {
       :client_id=>"",
       :client_secret=>"",
-      :redirect_uri=>"",
-      :scope =>""
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/google",
+      :scope =>"https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/latitude.current.best",
+      :auth_token => "",
+      :refresh_token => "",
+      :expires_at => ""
     },
 
-    :instagram => {
+    # Directions to get Instagram Auth Token
+    # 1. Go to https://apigee.com/console/instagram
+    # 2. Click on the Authentication drop down, select OAuth 2
+    # 3. Accept the Instagram popup
+    # 4. Open up the element inspector (right click > inspect element)
+    # 5. Refresh the page and go to the Network tab of the element inspector
+    # 6. Look for the fetchUserCredentials call. It's of type application/json
+    #    so sorting by type is probably easiest.
+    # 7. copy the token item.
+
+    "instagram" => {
       :client_id=>"",
       :client_secret=>"",
-      :redirect_uri=>""
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/instagram",
+      :auth_token=>"",
+      :auth_secret=>""
     },
 
-    :twitter => {
+    # Directions to get Twitter Auth Token/Secret
+    # You can't use the twitter dev console be cause token/secrets work with
+    # the oauth key and secret...
+    # 1. Add the twitter service to your account the normal way
+    # 2. go to rails console
+    # 3. find your user, and then do user_var.twitter to get the twitter info
+    # 4. twitter.auth_token is the token, twitter.auth_secret is the secret
+    
+    "twitter" => {
       :client_id=>"",
       :client_secret=>"",
-      :redirect_uri=>""
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/twitter",
+      :auth_token=>"",
+      :auth_secret=>""
+    },
+    # Directions to get Foursquare Auth Token
+    # 1. Go to https://developer.foursquare.com/docs/explore
+    # 2. If it's your first time, hit "Allow"
+    # 3. Copy the oauth_token=<token>!
+
+    "foursquare"=> {
+      :client_id=>"",
+      :client_secret=>"",
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/foursquare",
+      :auth_token => ""
     },
 
     # Directions to Get Auth Token
@@ -73,10 +131,10 @@ Mano::Application.configure do
     # 6. The Auth Token is in the textfield at the top
     # 7. The expires_at is the expires number
 
-    :facebook => {
+    "facebook" => {
       :client_id=>"",
       :client_secret=>"",
-      :redirect_uri=>"",
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/facebook",
       :scope =>"user_location,user_events,user_photos,user_status",
       :auth_token=>"",
       :expires_at=>""

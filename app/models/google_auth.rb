@@ -9,12 +9,12 @@ class GoogleAuth < Authorization
   end
 
   def access_client
-    auth_client_obj = OAuth2::Client.new(Rails.application.config.auth[:google][:client_id], Rails.application.config.auth[:google][:client_secret], {:site => 'https://accounts.google.com', :authorize_url => "/o/oauth2/auth", :token_url => "/o/oauth2/token"})
+    auth_client_obj = OAuth2::Client.new(Rails.application.config.auth["google"][:client_id], Rails.application.config.auth["google"][:client_secret], {:site => 'https://accounts.google.com', :authorize_url => "/o/oauth2/auth", :token_url => "/o/oauth2/token"})
     auth_client_obj
   end
 
   def access_url
-    url=self.access_client.auth_code.authorize_url(:scope => Rails.application.config.auth[:google][:scope], :access_type => "offline", :redirect_uri =>Rails.application.config.auth[:google][:redirect_uri])
+    url=self.access_client.auth_code.authorize_url(:scope => Rails.application.config.auth["google"][:scope], :access_type => "offline", :redirect_uri =>Rails.application.config.auth["google"][:redirect_uri])
   end
 
   def access_token
@@ -63,7 +63,7 @@ class GoogleAuth < Authorization
   def check_access_token
     access_client = self.access_client
     begin
-    access_token = access_client.auth_code.get_token(params[:code],{:redirect_uri=>Rails.application.config.auth[:google][:redirect_uri],:token_method=>:post})
+    access_token = access_client.auth_code.get_token(params[:code],{:redirect_uri=>Rails.application.config.auth["google"][:redirect_uri],:token_method=>:post})
     self.auth_token=access_token.token
     self.refresh_token=access_token.refresh_token
     self.expires_at=DateTime.strptime(access_token.expires_at.to_s,"%s")

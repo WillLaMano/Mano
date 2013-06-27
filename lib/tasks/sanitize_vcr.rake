@@ -3,29 +3,28 @@ require 'uri'
 
 namespace :vcr do
   desc "Sanitize Real Auth Tokens from VCR Cassettes"
-  task :sanitize, [:cassette] => [:environment] do |t,args|
+  task :sanitize => [:environment] do |t,args|
+    Dir.glob("test/vcr_cassettes/**/*.yml") do |cassette|
+      begin
+        file = File.open(cassette,"rb")
+        contents = file.read
+        file.close
+      rescue => e
+        puts e.message
+        exit
+      end
+      service = /test\/vcr_cassettes\/(.+)\//.match(cassette)[1]
 
-    begin
-      file = YAML.load_file(args[:cassette])
-    rescue => e
-      puts e.message
-      exit
-    end
+      if !cassette.match(/auth_callback.yml/)
+        contents.gsub!(/#{Rails.application.config.auth[service][:auth_token]}/,
+                      Rails.application.config.vcr_tokens[service][:auth_token])
+      end
 
-    file["http_interactions"].each do |interaction|
-      uri = interaction["request"]["uri"]
-
-      # Tested at Rubular http://rubular.com/r/OmuIHbkTOr
-      # Optional Regex Lookaheads http://stackoverflow.com/a/7361087/1169547
-      uri.gsub!(/(?<=access_token=)(.*?)(?=(?:&|$))/,
-                Rails.application.config.vcr_tokens[:facebook][:auth_token])
-      interaction["request"]["uri"]=uri
-    end
-
-    begin
-      File.open(args[:cassette],"w+") {|f| f.write(file.to_yaml)}
-    rescue => e
-      puts e.message
+      begin
+        File.open(cassette,"w+") {|f| f.write(contents)}
+      rescue => e
+        puts e.message
+      end
     end
   end
 
