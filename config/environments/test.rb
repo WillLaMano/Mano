@@ -45,6 +45,10 @@ Mano::Application.configure do
     "foursquare" => {
       :auth_token => "XSBKF53RKJ3BDNNQ4P1ES4J5O0XJXTYZIZ0NWJRAETYWW4SC",
     },
+
+    "instagram" => {
+      :auth_token => "35119537.4019d1f.7491467b1c044eb393ed563d91169c01",
+    },
     "twitter" => {
       :auth_token => "47312435-5jmXLVTIZiawYM544JayOOy2qfjLCNDMNAZhwzJl4",
       :auth_secret => "ES8BRb0gO64s2lhDMnCxEfJNSntzh1nhNOPLkxkCPwE",
@@ -60,10 +64,22 @@ Mano::Application.configure do
       :host =>""
     },
 
-    :instagram => {
+    # Directions to get Instagram Auth Token
+    # 1. Go to https://apigee.com/console/instagram
+    # 2. Click on the Authentication drop down, select OAuth 2
+    # 3. Accept the Instagram popup
+    # 4. Open up the element inspector (right click > inspect element)
+    # 5. Refresh the page and go to the Network tab of the element inspector
+    # 6. Look for the fetchUserCredentials call. It's of type application/json
+    #    so sorting by type is probably easiest.
+    # 7. copy the token item.
+
+    "instagram" => {
       :client_id=>"",
       :client_secret=>"",
       :redirect_uri=>"http://localhost:3000/authorizations/callback/instagram",
+      :auth_token=>"",
+      :auth_secret=>""
     },
 
     # Directions to get Twitter Auth Token/Secret
