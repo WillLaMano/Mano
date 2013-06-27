@@ -1,0 +1,209 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+==	test/test_helper.rb	/^    def ==(other_client)$/;"	f	class:OAuth2.Client
+Ability	app/models/ability.rb	/^class Ability$/;"	c
+ActivationsController	app/controllers/activations_controller.rb	/^class ActivationsController < ApplicationController$/;"	c
+ActivationsControllerTest	test/functional/activations_controller_test.rb	/^class ActivationsControllerTest < ActionController::TestCase$/;"	c
+ActivationsHelper	app/helpers/activations_helper.rb	/^module ActivationsHelper$/;"	m
+ActivationsHelperTest	test/unit/helpers/activations_helper_test.rb	/^class ActivationsHelperTest < ActionView::TestCase$/;"	c
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+AddActiveToUsers	db/migrate/20130407135121_add_active_to_users.rb	/^class AddActiveToUsers < ActiveRecord::Migration$/;"	c
+AddAuthSecretToAuthorizations	db/migrate/20130408015928_add_auth_secret_to_authorizations.rb	/^class AddAuthSecretToAuthorizations < ActiveRecord::Migration$/;"	c
+AddExpiresAtToAuthorizations	db/migrate/20121030170425_add_expires_at_to_authorizations.rb	/^class AddExpiresAtToAuthorizations < ActiveRecord::Migration$/;"	c
+AddRefreshTokenToAuthorizations	db/migrate/20121030144057_add_refresh_token_to_authorizations.rb	/^class AddRefreshTokenToAuthorizations < ActiveRecord::Migration$/;"	c
+AddSessionsTable	db/migrate/20130408042856_add_sessions_table.rb	/^class AddSessionsTable < ActiveRecord::Migration$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Mano
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+Authorization	app/models/authorization.rb	/^class Authorization < ActiveRecord::Base$/;"	c
+AuthorizationTest	test/unit/authorization_test.rb	/^class AuthorizationTest < ActiveSupport::TestCase$/;"	c
+AuthorizationsController	app/controllers/authorizations_controller.rb	/^class AuthorizationsController < ApplicationController$/;"	c
+AuthorizationsControllerTest	test/functional/authorizations_controller_test.rb	/^class AuthorizationsControllerTest < ActionController::TestCase$/;"	c
+AuthorizationsHelper	app/helpers/authorizations_helper.rb	/^module AuthorizationsHelper$/;"	m
+AuthorizationsHelperTest	test/unit/helpers/authorizations_helper_test.rb	/^class AuthorizationsHelperTest < ActionView::TestCase$/;"	c
+AuthorizationsTestHelper	test/helpers/authorizations_helper.rb	/^module AuthorizationsTestHelper$/;"	m
+BrowsingTest	test/performance/browsing_test.rb	/^class BrowsingTest < ActionDispatch::PerformanceTest$/;"	c
+Client	test/test_helper.rb	/^  class Client$/;"	c	class:OAuth2
+CreateAuthorizations	db/migrate/20121024093538_create_authorizations.rb	/^class CreateAuthorizations < ActiveRecord::Migration$/;"	c
+CreateGroupInvitations	db/migrate/20130325220915_create_group_invitations.rb	/^class CreateGroupInvitations < ActiveRecord::Migration$/;"	c
+CreateGroups	db/migrate/20121016175022_create_groups.rb	/^class CreateGroups < ActiveRecord::Migration$/;"	c
+CreateUserSessions	db/migrate/20121011005825_create_user_sessions.rb	/^class CreateUserSessions < ActiveRecord::Migration$/;"	c
+CreateUsers	db/migrate/20121011005830_create_users.rb	/^class CreateUsers <ActiveRecord::Migration$/;"	c
+CreateUsersGroups	db/migrate/20121016175428_create_users_groups.rb	/^class CreateUsersGroups < ActiveRecord::Migration$/;"	c
+FacebookAuth	app/models/facebook_auth.rb	/^class FacebookAuth < Authorization$/;"	c
+FacebookAuthTest	test/unit/facebook_auth_test.rb	/^class FacebookAuthTest < ActiveSupport::TestCase$/;"	c
+FoursquareAuth	app/models/foursquare_auth.rb	/^class FoursquareAuth < Authorization$/;"	c
+GoogleAuth	app/models/google_auth.rb	/^class GoogleAuth < Authorization$/;"	c
+Group	app/models/group.rb	/^class Group < ActiveRecord::Base$/;"	c
+GroupInvitation	app/models/group_invitation.rb	/^class GroupInvitation < ActiveRecord::Base$/;"	c
+GroupInvitationTest	test/unit/group_invitation_test.rb	/^class GroupInvitationTest < ActiveSupport::TestCase$/;"	c
+GroupInvitationsController	app/controllers/group_invitations_controller.rb	/^class GroupInvitationsController < ApplicationController$/;"	c
+GroupInvitationsControllerTest	test/functional/group_invitations_controller_test.rb	/^class GroupInvitationsControllerTest < ActionController::TestCase$/;"	c
+GroupInvitationsHelper	app/helpers/group_invitations_helper.rb	/^module GroupInvitationsHelper$/;"	m
+GroupInvitationsHelperTest	test/unit/helpers/group_invitations_helper_test.rb	/^class GroupInvitationsHelperTest < ActionView::TestCase$/;"	c
+GroupInviteMailer	app/mailers/group_invite_mailer.rb	/^class GroupInviteMailer < ActionMailer::Base$/;"	c
+GroupInviteMailerTest	test/functional/group_invite_mailer_test.rb	/^class GroupInviteMailerTest < ActionMailer::TestCase$/;"	c
+GroupTest	test/unit/groups_test.rb	/^class GroupTest < ActiveSupport::TestCase$/;"	c
+GroupsController	app/controllers/groups_controller.rb	/^class GroupsController < ApplicationController$/;"	c
+GroupsControllerTest	test/functional/groups_controller_test.rb	/^class GroupsControllerTest < ActionController::TestCase$/;"	c
+GroupsHelper	app/helpers/groups_helper.rb	/^module GroupsHelper$/;"	m
+GroupsHelperTest	test/unit/helpers/groups_helper_test.rb	/^class GroupsHelperTest < ActionView::TestCase$/;"	c
+InstagramAuth	app/models/instagram_auth.rb	/^class InstagramAuth < Authorization$/;"	c
+Mano	config/application.rb	/^module Mano$/;"	m
+Notifier	app/mailers/notifier.rb	/^class Notifier < ActionMailer::Base$/;"	c
+NotifierTest	test/functional/notifier_test.rb	/^class NotifierTest < ActionMailer::TestCase$/;"	c
+OAuth2	test/test_helper.rb	/^module OAuth2$/;"	m
+PageController	app/controllers/page_controller.rb	/^class PageController < ApplicationController$/;"	c
+PageControllerTest	test/functional/page_controller_test.rb	/^class PageControllerTest < ActionController::TestCase$/;"	c
+PageHelper	app/helpers/page_helper.rb	/^module PageHelper$/;"	m
+PageHelperTest	test/unit/helpers/page_helper_test.rb	/^class PageHelperTest < ActionView::TestCase$/;"	c
+PasswordResetsController	app/controllers/password_resets_controller.rb	/^class PasswordResetsController < ApplicationController$/;"	c
+PasswordResetsControllerTest	test/functional/password_resets_controller_test.rb	/^class PasswordResetsControllerTest < ActionController::TestCase$/;"	c
+PasswordResetsHelper	app/helpers/password_resets_helper.rb	/^module PasswordResetsHelper$/;"	m
+PasswordResetsHelperTest	test/unit/helpers/password_resets_helper_test.rb	/^class PasswordResetsHelperTest < ActionView::TestCase$/;"	c
+StaticPagesController	app/controllers/static_pages_controller.rb	/^class StaticPagesController < ApplicationController$/;"	c
+StaticPagesControllerTest	test/functional/static_pages_controller_test.rb	/^class StaticPagesControllerTest < ActionController::TestCase$/;"	c
+StaticPagesHelper	app/helpers/static_pages_helper.rb	/^module StaticPagesHelper$/;"	m
+StaticPagesHelperTest	test/unit/helpers/static_pages_helper_test.rb	/^class StaticPagesHelperTest < ActionView::TestCase$/;"	c
+TwitterAuth	app/models/twitter_auth.rb	/^class TwitterAuth < Authorization$/;"	c
+User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
+UserSession	app/models/user_session.rb	/^class UserSession < Authlogic::Session::Base$/;"	c
+UserSessionTest	test/unit/user_session_test.rb	/^class UserSessionTest < ActiveSupport::TestCase$/;"	c
+UserSessionsController	app/controllers/user_sessions_controller.rb	/^class UserSessionsController < ApplicationController$/;"	c
+UserSessionsControllerTest	test/functional/user_sessions_controller_test.rb	/^class UserSessionsControllerTest < ActionController::TestCase$/;"	c
+UserSessionsHelper	app/helpers/user_sessions_helper.rb	/^module UserSessionsHelper$/;"	m
+UserSessionsHelperTest	test/unit/helpers/user_sessions_helper_test.rb	/^class UserSessionsHelperTest < ActionView::TestCase$/;"	c
+UserTest	test/unit/user_test.rb	/^class UserTest < ActiveSupport::TestCase  $/;"	c
+UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+UsersControllerTest	test/functional/users_controller_test.rb	/^class UsersControllerTest < ActionController::TestCase$/;"	c
+UsersGroups	app/models/users_groups.rb	/^class UsersGroups < ActiveRecord::Base$/;"	c
+UsersGroupsTest	test/unit/users_groups_test.rb	/^class UsersGroupsTest < ActiveSupport::TestCase$/;"	c
+UsersHelper	app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
+UsersHelperTest	test/unit/helpers/users_helper_test.rb	/^class UsersHelperTest < ActionView::TestCase$/;"	c
+access_client	app/models/facebook_auth.rb	/^  def access_client$/;"	f	class:FacebookAuth
+access_client	app/models/foursquare_auth.rb	/^  def access_client$/;"	f	class:FoursquareAuth
+access_client	app/models/google_auth.rb	/^  def access_client$/;"	f	class:GoogleAuth
+access_client	app/models/instagram_auth.rb	/^  def access_client$/;"	f	class:InstagramAuth
+access_client	app/models/twitter_auth.rb	/^  def access_client$/;"	f	class:TwitterAuth
+access_token	app/models/facebook_auth.rb	/^  def access_token$/;"	f	class:FacebookAuth
+access_token	app/models/foursquare_auth.rb	/^  def access_token$/;"	f	class:FoursquareAuth
+access_token	app/models/google_auth.rb	/^  def access_token$/;"	f	class:GoogleAuth
+access_token	app/models/instagram_auth.rb	/^  def access_token$/;"	f	class:InstagramAuth
+access_url	app/models/facebook_auth.rb	/^  def access_url$/;"	f	class:FacebookAuth
+access_url	app/models/foursquare_auth.rb	/^  def access_url$/;"	f	class:FoursquareAuth
+access_url	app/models/google_auth.rb	/^  def access_url$/;"	f	class:GoogleAuth
+access_url	app/models/instagram_auth.rb	/^  def access_url$/;"	f	class:InstagramAuth
+access_url	app/models/twitter_auth.rb	/^  def access_url$/;"	f	class:TwitterAuth
+activate!	app/models/user.rb	/^  def activate!$/;"	f	class:User
+activation_instructions	app/mailers/notifier.rb	/^  def activation_instructions(user)$/;"	f	class:Notifier
+auth_type	app/models/facebook_auth.rb	/^  def auth_type$/;"	f	class:FacebookAuth
+auth_type	app/models/foursquare_auth.rb	/^  def auth_type$/;"	f	class:FoursquareAuth
+auth_type	app/models/google_auth.rb	/^  def auth_type$/;"	f	class:GoogleAuth
+auth_type	app/models/instagram_auth.rb	/^  def auth_type$/;"	f	class:InstagramAuth
+auth_type	app/models/twitter_auth.rb	/^  def auth_type$/;"	f	class:TwitterAuth
+callback	app/controllers/authorizations_controller.rb	/^  def callback$/;"	f	class:AuthorizationsController
+change	db/migrate/20121011005825_create_user_sessions.rb	/^ def change$/;"	f	class:CreateUserSessions
+change	db/migrate/20121011005830_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	db/migrate/20121016175022_create_groups.rb	/^  def change$/;"	f	class:CreateGroups
+change	db/migrate/20121016175428_create_users_groups.rb	/^  def change$/;"	f	class:CreateUsersGroups
+change	db/migrate/20121024093538_create_authorizations.rb	/^  def change$/;"	f	class:CreateAuthorizations
+change	db/migrate/20121030144057_add_refresh_token_to_authorizations.rb	/^  def change$/;"	f	class:AddRefreshTokenToAuthorizations
+change	db/migrate/20121030170425_add_expires_at_to_authorizations.rb	/^  def change$/;"	f	class:AddExpiresAtToAuthorizations
+change	db/migrate/20130325220915_create_group_invitations.rb	/^  def change$/;"	f	class:CreateGroupInvitations
+change	db/migrate/20130407135121_add_active_to_users.rb	/^  def change$/;"	f	class:AddActiveToUsers
+change	db/migrate/20130408015928_add_auth_secret_to_authorizations.rb	/^  def change$/;"	f	class:AddAuthSecretToAuthorizations
+change	db/migrate/20130408042856_add_sessions_table.rb	/^  def change$/;"	f	class:AddSessionsTable
+check_access_token	app/models/facebook_auth.rb	/^  def check_access_token$/;"	f	class:FacebookAuth
+check_access_token	app/models/foursquare_auth.rb	/^  def check_access_token$/;"	f	class:FoursquareAuth
+check_access_token	app/models/google_auth.rb	/^  def check_access_token$/;"	f	class:GoogleAuth
+check_access_token	app/models/instagram_auth.rb	/^  def check_access_token$/;"	f	class:InstagramAuth
+check_access_token	app/models/twitter_auth.rb	/^  def check_access_token$/;"	f	class:TwitterAuth
+check_correct_url	test/helpers/authorizations_helper.rb	/^    def check_correct_url(provider,auth) $/;"	f	class:AuthorizationsTestHelper
+check_valid?	app/models/google_auth.rb	/^  def check_valid?(result)$/;"	f	class:GoogleAuth
+check_valid?	app/models/instagram_auth.rb	/^  def check_valid?(result)$/;"	f	class:InstagramAuth
+create	app/controllers/activations_controller.rb	/^   def create$/;"	f	class:ActivationsController
+create	app/controllers/authorizations_controller.rb	/^  def create$/;"	f	class:AuthorizationsController
+create	app/controllers/group_invitations_controller.rb	/^  def create$/;"	f	class:GroupInvitationsController
+create	app/controllers/groups_controller.rb	/^  def create$/;"	f	class:GroupsController
+create	app/controllers/password_resets_controller.rb	/^  def create$/;"	f	class:PasswordResetsController
+create	app/controllers/user_sessions_controller.rb	/^  def create$/;"	f	class:UserSessionsController
+create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+current_status	app/controllers/page_controller.rb	/^  def current_status$/;"	f	class:PageController
+current_user	app/controllers/application_controller.rb	/^    def current_user$/;"	f	class:ApplicationController
+current_user_session	app/controllers/application_controller.rb	/^    def current_user_session$/;"	f	class:ApplicationController
+deliver_activation_instructions!	app/models/user.rb	/^  def deliver_activation_instructions!$/;"	f	class:User
+deliver_password_reset_instructions!	app/models/user.rb	/^  def deliver_password_reset_instructions!$/;"	f	class:User
+deliver_welcome!	app/models/user.rb	/^  def deliver_welcome!$/;"	f	class:User
+destroy	app/controllers/authorizations_controller.rb	/^  def destroy$/;"	f	class:AuthorizationsController
+destroy	app/controllers/user_sessions_controller.rb	/^  def destroy$/;"	f	class:UserSessionsController
+edit	app/controllers/groups_controller.rb	/^  def edit$/;"	f	class:GroupsController
+edit	app/controllers/password_resets_controller.rb	/^  def edit$/;"	f	class:PasswordResetsController
+edit	app/controllers/users_controller.rb	/^  def edit$/;"	f	class:UsersController
+facebook	app/models/user.rb	/^  def facebook$/;"	f	class:User
+facebook_client	app/models/facebook_auth.rb	/^  def facebook_client$/;"	f	class:FacebookAuth
+feed	app/controllers/page_controller.rb	/^  def feed$/;"	f	class:PageController
+foursquare	app/models/user.rb	/^  def foursquare$/;"	f	class:User
+foursquare_client	app/models/foursquare_auth.rb	/^  def foursquare_client$/;"	f	class:FoursquareAuth
+generate_token	app/models/group_invitation.rb	/^  def generate_token$/;"	f	class:GroupInvitation
+get_current_events	app/models/google_auth.rb	/^  def get_current_events$/;"	f	class:GoogleAuth
+get_current_location	app/models/google_auth.rb	/^  def get_current_location$/;"	f	class:GoogleAuth
+get_last_checkin	app/models/foursquare_auth.rb	/^  def get_last_checkin$/;"	f	class:FoursquareAuth
+get_oembed_tweets	app/models/twitter_auth.rb	/^  def get_oembed_tweets(args)$/;"	f	class:TwitterAuth
+get_photos	app/models/instagram_auth.rb	/^  def get_photos(limit = 5)$/;"	f	class:InstagramAuth
+get_profile_picture	app/models/facebook_auth.rb	/^  def get_profile_picture$/;"	f	class:FacebookAuth
+get_statuses	app/models/facebook_auth.rb	/^  def get_statuses(limit = 10)$/;"	f	class:FacebookAuth
+get_tweets	app/models/twitter_auth.rb	/^  def get_tweets(args)$/;"	f	class:TwitterAuth
+google	app/models/user.rb	/^  def google$/;"	f	class:User
+google_client	app/models/google_auth.rb	/^  def google_client$/;"	f	class:GoogleAuth
+index	app/controllers/authorizations_controller.rb	/^  def index$/;"	f	class:AuthorizationsController
+index	app/controllers/groups_controller.rb	/^  def index$/;"	f	class:GroupsController
+index	app/controllers/static_pages_controller.rb	/^  def index$/;"	f	class:StaticPagesController
+index	app/controllers/users_controller.rb	/^  def index$/;"	f	class:UsersController
+initialize	app/models/ability.rb	/^  def initialize(user)$/;"	f	class:Ability
+instagram	app/models/user.rb	/^  def instagram$/;"	f	class:User
+instagram_client	app/models/instagram_auth.rb	/^  def instagram_client$/;"	f	class:InstagramAuth
+invite_email	app/mailers/group_invite_mailer.rb	/^  def invite_email(group, user, group_invitation)$/;"	f	class:GroupInviteMailer
+invited	app/controllers/groups_controller.rb	/^  def invited$/;"	f	class:GroupsController
+is_expired?	app/models/facebook_auth.rb	/^  def is_expired?$/;"	f	class:FacebookAuth
+is_expired?	app/models/google_auth.rb	/^  def is_expired?$/;"	f	class:GoogleAuth
+is_expired?	app/models/instagram_auth.rb	/^  def is_expired?$/;"	f	class:InstagramAuth
+join	app/controllers/groups_controller.rb	/^  def join$/;"	f	class:GroupsController
+leave	app/controllers/groups_controller.rb	/^  def leave$/;"	f	class:GroupsController
+load_user_using_perishable_token	app/controllers/password_resets_controller.rb	/^  def load_user_using_perishable_token$/;"	f	class:PasswordResetsController
+miniprofiler	app/controllers/application_controller.rb	/^    def miniprofiler$/;"	f	class:ApplicationController
+model_name	app/models/facebook_auth.rb	/^  def self.model_name$/;"	F	class:FacebookAuth
+model_name	app/models/foursquare_auth.rb	/^  def self.model_name$/;"	F	class:FoursquareAuth
+model_name	app/models/google_auth.rb	/^  def self.model_name$/;"	F	class:GoogleAuth
+model_name	app/models/instagram_auth.rb	/^  def self.model_name$/;"	F	class:InstagramAuth
+model_name	app/models/twitter_auth.rb	/^  def self.model_name$/;"	F	class:TwitterAuth
+new	app/controllers/authorizations_controller.rb	/^  def new$/;"	f	class:AuthorizationsController
+new	app/controllers/group_invitations_controller.rb	/^  def new$/;"	f	class:GroupInvitationsController
+new	app/controllers/groups_controller.rb	/^  def new$/;"	f	class:GroupsController
+new	app/controllers/password_resets_controller.rb	/^  def new$/;"	f	class:PasswordResetsController
+new	app/controllers/user_sessions_controller.rb	/^  def new$/;"	f	class:UserSessionsController
+new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
+new_service_allowed?	app/models/user.rb	/^  def new_service_allowed?$/;"	f	class:User
+password_reset_instructions	app/mailers/notifier.rb	/^  def password_reset_instructions(user)$/;"	f	class:Notifier
+record_not_found	app/controllers/application_controller.rb	/^    def record_not_found$/;"	f	class:ApplicationController
+redirect_back_or_default	app/controllers/application_controller.rb	/^    def redirect_back_or_default(default)$/;"	f	class:ApplicationController
+remove_empty_group	app/models/users_groups.rb	/^  def remove_empty_group$/;"	f	class:UsersGroups
+request_token	app/models/twitter_auth.rb	/^  def request_token(args={})$/;"	f	class:TwitterAuth
+require_no_user	app/controllers/application_controller.rb	/^    def require_no_user$/;"	f	class:ApplicationController
+require_user	app/controllers/application_controller.rb	/^    def require_user$/;"	f	class:ApplicationController
+resend_activation	app/controllers/users_controller.rb	/^  def resend_activation$/;"	f	class:UsersController
+services	app/models/authorization.rb	/^  def self.services$/;"	F	class:Authorization
+show	app/controllers/groups_controller.rb	/^  def show$/;"	f	class:GroupsController
+show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
+signed_in?	app/controllers/application_controller.rb	/^    def signed_in?$/;"	f	class:ApplicationController
+store_location	app/controllers/application_controller.rb	/^    def store_location$/;"	f	class:ApplicationController
+test_homepage	test/performance/browsing_test.rb	/^  def test_homepage$/;"	f	class:BrowsingTest
+twitter	app/models/user.rb	/^  def twitter$/;"	f	class:User
+twitter_client	app/models/twitter_auth.rb	/^  def twitter_client$/;"	f	class:TwitterAuth
+update	app/controllers/groups_controller.rb	/^  def update$/;"	f	class:GroupsController
+update	app/controllers/password_resets_controller.rb	/^  def update$/;"	f	class:PasswordResetsController
+update	app/controllers/users_controller.rb	/^  def update$/;"	f	class:UsersController
+welcome	app/mailers/notifier.rb	/^  def welcome(user)$/;"	f	class:Notifier
