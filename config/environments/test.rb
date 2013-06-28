@@ -18,8 +18,8 @@ Mano::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  config.action_mailer.default_url_options = { :host => Figaro.env.url_host, :port => Figaro.env.url_port }
-  ActionMailer::Base.default :from => Figaro.env.from_email 
+  config.action_mailer.default_url_options = { :host => ENV['url_host'], :port => ENV['url_port'] }
+  ActionMailer::Base.default :from => ENV['from_email'] 
 
   # Raise exceptions instead of rendering exception templates
   config.action_dispatch.show_exceptions = false
@@ -68,13 +68,13 @@ Mano::Application.configure do
     # 4. google.auth_token is the auth_token, google.refresh_token is the
     #    refresh_token, expires_at is the expires at...
     "google" => {
-      :client_id=> Figaro.env.google_client_id,
-      :client_secret=> Figaro.env.google_client_secret,
+      :client_id=> ENV['google_client_id'],
+      :client_secret=> ENV['google_client_secret'],
       :redirect_uri=>"http://localhost:3000/authorizations/callback/google",
       :scope =>"https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/latitude.current.best",
-      :auth_token => Figaro.env.google_auth_token,
-      :refresh_token => Figaro.env.google_refresh_token,
-      :expires_at => Figaro.env.google_expires_at
+      :auth_token => ENV['google_auth_token'],
+      :refresh_token => ENV['google_refresh_token'],
+      :expires_at => ENV['google_expires_at']
     },
 
     # Directions to get Instagram Auth Token
@@ -88,11 +88,11 @@ Mano::Application.configure do
     # 7. copy the token item.
 
     "instagram" => {
-      :client_id=>Figaro.env.instagram_client_id,
-      :client_secret=>Figaro.env.instagram_client_secret,
+      :client_id=>ENV['instagram_client_id'],
+      :client_secret=>ENV['instagram_client_secret'],
       :redirect_uri=>"http://localhost:3000/authorizations/callback/instagram",
-      :auth_token=>Figaro.env.instagram_auth_token,
-      :auth_secret=>Figaro.env.instagram_auth_secret 
+      :auth_token=>ENV['instagram_auth_token'],
+      :auth_secret=>ENV['instagram_auth_secret'] 
     },
 
     # Directions to get Twitter Auth Token/Secret
@@ -104,11 +104,11 @@ Mano::Application.configure do
     # 4. twitter.auth_token is the token, twitter.auth_secret is the secret
     
     "twitter" => {
-      :client_id=>Figaro.env.twitter_client_id,
-      :client_secret=>Figaro.env.twitter_client_secret,
+      :client_id=>ENV['twitter_client_id'],
+      :client_secret=>ENV['twitter_client_secret'],
       :redirect_uri=>"http://localhost:3000/authorizations/callback/twitter",
-      :auth_token=>Figaro.env.twitter_auth_token,
-      :auth_secret=>Figaro.env.twitter_auth_secret
+      :auth_token=>ENV['twitter_auth_token'],
+      :auth_secret=>ENV['twitter_auth_secret']
     },
     # Directions to get Foursquare Auth Token
     # 1. Go to https://developer.foursquare.com/docs/explore
@@ -116,10 +116,10 @@ Mano::Application.configure do
     # 3. Copy the oauth_token=<token>!
 
     "foursquare"=> {
-      :client_id=>Figaro.env.foursquare_client_id,
-      :client_secret=>Figaro.env.foursquare_client_secret,
+      :client_id=>ENV['foursquare_client_id'],
+      :client_secret=>ENV['foursquare_client_secret'],
       :redirect_uri=>"http://localhost:3000/authorizations/callback/foursquare",
-      :auth_token => Figaro.env.foursquare_auth_token
+      :auth_token => ENV['foursquare_auth_token']
     },
 
     # Directions to Get Auth Token
@@ -132,12 +132,12 @@ Mano::Application.configure do
     # 7. The expires_at is the expires number
 
     "facebook" => {
-      :client_id=>Figaro.env.facebook_client_id,
-      :client_secret=>Figaro.env.facebook_client_secret,
+      :client_id=>ENV['facebook_client_id'],
+      :client_secret=>ENV['facebook_client_secret'],
       :redirect_uri=>"http://localhost:3000/authorizations/callback/facebook",
       :scope =>"user_location,user_events,user_photos,user_status",
-      :auth_token=>Figaro.env.facebook_auth_token,
-      :expires_at=>Figaro.env.facebook_expires_at
+      :auth_token=>ENV['facebook_auth_token'],
+      :expires_at=>ENV['facebook_expires_at']
     },
 
   }
