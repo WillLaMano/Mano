@@ -16,9 +16,9 @@ Mano::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025} 
-  config.action_mailer.default_url_options = { :host => 'localhost', :port => "3000" }
-  ActionMailer::Base.default :from => "brian@mano.com"
+  config.action_mailer.smtp_settings = {:address => Figaro.env.smtp_host, :port => Figaro.env.smtp_port} 
+  config.action_mailer.default_url_options = { :host => Figaro.env.url_host, :port => Figaro.env.url_port }
+  ActionMailer::Base.default :from => Figaro.env.from_email 
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -42,30 +42,30 @@ Mano::Application.configure do
   #Authorzation configuration
   config.auth = {
     "google" => {
-      :client_id=>"",
-      :client_secret=>"",
-      :redirect_uri=>"",
+      :client_id=> Figaro.env.google_client_id,
+      :client_secret=> Figaro.env.google_client_secret,
+      :redirect_uri=>"http://localhost:3000/authorizations/callback/google",
       :scope =>"https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/latitude.current.best"
     },
 
     "instagram" => {
-      :client_id=>"",
-      :client_secret=>"",
+      :client_id=>Figaro.env.instagram_client_id,
+      :client_secret=>Figaro.env.instagram_client_secret,
       :redirect_uri=>"http://localhost:3000/authorizations/callback/instagram"
     },
     "foursquare" => {
-      :client_id=>"",
-      :client_secret=>"",
+      :client_id=>Figaro.env.foursquare_client_id,
+      :client_secret=>Figaro.env.foursquare_client_secret,
       :redirect_uri=>"http://localhost:3000/authorizations/callback/foursquare"
     },
     "twitter" => {
-      :client_id=>"",
-      :client_secret=>"",
+      :client_id=>Figaro.env.twitter_client_id,
+      :client_secret=>Figaro.env.twitter_client_secret,
       :redirect_uri=>"http://localhost:3000/authorizations/callback/twitter"
     },
     "facebook" => {
-      :client_id=>"",
-      :client_secret=>"",
+      :client_id=>Figaro.env.facebook_client_id,
+      :client_secret=>Figaro.env.facebook_client_secret,
       :redirect_uri=>"http://localhost:3000/authorizations/callback/facebook",
       :scope =>"user_location,user_events,user_photos,user_status"
     }
