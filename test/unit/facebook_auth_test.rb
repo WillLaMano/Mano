@@ -28,8 +28,8 @@ class FacebookAuthTest < ActiveSupport::TestCase
     fb_auth = FactoryGirl.create :facebook_auth
     client =fb_auth.access_client
 
-    assert_equal Rails.application.config.auth[:facebook][:client_id], client.id, "Checking Client ID"
-    assert_equal Rails.application.config.auth[:facebook][:client_secret], client.secret, "Checking Client Secret"
+    assert_equal Rails.application.config.auth["facebook"][:client_id], client.id, "Checking Client ID"
+    assert_equal Rails.application.config.auth["facebook"][:client_secret], client.secret, "Checking Client Secret"
     assert_equal 'https://www.facebook.com', client.site, "Checking Client Site"
     assert_equal "dialog/oauth", client.options[:authorize_url], "Checking Authorize URL"
     assert_equal "https://graph.facebook.com/oauth/access_token", client.options[:token_url], "Checking Token URL"
@@ -39,9 +39,9 @@ class FacebookAuthTest < ActiveSupport::TestCase
     fb_auth = FactoryGirl.create :facebook_auth
 
     correct_url = "https://www.facebook.com/dialog/oauth?response_type=code&"
-    correct_url += "client_id=#{CGI.escape Rails.application.config.auth[:facebook][:client_id]}&"
-    correct_url += "redirect_uri=#{CGI.escape Rails.application.config.auth[:facebook][:redirect_uri]}&"
-    correct_url += "scope=#{CGI.escape Rails.application.config.auth[:facebook][:scope]}"
+    correct_url += "client_id=#{CGI.escape Rails.application.config.auth["facebook"][:client_id]}&"
+    correct_url += "redirect_uri=#{CGI.escape Rails.application.config.auth["facebook"][:redirect_uri]}&"
+    correct_url += "scope=#{CGI.escape Rails.application.config.auth["facebook"][:scope]}"
 
     assert_equal correct_url, fb_auth.access_url, "URL should be a valid url"
   end

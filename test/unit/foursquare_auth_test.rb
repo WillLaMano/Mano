@@ -34,8 +34,8 @@ class FoursquareAuthTest < ActiveSupport::TestCase
     foursquare_auth = FactoryGirl.create :foursquare_auth
     client =foursquare_auth.access_client
 
-    assert_equal Rails.application.config.auth[:foursquare][:client_id], client.id, "Checking Client ID"
-    assert_equal Rails.application.config.auth[:foursquare][:client_secret], client.secret, "Checking Client Secret"
+    assert_equal Rails.application.config.auth["foursquare"][:client_id], client.id, "Checking Client ID"
+    assert_equal Rails.application.config.auth["foursquare"][:client_secret], client.secret, "Checking Client Secret"
     assert_equal 'https://foursquare.com', client.site, "Checking Client Site"
     assert_equal "/oauth2/authorize", client.options[:authorize_url], "Checking Authorize URL"
     assert_equal "/oauth2/access_token", client.options[:token_url], "Checking Token URL"
@@ -44,8 +44,8 @@ class FoursquareAuthTest < ActiveSupport::TestCase
   test "Access URL should be correct" do
     foursquare_auth = FactoryGirl.create :foursquare_auth
     correct_url = "https://foursquare.com/oauth2/authorize?response_type=code&"
-    correct_url += "client_id=#{CGI.escape Rails.application.config.auth[:foursquare][:client_id]}&"
-    correct_url += "redirect_uri=#{CGI.escape Rails.application.config.auth[:foursquare][:redirect_uri]}"
+    correct_url += "client_id=#{CGI.escape Rails.application.config.auth["foursquare"][:client_id]}&"
+    correct_url += "redirect_uri=#{CGI.escape Rails.application.config.auth["foursquare"][:redirect_uri]}"
 
     assert_equal correct_url, foursquare_auth.access_url, "URL should be a valid url"
   end
