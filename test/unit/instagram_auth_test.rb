@@ -3,7 +3,7 @@ require 'open-uri'
 
 class InstagramAuthTest < ActiveSupport::TestCase
   test "Auth Type should be Instagram" do
-    ig_auth = FactoryGirl.create :instagram_auth
+    ig_auth = InstagramAuth.new
     assert_equal "Instagram", ig_auth.auth_type, "IG_Auth Auth Type should be 'Instagram'"
    end
 
@@ -23,7 +23,7 @@ class InstagramAuthTest < ActiveSupport::TestCase
   end
 
   test "Instagam Access URL should be valid" do
-    ig_auth = FactoryGirl.create :instagram_auth
+    ig_auth = InstagramAuth.new
     
     correct_url = "https://api.instagram.com/oauth/authorize?response_type=code&"
     correct_url += "client_id=#{CGI.escape Rails.application.config.auth["instagram"][:client_id]}&"
@@ -33,7 +33,7 @@ class InstagramAuthTest < ActiveSupport::TestCase
   end
 
   test "Access Client should be valid" do
-    ig_auth = FactoryGirl.create :instagram_auth
+    ig_auth = InstagramAuth.new
     client =ig_auth.access_client
 
     assert_equal Rails.application.config.auth["instagram"][:client_id], client.id, "Checking Client ID"

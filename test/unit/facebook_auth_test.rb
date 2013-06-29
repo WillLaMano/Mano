@@ -3,7 +3,7 @@ require 'open-uri'
 
 class FacebookAuthTest < ActiveSupport::TestCase
   test "Auth Type should be Facebook" do
-    fb_auth = FactoryGirl.create :facebook_auth
+    fb_auth = FacebookAuth.new
     assert_equal "Facebook", fb_auth.auth_type, "FB_Auth Auth Type should be 'Facebook'"
    end
 
@@ -25,7 +25,7 @@ class FacebookAuthTest < ActiveSupport::TestCase
   end
 
   test "Access Client should be valid" do
-    fb_auth = FactoryGirl.create :facebook_auth
+    fb_auth = FacebookAuth.new
     client =fb_auth.access_client
 
     assert_equal Rails.application.config.auth["facebook"][:client_id], client.id, "Checking Client ID"
@@ -36,8 +36,7 @@ class FacebookAuthTest < ActiveSupport::TestCase
   end
 
   test "Access URL should be correct" do
-    fb_auth = FactoryGirl.create :facebook_auth
-
+    fb_auth = FacebookAuth.new
     correct_url = "https://www.facebook.com/dialog/oauth?response_type=code&"
     correct_url += "client_id=#{CGI.escape Rails.application.config.auth["facebook"][:client_id]}&"
     correct_url += "redirect_uri=#{CGI.escape Rails.application.config.auth["facebook"][:redirect_uri]}&"
@@ -55,6 +54,7 @@ class FacebookAuthTest < ActiveSupport::TestCase
 
   test "Creating FB_auth" do
     fb_auth = FacebookAuth.new
+    fb_auth.user = FactoryGirl.create :user
     fb_auth_authorized = FactoryGirl.create :fb_auth_complete
 
     VCR.use_cassette('facebook/auth_callback') do

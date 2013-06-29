@@ -3,12 +3,12 @@ require 'open-uri'
 
 class GoogleAuthTest < ActiveSupport::TestCase
   test "Auth Type should be Google" do
-    google_auth = FactoryGirl.create :google_auth
+    google_auth = GoogleAuth.new
     assert_equal "Google", google_auth.auth_type, "Google_Auth Auth Type should be 'Google'"
    end
 
   test "Access URL" do
-    google_auth = FactoryGirl.create :google_auth
+    google_auth = GoogleAuth.new
 
     url = "https://accounts.google.com/o/oauth2/auth?response_type=code&"
     url += "client_id=#{Rails.application.config.auth["google"][:client_id]}&"
@@ -48,6 +48,7 @@ class GoogleAuthTest < ActiveSupport::TestCase
 
   test "Create GoogleAuth" do
     google_auth = GoogleAuth.new
+    google_auth.user = FactoryGirl.create :user
     google_auth_authorized = FactoryGirl.create :google_auth_complete
 
     VCR.use_cassette('google/auth_callback') do
