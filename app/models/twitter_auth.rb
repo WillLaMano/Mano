@@ -1,6 +1,7 @@
 class TwitterAuth < Authorization
 
   attr_accessible :auth_secret
+  validates :auth_secret, :presence => true
 
   def self.model_name
     Authorization.model_name
@@ -45,13 +46,15 @@ class TwitterAuth < Authorization
   end
 
   def check_access_token
-    begin
-      access_token = @request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])
-      self.auth_token=access_token.token
-      self.auth_secret=access_token.secret
+    if auth_token.nil?
+      begin
+        access_token = @request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])
+        self.auth_token=access_token.token
+        self.auth_secret=access_token.secret
 
-    rescue=>e
-      self.errors.add :base,e.message
+      rescue=>e
+        self.errors.add :base,e.message
+      end
     end
   end
   

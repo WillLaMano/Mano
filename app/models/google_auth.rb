@@ -1,5 +1,6 @@
 class GoogleAuth < Authorization
 
+  validates :expires_at, :refresh_token, :presence=>true
   def self.model_name
     Authorization.model_name
   end
@@ -61,14 +62,16 @@ class GoogleAuth < Authorization
 
 
   def check_access_token
-    access_client = self.access_client
-    begin
-    access_token = access_client.auth_code.get_token(params[:code],{:redirect_uri=>Rails.application.config.auth["google"][:redirect_uri],:token_method=>:post})
-    self.auth_token=access_token.token
-    self.refresh_token=access_token.refresh_token
-    self.expires_at=DateTime.strptime(access_token.expires_at.to_s,"%s")
-    rescue
-      self.errors.add :base,"Couldn't get Google authorization!!"
+    if auth_token.nil?
+      access_client = self.access_client
+      begin
+        access_token = access_client.auth_code.get_token(params[:code],{:redirect_uri=>Rails.application.config.auth["google"][:redirect_uri],:token_method=>:post})
+        self.auth_token=access_token.token
+        self.refresh_token=access_token.refresh_token
+        self.expires_at=DateTime.strptime(access_token.expires_at.to_s,"%s")
+      rescue
+        self.errors.add :base,"Couldn't get Google authorization!!"
+      end
     end
   end
 
