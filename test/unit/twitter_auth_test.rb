@@ -27,8 +27,8 @@ class TwitterAuthTest < ActiveSupport::TestCase
     twitter_auth = FactoryGirl.create :twitter_auth
     client =twitter_auth.access_client
 
-    assert_equal Rails.application.config.auth[:twitter][:client_id], client.key, "Checking Client ID"
-    assert_equal Rails.application.config.auth[:twitter][:client_secret], client.secret, "Checking Client Secret"
+    assert_equal Rails.application.config.auth["twitter"][:client_id], client.key, "Checking Client ID"
+    assert_equal Rails.application.config.auth["twitter"][:client_secret], client.secret, "Checking Client Secret"
     assert_equal "https://api.twitter.com", client.site, "Checking Client Site"
     assert_equal "/oauth/authorize" , client.authorize_path, "Checking Authorize URL"
     assert_equal "/oauth/request_token", client.request_token_path, "Checking Request Token URL"

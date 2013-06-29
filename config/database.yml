@@ -15,10 +15,10 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: roomies_development
+  database: <%=ENV['db_name'] %>  
   pool: 5
-  username: roomies
-  password:
+  username: <%=ENV['db_user'] %>
+  password: <%= ENV['db_pass'] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -41,15 +41,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: roomies_test
+  database: <%=ENV['db_name'] %>  
   pool: 5
-  username: roomies
-  password:
+  username: <%=ENV['db_user'] %>
+  password: <%= ENV['db_pass'] %>
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: roomies_production
+  database: <%=ENV['db_name'] %>  
   pool: 5
-  username: roomies_app
-  password:
+  username: <%=ENV['db_user'] %>
+  password: <%= ENV['db_pass'] %>

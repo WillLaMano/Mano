@@ -26,8 +26,8 @@ class InstagramAuthTest < ActiveSupport::TestCase
     ig_auth = FactoryGirl.create :instagram_auth
     
     correct_url = "https://api.instagram.com/oauth/authorize?response_type=code&"
-    correct_url += "client_id=#{CGI.escape Rails.application.config.auth[:instagram][:client_id]}&"
-    correct_url += "redirect_uri=#{CGI.escape Rails.application.config.auth[:instagram][:redirect_uri]}"
+    correct_url += "client_id=#{CGI.escape Rails.application.config.auth["instagram"][:client_id]}&"
+    correct_url += "redirect_uri=#{CGI.escape Rails.application.config.auth["instagram"][:redirect_uri]}"
 
     assert_equal correct_url, ig_auth.access_url, "URL should be valid"
   end
@@ -36,8 +36,8 @@ class InstagramAuthTest < ActiveSupport::TestCase
     ig_auth = FactoryGirl.create :instagram_auth
     client =ig_auth.access_client
 
-    assert_equal Rails.application.config.auth[:instagram][:client_id], client.id, "Checking Client ID"
-    assert_equal Rails.application.config.auth[:instagram][:client_secret], client.secret, "Checking Client Secret"
+    assert_equal Rails.application.config.auth["instagram"][:client_id], client.id, "Checking Client ID"
+    assert_equal Rails.application.config.auth["instagram"][:client_secret], client.secret, "Checking Client Secret"
     assert_equal 'https://api.instagram.com', client.site, "Checking Client Site"
     assert_equal "/oauth/authorize", client.options[:authorize_url], "Checking Authorize URL"
     assert_equal "/oauth/access_token", client.options[:token_url], "Checking Token URL"
