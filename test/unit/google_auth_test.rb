@@ -11,10 +11,10 @@ class GoogleAuthTest < ActiveSupport::TestCase
     google_auth = FactoryGirl.create :google_auth
 
     url = "https://accounts.google.com/o/oauth2/auth?response_type=code&"
-    url += "client_id=#{Rails.application.config.auth[:google][:client_id]}&"
-    url += "scope=#{CGI.escape Rails.application.config.auth[:google][:scope]}&"
+    url += "client_id=#{Rails.application.config.auth["google"][:client_id]}&"
+    url += "scope=#{CGI.escape Rails.application.config.auth["google"][:scope]}&"
     url += "access_type=offline&"
-    url += "redirect_uri=#{CGI.escape Rails.application.config.auth[:google][:redirect_uri]}"
+    url += "redirect_uri=#{CGI.escape Rails.application.config.auth["google"][:redirect_uri]}"
 
     assert_equal url, google_auth.access_url
   end

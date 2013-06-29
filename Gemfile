@@ -11,6 +11,7 @@ gem 'omniauth', '>= 1.1.3'
 gem 'oauth2'
 gem 'oauth'
 gem 'cancan'
+gem 'figaro'
 
 gem 'bootstrap-sass', '2.0.4'
 

@@ -29,7 +29,7 @@ class FacebookAuth < Authorization
   end
   
   def facebook_client
-    Koala:"facebook"::API.new(auth_token)
+    Koala::Facebook::API.new(auth_token)
   end
 
   def is_expired?
