@@ -1,0 +1,51 @@
+# Add application configuration variables here, as shown below.
+# You can leave the auth_token stuff with the "" if you don't feel like
+# populating that just yet. Everything will still work you just won't be able
+# to do live testing
+
+development:
+  db_name: roomies_development
+  db_user: 
+  db_pass: 
+
+test:
+  db_name: roomies_test
+  db_user: 
+  db_pass: 
+
+production:
+  db_name: roomies_production
+  db_user: 
+  db_pass: 
+
+google_client_id: 
+google_client_secret: 
+google_auth_token: ""
+google_refresh_token: "" 
+google_expires_at: ""
+
+instagram_client_id: 
+instagram_client_secret: 
+instagram_auth_token: ""
+instagram_auth_secret: ""
+
+foursquare_client_id: 
+foursquare_client_secret: 
+foursquare_auth_token: ""
+
+twitter_client_id: 
+twitter_client_secret: 
+twitter_auth_token: ""
+twitter_auth_secret: ""
+
+facebook_client_id: 
+facebook_client_secret: 
+facebook_auth_token: ""
+facebook_expires_at: ""
+
+from_email: brian@mano.com
+url_host: localhost
+url_port: 3000
+smtp_host: localhost
+smtp_port: 1025
+
