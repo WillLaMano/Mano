@@ -2,6 +2,8 @@
 language: ruby
 rvm:
 - 1.9.3
+before_script:
+  - psql -c 'create database travis;' -U postgres
 env:
   global:
   - from_email=brian@mano.com
