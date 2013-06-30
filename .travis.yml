@@ -3,12 +3,19 @@ language: ruby
 rvm:
 - 1.9.3
 before_script:
-  - psql -c 'create database travis;' -U postgres
+  - psql -c 'create database roomies_test;' -U postgres
+
+script: 
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
 env:
   global:
   - from_email=brian@mano.com
   - url_host=localhost
   - url_port=3000
+  - db_user=postgres
+  - db_pass=""
   - secure: ! 'eFp35qzGoTpY9KEidRtVO3xVYBR2amEhFpRCfBMl9Pxk4UquhqfxTRRyhkph
 
       9TZhFJWDcrEPvY2f13qwe1gEiMIWEUJFvCotNEssCijEchUMuvew02QSu4sx
@@ -54,11 +61,6 @@ env:
       FWZKxdgboX27OC2LCxwUOTPOL1Yi+UdqSEQRhYXoNGhhJDEbnpCwQM50hXky
 
       2wRs5x2ks/uhNPQRErTWKw6bURATPNxrZ92q8uSVqQ7sktgcBQo='
-  - secure: ! 'izB/x0reL5lI2PjQVK/IVnOfoVwngB6lYwVB+OVdHHXyk7Pc/sdI2m0BwqfU
-
-      muRLSb7KQ9GQHe7dQBWXp0Rhe3CB1WJMjOBu6quGmEgMBwwN3xEG/XhyECOC
-
-      4D3R+EDHE+7v9mG84VXn82uD2yfN/eaEXjSS9pB+L4EjpaLsBGA='
   - secure: ! 'oIamddiiiTk6acIpOKUl3BOxPG276RoolkvtN6e8Q5xBJR8xsa+b8tMf0geA
 
       QDm5rIfpOrhpNAGfvPxa/4B9xDGzSVud+4Cn663oLekhg+fCQs8v+HQXus3d
