@@ -1,4 +1,6 @@
 class FacebookAuth < Authorization
+  
+  validates :expires_at, :presence => true
 
   def self.model_name
     Authorization.model_name
@@ -37,13 +39,15 @@ class FacebookAuth < Authorization
   end
 
   def check_access_token
-    access_client = self.access_client
-    begin
-    access_token = access_client.auth_code.get_token(params[:code],{:redirect_uri=>Rails.application.config.auth["facebook"][:redirect_uri],:token_method=>:post, :parsed => "facebook"})
-    self.auth_token=access_token.token
-    self.expires_at=DateTime.strptime((Time.now.to_i+access_token.expires_in).to_s,"%s")
-    rescue
-      self.errors.add :base, "Couldn't get Facebook authorization!!"
+    if auth_token.nil?
+      begin
+        access_client = self.access_client
+        access_token = access_client.auth_code.get_token(params[:code],{:redirect_uri=>Rails.application.config.auth["facebook"][:redirect_uri],:token_method=>:post, :parsed => "facebook"})
+        self.auth_token=access_token.token
+        self.expires_at=DateTime.strptime((Time.now.to_i+access_token.expires_in).to_s,"%s")
+      rescue 
+        self.errors.add :base, "Couldn't get Facebook authorization!!"
+      end
     end
   end
 

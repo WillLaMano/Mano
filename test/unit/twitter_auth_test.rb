@@ -3,7 +3,7 @@ require 'open-uri'
 
 class TwitterAuthTest < ActiveSupport::TestCase
   test "Auth Type should be Twitter" do
-    twitter_auth = FactoryGirl.create :twitter_auth
+    twitter_auth = TwitterAuth.new
     assert_equal "Twitter", twitter_auth.auth_type, "Twitter_Auth Auth Type should be 'Twitter'"
    end
 
@@ -24,7 +24,7 @@ class TwitterAuthTest < ActiveSupport::TestCase
   end
 
   test "Access Client" do
-    twitter_auth = FactoryGirl.create :twitter_auth
+    twitter_auth = TwitterAuth.new
     client =twitter_auth.access_client
 
     assert_equal Rails.application.config.auth["twitter"][:client_id], client.key, "Checking Client ID"
@@ -36,7 +36,7 @@ class TwitterAuthTest < ActiveSupport::TestCase
   end
 
   test "Access URL" do
-    twitter_auth = FactoryGirl.create :twitter_auth
+    twitter_auth = TwitterAuth.new
 
     correct_url = "https://api.twitter.com/oauth/authorize?"
     correct_url += "oauth_token=br1WwbwhV7MwSMwq8R3g3wqwY9TRdMY9QqSEgRK8"
@@ -58,6 +58,7 @@ class TwitterAuthTest < ActiveSupport::TestCase
 
   test "Creating Twitter_auth" do
     twitter_auth = TwitterAuth.new
+    twitter_auth.user = FactoryGirl.create :user
     twitter_auth_authorized = FactoryGirl.create :twitter_auth_complete
 
     VCR.use_cassette('twitter/auth_callback') do

@@ -3,7 +3,7 @@ require 'open-uri'
 
 class FoursquareAuthTest < ActiveSupport::TestCase
   test "Auth Type should be Foursquare" do
-    foursquare_auth = FactoryGirl.create :foursquare_auth
+    foursquare_auth = FoursquareAuth.new
     assert_equal "Foursquare", foursquare_auth.auth_type, "foursquare_Auth Auth Type should be 'Foursquare'"
    end
 
@@ -31,7 +31,7 @@ class FoursquareAuthTest < ActiveSupport::TestCase
   end
 
   test "Access Client should be valid" do
-    foursquare_auth = FactoryGirl.create :foursquare_auth
+    foursquare_auth = FoursquareAuth.new
     client =foursquare_auth.access_client
 
     assert_equal Rails.application.config.auth["foursquare"][:client_id], client.id, "Checking Client ID"
@@ -42,7 +42,7 @@ class FoursquareAuthTest < ActiveSupport::TestCase
   end
 
   test "Access URL should be correct" do
-    foursquare_auth = FactoryGirl.create :foursquare_auth
+    foursquare_auth = FoursquareAuth.new
     correct_url = "https://foursquare.com/oauth2/authorize?response_type=code&"
     correct_url += "client_id=#{CGI.escape Rails.application.config.auth["foursquare"][:client_id]}&"
     correct_url += "redirect_uri=#{CGI.escape Rails.application.config.auth["foursquare"][:redirect_uri]}"

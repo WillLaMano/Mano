@@ -31,12 +31,14 @@ class InstagramAuth < Authorization
   end
 
   def check_access_token
-    access_client = self.access_client
-    begin
-    access_token = access_client.auth_code.get_token(params[:code],{:redirect_uri=>Rails.application.config.auth["instagram"][:redirect_uri],:token_method=>:post})
-    self.auth_token=access_token.token
-    rescue
-      self.errors.add :base, "Couldn't get Instagram authorization!!"
+    if auth_token.nil?
+      access_client = self.access_client
+      begin
+        access_token = access_client.auth_code.get_token(params[:code],{:redirect_uri=>Rails.application.config.auth["instagram"][:redirect_uri],:token_method=>:post})
+        self.auth_token=access_token.token
+      rescue
+        self.errors.add :base, "Couldn't get Instagram authorization!!"
+      end
     end
   end
 
