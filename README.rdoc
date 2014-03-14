@@ -9,6 +9,9 @@ HTML tags. The model contains the "smart" domain objects (such as Account,
 Product, Person, Post) that holds all the business logic and knows how to
 persist themselves to a database. The controller handles the incoming requests
 (such as Save New Account, Update Product, Show Post) by manipulating the model
+
+PENIS PENIS PENIS
+
 and directing data to the view.
 
 In Rails, the model is handled by what's called an object-relational mapping
